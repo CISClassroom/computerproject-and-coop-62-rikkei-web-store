@@ -3670,11 +3670,130 @@
 @include animate("slide-right", "", 1s, 0.250, 0.460, 0.450, 0.940, both, translateX(-300px), translateX(0));
 @include animate("slide-left", "", 1s, 0.250, 0.460, 0.450, 0.940, both, translateX(300px), translateX(0));
 
+@mixin animate-fillter($name, $stb, $mdb, $enb) {
+    .animate-#{$name} {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        filter: brightness($stb);
+    }
 
-.animate-fillter {
-    filter: brightness(70%);
+    @-webkit-keyframes #{$name} {
+        from {
+            filter: brightness($stb);
+        }
+
+        to {
+            filter: brightness($enb);
+        }
+    }
+
+    @keyframes #{$name} {
+        from {
+            filter: brightness($stb);
+        }
+
+        to {
+            filter: brightness($enb);
+        }
+    }
+
+    .animate-#{$name}:hover {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        filter: brightness($enb);
+    }
+
+    @-webkit-keyframes #{$name} {
+        from {
+            filter: brightness($stb);
+        }
+
+        to {
+            filter: brightness($enb);
+        }
+    }
+
+    @keyframes #{$name} {
+        from {
+            filter: brightness($stb);
+        }
+
+        to {
+            filter: brightness($enb);
+        }
+    }
 }
 
-.animate-fillter:hover {
-    filter: brightness(100%);
+@include animate-fillter("fillter", 70%, 85%, 100%);
+@include animate-fillter("fillter-bright", 100%, 105%, 110%);
+
+.fade-in:hover {
+    -webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
 }
+
+@-webkit-keyframes fade-in {
+    0% {
+        filter: brightness(100%);
+    }
+
+    100% {
+        filter: brightness(110%);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        filter: brightness(100%);
+    }
+
+    100% {
+        filter: brightness(110%);
+    }
+}
+
+.img-wrapper {
+    position: relative;
+  }
+
+  .img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+    margin-left: 10%;
+  }
+
+  .img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 70%;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
