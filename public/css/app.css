@@ -1,0 +1,422 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);.bg {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-black {
+  background-color: black !important;
+}
+
+.bg-lblack {
+  background-color: #191919 !important;
+}
+
+.bg-lgray {
+  background-color: #F5F5F5 !important;
+}
+
+.bg-red {
+  background-color: #D00022 !important;
+}
+
+.icon-cart::before {
+  background: url(/images/cart.svg?df132d79acb80a6e7247180c5afa1848) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-cart::before {
+  background: url(/images/cart.svg?df132d79acb80a6e7247180c5afa1848) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-cart:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-question::before {
+  background: url(/images/question.svg?c3773f0fe8141829b691e577103622d3) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-question::before {
+  background: url(/images/question.svg?c3773f0fe8141829b691e577103622d3) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-question:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-search::before {
+  background: url(/images/search.svg?c412776699c042548bfc30e7b2fa85ca) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-search::before {
+  background: url(/images/search.svg?c412776699c042548bfc30e7b2fa85ca) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-search:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-support::before {
+  background: url(/images/support.svg?4dbb4862151351b65e7f800e6ed93e59) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-support::before {
+  background: url(/images/support.svg?4dbb4862151351b65e7f800e6ed93e59) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-support:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-user::before {
+  background: url(/images/user.svg?7de5e5f7d3fbd734c8d9328cc6806365) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-user::before {
+  background: url(/images/user.svg?7de5e5f7d3fbd734c8d9328cc6806365) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-user:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-twitter::before {
+  background: url(/images/twitter-filled-white.svg?f88371437da552eb716fd395cdb87510) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-twitter::before {
+  background: url(/images/twitter-filled-white.svg?f88371437da552eb716fd395cdb87510) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-twitter:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-facebook::before {
+  background: url(/images/facebook-filled-white.svg?704e83dc7422146b14890d4c4e74563d) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-facebook::before {
+  background: url(/images/facebook-filled-white.svg?704e83dc7422146b14890d4c4e74563d) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-facebook:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-youtube::before {
+  background: url(/images/youtube-filled-white.svg?e38129f6e4a0b3293af1a6c19b0d5a93) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-youtube::before {
+  background: url(/images/youtube-filled-white.svg?e38129f6e4a0b3293af1a6c19b0d5a93) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-youtube:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-instagram::before {
+  background: url(/images/instagram-filled-white.svg?06a5563acc0870846dd88e13b2c5f730) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.icon-social-instagram::before {
+  background: url(/images/instagram-filled-white.svg?06a5563acc0870846dd88e13b2c5f730) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-instagram:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-home-nike::before {
+  background: url(/images/1200px-Logo_NIKE.png?5af210473d3a67f82ebdacbf44a8d12c) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 60px;
+  vertical-align: middle;
+}
+
+.textcolor-lblack {
+  color: #191919 !important;
+}
+
+.textcolor-gray {
+  color: #7e7e7e !important;
+}
+
+.text-size-1 {
+  font-size: 40px;
+}
+
+.text-size-2 {
+  font-size: 36px;
+}
+
+.text-size-3 {
+  font-size: 34px;
+}
+
+.text-size-4 {
+  font-size: 32px;
+}
+
+.text-size-5 {
+  font-size: 30px;
+}
+
+.text-size-6 {
+  font-size: 28px;
+}
+
+.text-size-7 {
+  font-size: 26px;
+}
+
+.text-size-8 {
+  font-size: 24px;
+}
+
+.text-size-9 {
+  font-size: 22px;
+}
+
+.text-size-10 {
+  font-size: 20px;
+}
+
+.text-size-11 {
+  font-size: 18px;
+}
+
+.text-size-12 {
+  font-size: 16px;
+}
+
+.text-size-13 {
+  font-size: 14px;
+}
+
+.text-size-14 {
+  font-size: 12px;
+}
+
+.text-size-15 {
+  font-size: 10px;
+}
+
+.text-size-16 {
+  font-size: 8px;
+}
+
+.text-size-17 {
+  font-size: 6px;
+}
+
+.text-size-18 {
+  font-size: 4px;
+}
+
+.text-size-19 {
+  font-size: 2px;
+}
+
+.text-size-20 {
+  font-size: 0px;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: left;
+  margin-left: 10%;
+}
+
+.img-overlay:before {
+  content: " ";
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 70%;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
