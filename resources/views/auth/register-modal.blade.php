@@ -6,14 +6,14 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="icon-home-nike align-middle text-center my-3"></div>
-                    <div class="text-upercase font-weight-bold text-center my-3">
+                    <div class="text-uppercase font-weight-bold text-center my-3">
                         {{ __('YOUR ACCOUNT FOR EVERYTHING NIKE') }}</div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="container my-5">
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="name" type="text"
+                                    <input id="register-name-modal" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" placeholder="Fullname" required autocomplete="name"
                                         autofocus>
@@ -24,11 +24,12 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="email" type="email"
+                                    <input id="register-email-modal" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" placeholder="E-mail" required autocomplete="email">
+                                        value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required
+                                        autocomplete="email">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -37,11 +38,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="password" type="password"
+                                    <input id="register-password-modal" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        placeholder="Password" required autocomplete="new-password">
+                                        placeholder="{{ __('Password') }}" required autocomplete="new-password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -51,16 +52,16 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" placeholder="Confirm password" required
+                                    <input id="register-password-confirm-modal" type="password" class="form-control"
+                                        name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required
                                         autocomplete="new-password">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <div class='input-group date' id='date_of_birth'>
+                                    <div class='input-group date' id='register-date_of_birth-modal'>
                                         <input type='date' class="form-control" name="date_of_birth">
                                         @error('date_of_birth')
                                         <span class="invalid-feedback" role="alert">
@@ -70,30 +71,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
-                                <label class="btn btn-outline-dark w-100 active">
-                                    <input type="radio" name="gender" id="gender-male" value="Male" checked>
-                                    {{ __('Male') }}
-                                </label>
-                                <label class="btn btn-outline-dark w-100">
-                                    <input type="radio" name="gender" id="gender-female" value="Female">
-                                    {{ __('Female') }}
-                                </label>
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <div class="btn-group btn-group-toggle d-flex justify-content-center"
+                                        data-toggle="buttons">
+                                        <label class="btn btn-outline-dark w-100 active">
+                                            <input type="radio" name="gender" id="register-gender-male-modal" value="Male"
+                                                checked>
+                                            {{ __('Male') }}
+                                        </label>
+                                        <label class="btn btn-outline-dark w-100">
+                                            <input type="radio" name="gender" id="register-gender-female-modal"
+                                                value="Female">
+                                            {{ __('Female') }}
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12 my-2">
                                     <div class="custom-control custom-checkbox rounded-0 mt-2">
                                         <input class="custom-control-input" type="checkbox" name="newsletter"
-                                            id="newsletter" value="1" checked>
-
-                                        <label class="custom-control-label" for="remember">
+                                            id="register-newsletter-modal" value="1" checked>
+                                        <label class="custom-control-label" for="register-newsletter-modal">
                                             {{ __('Sign up for emails to hear all the latest from Nike.') }}
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12 my-3">
                                     <div class="container">
                                         <p class="text-center text-muted">
@@ -106,7 +113,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
+                            <div class="form-group row d-flex justify-content-center mb-0">
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-dark btn-block rounded-0 text-uppercase">
                                         {{ __('Create account') }}

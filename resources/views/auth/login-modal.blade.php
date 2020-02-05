@@ -5,16 +5,16 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="icon-home-nike align-middle text-center my-3"></div>
-                    <div class="text-upercase font-weight-bold text-center my-3">
+                    <div class="text-uppercase font-weight-bold text-center my-3">
                         {{ __('YOUR ACCOUNT FOR EVERYTHING NIKE') }}</div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="container my-5">
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="login-email" type="email"
+                                    <input id="login-email-mordal" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -24,11 +24,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row d-flex justify-content-center">
 
                                 <div class="col-12">
-                                    <input id="login-password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                    <input id="login-password-mordal" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Password') }}"
                                         required autocomplete="current-password">
 
                                     @error('password')
@@ -39,18 +39,18 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-6">
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="col-6">
                                     <div class="custom-control custom-checkbox rounded-0 mt-2">
-                                        <input class="custom-control-input" type="checkbox" name="remember" id="remember"
+                                        <input class="custom-control-input" type="checkbox" name="remember" id="login-remember-mordal"
                                             {{ old('remember') ? 'checked' : 'checked' }}>
 
-                                        <label class="custom-control-label" for="remember">
+                                        <label class="custom-control-label" for="login-remember-mordal">
                                             {{ __('Remember Me') }}
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-6">
                                     @if (Route::has('password.request'))
                                     {{-- <a class="btn btn-link text-dark" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12 my-3">
                                     <div class="container">
                                         <p class="text-center text-muted">
@@ -75,16 +75,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row mb-0">
+                            <div class="form-group row d-flex justify-content-center mb-0">
                                 <div class="col-12">
-                                    <div class="container">
                                         <button type="submit" class="btn btn-dark btn-block rounded-0 text-uppercase">
                                             {{ __('LOG IN') }}
                                         </button>
                                         <button type="submit" class="btn btn-primary btn-block rounded-0 text-uppercase" style="background-color: #3b5998 !important;">
                                             {{ __('LOG IN WITH FACEBOOK') }}
                                         </button>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row my-3">

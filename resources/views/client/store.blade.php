@@ -1,18 +1,18 @@
-@extends('client.layouts.master')
+@extends('client.layouts.app')
 
 @section('content')
 <div class="mt-5">
-    <div class="mx-5">
+    <div class="mx-5 outerspace">
         <div class="row">
             <div class="col">
                 <div class="mt-5">
                     <div class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-                        <div class="__text-title navbar-brand">
+                        <div class="__text-title">
                             <p class="text-size-6">Men's Shoes</p>
                         </div>
                         <div class="nav-item">
                             <button class="btn btn-outline-dark border-0" type="button" data-toggle="collapse"
-                                data-target="#collapseSortbar" aria-expanded="true" aria-controls="collapseSortbar"
+                                data-target="#collapseSortbar" aria-expanded="false" aria-controls="collapseSortbar"
                                 aria-label="Toggle navigation">
                                 data
                             </button>
@@ -21,8 +21,8 @@
                 </div>
             </div>
         </div>
-        <div class="row row-cols-1">
-            <div class="col-2" id="collapseSortbar">
+        <div class="row row-cols-1" style="display: flex;">
+            <div class="col-2 show" id="collapseSortbar">
                 <div class="mt-5" id="sortbarToggler" aria-expanded="true">
                     {{-- <div class="collapse navbar-collapse" id="sortbarToggler" aria-expanded="true"> --}}
                     <div id="accordion">
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <div class="col-10">
+            <div class="__product-column mx-3" style="flex: 1;">
                 <div class="mt-5">
 
                     {{-- featured items here --}}
@@ -213,4 +213,6 @@
                 </div>
             </div>
         </div>
-        @endsection
+    </div>
+</div>
+@endsection

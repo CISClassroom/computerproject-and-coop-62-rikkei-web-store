@@ -11,8 +11,10 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('client/home');
+    // ->withSuccess('Success message')
 });
 Route::get('/store', function () {
     return view('client/store');
@@ -20,7 +22,14 @@ Route::get('/store', function () {
 Route::get('/test', function () {
     return view('client/test');
 });
-Auth::routes();
+Auth::routes(['verify' => true]);
+
+Route::get('/profile', function () {
+    // Only verified users may enter...
+})->middleware('verified');
+
+Route::get('/admin', function () {
+    
+})->middleware('RolesAuth');
 
 Route::get('/home', 'HomeController@index')->name('home');
-

@@ -1,4 +1,4 @@
-@extends('client.layouts.master')
+@extends('client.layouts.app')
 
 @section('content')
 <div class="mt-5">d</div>

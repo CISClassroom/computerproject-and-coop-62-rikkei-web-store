@@ -12,6 +12,19 @@
     @include('auth.register-modal')
     @include('auth.passwords.email-modal')
 
+    {{-- Alert --}}
+    {{-- @if(Session::has('success'))
+  <script type="text/javascript">
+     swal({
+         title:'Success!',
+         text:"{{Session::get('success')}}",
+         timer:5000,
+         type:'success'
+     }).then((value) => {
+       //location.reload();
+     }).catch(swal.noop);
+ </script>
+ @endif --}}
 
     @yield('content')
 
