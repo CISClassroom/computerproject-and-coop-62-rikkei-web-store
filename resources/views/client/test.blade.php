@@ -156,3 +156,40 @@
 </div>
 
 @endsection
+
+
+<div class="mr-0">
+    <ul class="nav nav-pills text-center">
+        @guest
+        @if (Route::has('login'))
+        <li class="nav-item">
+            <button class="btn btn-outline-transparent icon-user rounded-0 my-2" type="button"
+                data-toggle="modal" data-target="#loginModal"></button>
+        </li>
+        @endif
+        @else
+        <li class="nav-item dropdown">
+            <button class="btn btn-outline-transparent icon-user-filled rounded-0 my-2" type="button"
+                id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                v-pre></button>
+            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
+        @endguest
+        {{-- <button class="btn btn-outline-transparent icon-user rounded-0 my-2" type="button" data-toggle="modal"
+        data-target="#loginModal"></button> --}}
+        <li class="nav-item dropdown">
+
+            <a href="#" class="btn btn-outline-transparent icon-question rounded-0 my-2" type="button"></a>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button"></a>
+        </li>
+    </ul>

@@ -7,6 +7,12 @@
 
     @include('client.layouts.nav')
 
+    <!-- Modal -->
+    @include('auth.login-modal')
+    @include('auth.register-modal')
+    @include('auth.passwords.email-modal')
+
+
     @yield('content')
 
     @include('client.layouts.footer')

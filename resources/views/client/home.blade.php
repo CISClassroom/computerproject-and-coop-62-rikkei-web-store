@@ -15,7 +15,7 @@
                         <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="d-block w-100"
                             alt="...">
                         <div class="carousel-caption d-none d-md-block mb-5">
-                            <h1 class="text-uppercase font-weight-bolder">DESIGNED TO HELP REDUCE INJURY</h1>
+                            <h1 class="text-uppercase font-weight-bolder">{{__('DESIGNED TO HELP REDUCE INJURY')}}</h1>
                             <p class="text-size-10">Our newest shoe is built to help keep you doing what you love.
                                 Because there’s only one thing that’s worse than being injured—not running.</p>
                             <a class="btn btn-light rounded-pill text-size-10" type="button" href="/store">Shop</a>
