@@ -28,8 +28,8 @@ Route::get('/profile', function () {
     // Only verified users may enter...
 })->middleware('verified');
 
-Route::get('/admin', function () {
-    
-})->middleware('RolesAuth');
+// Route::get('/admin', function () {
+
+// })->middleware('');
 
 Route::get('/home', 'HomeController@index')->name('home');
