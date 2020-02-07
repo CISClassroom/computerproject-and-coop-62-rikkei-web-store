@@ -13,7 +13,7 @@
                         <div class="container my-5">
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="register-name-modal" type="text"
+                                    <input id="registerNameModal" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" placeholder="Fullname" required autocomplete="name"
                                         autofocus>
@@ -26,7 +26,7 @@
                             </div>
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="register-email-modal" type="email"
+                                    <input id="registerEmailModal" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required
                                         autocomplete="email">
@@ -40,7 +40,7 @@
 
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="register-password-modal" type="password"
+                                    <input id="registerPasswordModal" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         placeholder="{{ __('Password') }}" required autocomplete="new-password">
 
@@ -54,7 +54,7 @@
 
                             <div class="form-group row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <input id="register-password-confirm-modal" type="password" class="form-control"
+                                    <input id="registerPasswordConfirmModal" type="password" class="form-control"
                                         name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required
                                         autocomplete="new-password">
                                 </div>
@@ -76,12 +76,12 @@
                                     <div class="btn-group btn-group-toggle d-flex justify-content-center"
                                         data-toggle="buttons">
                                         <label class="btn btn-outline-dark w-100 active">
-                                            <input type="radio" name="gender" id="register-gender-male-modal" value="Male"
+                                            <input type="radio" name="gender" id="registerGenderMaleModal" value="Male"
                                                 checked>
                                             {{ __('Male') }}
                                         </label>
                                         <label class="btn btn-outline-dark w-100">
-                                            <input type="radio" name="gender" id="register-gender-female-modal"
+                                            <input type="radio" name="gender" id="registerGenderFemaleModal"
                                                 value="Female">
                                             {{ __('Female') }}
                                         </label>

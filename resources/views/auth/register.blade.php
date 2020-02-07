@@ -18,7 +18,7 @@
                             <div class="container my-5">
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="register-name" type="text"
+                                        <input id="registerName" type="text"
                                             class="form-control @error('name') is-invalid @enderror" name="name"
                                             value="{{ old('name') }}" placeholder="Fullname" required
                                             autocomplete="name" autofocus>
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="register-email" type="email"
+                                        <input id="registerEmail" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required
                                             autocomplete="email">
@@ -45,7 +45,7 @@
 
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="register-password" type="password"
+                                        <input id="registerPassword" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
                                             placeholder="{{ __('Password') }}" required autocomplete="new-password">
 
@@ -59,7 +59,7 @@
 
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="register-password-confirm" type="password" class="form-control"
+                                        <input id="registerPasswordConfirm" type="password" class="form-control"
                                             name="password_confirmation" placeholder="{{ __('Confirm Password') }}"
                                             required autocomplete="new-password">
                                     </div>
@@ -81,12 +81,12 @@
                                         <div class="btn-group btn-group-toggle d-flex justify-content-center"
                                             data-toggle="buttons">
                                             <label class="btn btn-outline-dark w-100 active">
-                                                <input type="radio" name="gender" id="register-gender-male" value="Male"
+                                                <input type="radio" name="gender" id="registerGenderMale" value="Male"
                                                     checked>
                                                 {{ __('Male') }}
                                             </label>
                                             <label class="btn btn-outline-dark w-100">
-                                                <input type="radio" name="gender" id="register-gender-female"
+                                                <input type="radio" name="gender" id="registerGenderFemale"
                                                     value="Female">
                                                 {{ __('Female') }}
                                             </label>
@@ -97,7 +97,7 @@
                                     <div class="col-12 col-lg-10 col-xl-8 my-2">
                                         <div class="custom-control custom-checkbox rounded-0 mt-2">
                                             <input class="custom-control-input" type="checkbox" name="newsletter"
-                                                id="register-newsletter" value="1" checked>
+                                                id="registerNewsletter" value="1" checked>
                                             <label class="custom-control-label" for="register-newsletter">
                                                 {{ __('Sign up for emails to hear all the latest from Nike.') }}
                                             </label>

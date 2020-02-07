@@ -1,8 +1,6 @@
 @extends('client.layouts.app')
 
 @section('content')
-<div class="mt-5">d</div>
-<div class="mt-5">d</div>
 
 {{-- <img class="" src="/storage/assets/icons/1200px-Logo_NIKE.png" style="height: 20px; width: 60px;">
     <img class="" src="{{ asset('/storage/assets/icons/1200px-Logo_NIKE.png') }}" style="height: 20px; width: 60px;">

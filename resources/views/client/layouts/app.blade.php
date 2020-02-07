@@ -30,7 +30,7 @@
 
     @include('client.layouts.footer')
 
-    @include('client.layouts.footer-scripts')
+    @include('client.layouts.footer_scripts')
 
 </body>
 

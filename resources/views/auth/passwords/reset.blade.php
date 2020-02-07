@@ -20,7 +20,7 @@
                             <div class="container my-5">
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="reset-email" type="email"
+                                        <input id="resetEmail" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required
                                             autocomplete="email">
@@ -34,7 +34,7 @@
 
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="reset-password" type="password"
+                                        <input id="resetPassword" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
                                             placeholder="{{ __('Password') }}" required autocomplete="new-password">
 
@@ -48,7 +48,7 @@
 
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="reset-password-confirm" type="password" class="form-control"
+                                        <input id="resetPasswordConfirm" type="password" class="form-control"
                                             name="password_confirmation" placeholder="{{ __('Confirm Password') }}"
                                             required autocomplete="new-password">
                                     </div>

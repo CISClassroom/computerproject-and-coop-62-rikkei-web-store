@@ -18,7 +18,7 @@
                             <div class="container my-5">
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="login-email" type="email"
+                                        <input id="loginEmail" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required autocomplete="email" autofocus>
 
@@ -33,7 +33,7 @@
                                 <div class="form-group row d-flex justify-content-center">
 
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <input id="login-password" type="password"
+                                        <input id="loginPassword" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Password') }}"
                                             required autocomplete="current-password">
 
@@ -48,7 +48,7 @@
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-6 col-lg-5 col-xl-4">
                                         <div class="custom-control custom-checkbox rounded-0 mt-2">
-                                            <input class="custom-control-input" type="checkbox" name="remember" id="remember"
+                                            <input class="custom-control-input" type="checkbox" name="remember" id="loginRemember"
                                                 {{ old('remember') ? 'checked' : 'checked' }}>
 
                                             <label class="custom-control-label" for="remember">

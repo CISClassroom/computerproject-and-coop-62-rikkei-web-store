@@ -22,6 +22,9 @@ Route::get('/store', function () {
 Route::get('/test', function () {
     return view('client/test');
 });
+Route::get('/admin/test', function () {
+    return view('admin/layouts/test');
+});
 
 Auth::routes(['verify' => true]);
 

@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input id="sent-reset-email" type="email"
+                                    <input id="sentResetEmail" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required
                                         autocomplete="email" autofocus>
