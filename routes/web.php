@@ -22,12 +22,6 @@ Route::get('/store', function () {
 Route::get('/test', function () {
     return view('client/test');
 });
-<<<<<<< Updated upstream
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-=======
 
 Auth::routes(['verify' => true]);
 
@@ -50,4 +44,3 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/roles', 'RoleController');
     Route::resource('/products', 'ProductController');
 });
->>>>>>> Stashed changes
