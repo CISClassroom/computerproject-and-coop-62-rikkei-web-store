@@ -7,6 +7,26 @@
     {{-- <div class="text-center">
         <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="img-fluid" alt="Responsive image">
     </div> --}}
+
+    {{-- @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    @can('isAdmin')
+                        <div class="btn btn-success btn-lg">
+                          You have Admin Access
+                        </div>
+                    @elsecan('isManager')
+                        <div class="btn btn-primary btn-lg">
+                          You have Manager Access
+                        </div>
+                    @else
+                        <div class="btn btn-info btn-lg">
+                          You have User Access
+                        </div>
+                    @endcan --}}
     <div class="mx-5">
         <div class="__mainCarousel">
             <div id="carouselSlidesOnly" class="carousel slide" data-ride="carousel">
