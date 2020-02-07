@@ -8,14 +8,23 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <!-- C3 charts css -->
         <link href="../plugins/c3/c3.min.css" rel="stylesheet" type="text/css"  />
 
-        <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <!-- Bootstrap Dropdown Hover CSS -->
+        <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />

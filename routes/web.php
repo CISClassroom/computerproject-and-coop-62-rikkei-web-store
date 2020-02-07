@@ -11,17 +11,18 @@
 |
 */
 
-
 Route::get('/', function () {
     return view('client/home');
-    // ->withSuccess('Success message')
 });
+
 Route::get('/store', function () {
     return view('client/store');
 });
+
 Route::get('/test', function () {
     return view('client/test');
 });
+
 Auth::routes(['verify' => true]);
 
 Route::get('/profile', function () {
@@ -31,5 +32,15 @@ Route::get('/profile', function () {
 // Route::get('/admin', function () {
 
 // })->middleware('');
+Route::get('/admin', function () {
+    return view('admin/index');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::resource('/users', 'UserController');
+    Route::resource('/roles', 'RoleController');
+    Route::resource('/products', 'ProductController');
+});

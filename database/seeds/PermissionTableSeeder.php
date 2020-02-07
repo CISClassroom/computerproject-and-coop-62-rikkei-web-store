@@ -1,6 +1,9 @@
 <?php
 
+
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+
 
 class PermissionTableSeeder extends Seeder
 {
@@ -11,33 +14,23 @@ class PermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        $permission_ids = []; // an empty array of stored permission IDs
-        // iterate though all routes
-        foreach (Route::getRoutes()->getRoutes() as $key => $route) {
-            // get route action
-            $action = $route->getActionname();
-            // separating controller and method
-            $_action = explode('@', $action);
+        $permissions = [
+            'user-list',
+            'user-create',
+            'user-edit',
+            'user-delete',
+            'role-list',
+            'role-create',
+            'role-edit',
+            'role-delete',
+            'product-list',
+            'product-create',
+            'product-edit',
+            'product-delete'
+        ];
 
-            $controller = $_action[0];
-            $method = end($_action);
-
-            // check if this permission is already exists
-            $permission_check = Permission::where(
-                ['controller' => $controller, 'method' => $method]
-            )->first();
-            if (!$permission_check) {
-                $permission = new Permission;
-                $permission->controller = $controller;
-                $permission->method = $method;
-                $permission->save();
-                // add stored permission id in array
-                $permission_ids[] = $permission->id;
-            }
+        foreach ($permissions as $permission) {
+            Permission::create(['name' => $permission]);
         }
-        // find admin role.
-        $admin_role = Role::where('name', 'super-admin')->first();
-        // atache all permissions to admin role
-        $admin_role->permissions()->attach($permission_ids);
     }
 }
