@@ -18,12 +18,11 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('code');
             $table->decimal('price');
-            $table->text('detail');
+            $table->longText('detail');
             $table->text('image_url');
             $table->timestamps();
             $table->unsignedBigInteger('product_category_id')->index()->unsigned();
             $table->unsignedBigInteger('product_type_id')->index()->unsigned();
-
         });
     }
 

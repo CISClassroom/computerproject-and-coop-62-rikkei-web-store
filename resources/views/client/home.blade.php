@@ -4,9 +4,6 @@
 
 {{-- content --}}
 <section>
-    {{-- <div class="text-center">
-        <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="img-fluid" alt="Responsive image">
-    </div> --}}
 
     {{-- <div class="text-center">
         <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="img-fluid" alt="Responsive image">
@@ -31,7 +28,6 @@
                           You have User Access
                         </div>
                     @endcan --}}
-                    
     <div class="mx-5">
         <div class="__mainCarousel">
             <div id="carouselSlidesOnly" class="carousel slide" data-ride="carousel">
