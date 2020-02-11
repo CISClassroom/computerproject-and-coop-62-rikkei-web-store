@@ -57,12 +57,27 @@
     }
 }
 
+@include icon("back", "back");
+@include icon("back-white", "back-white");
+@include icon("box", "box");
+@include icon("box-white", "box-white");
 @include icon("cart", "cart");
+@include icon("close", "close");
+@include icon("close-white", "close-white");
+@include icon("edit-tools", "edit-tools");
+@include icon("edit-tools-white", "edit-tools-white");
 @include icon("grid", "grid");
+@include icon("home", "home");
+@include icon("home-white", "home-white");
+@include icon("key", "key");
+@include icon("key-white", "key-white");
+@include icon("next", "next");
+@include icon("next-white", "next-white");
 @include icon("question", "question");
 @include icon("search", "search");
 @include icon("support", "support");
 @include icon("user", "user");
+@include icon("user-white", "user-white");
 @include icon("user-filled", "user-filled");
 
 @include icon("twitter", "twitter-filled-white");
@@ -85,6 +100,8 @@
 }
 
 @include icon-home("nike", "1200px-Logo_NIKE");
+@include icon-home("nike-white", "1200px-Logo_NIKE-White");
+
 
 .textcolor {
     &-lblack {
@@ -156,7 +173,7 @@
     position: sticky;
     top: 5%;
     // width: 20%;
-    height: 25vh; // experiment with this value, try changing to 110vh
+    height: 100vh; // experiment with this value, try changing to 110vh
     // min-height: 200px;
     // overflow: auto;
 }
@@ -164,35 +181,3 @@
 body {
     padding: 30px 0 0 0;
 }
-
-.arrow{
-    content:'';
-     display:block;
-     position:relative;
-     top:6px;
-     left:4px;
-     height:15px;
-     width:15px;
-    -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-     border-radius: 4px;
-     border-top:4px solid rgb(0, 0, 0);
-     border-right:4px solid rgb(0, 0, 0);
-     -webkit-transform:rotate(45deg);
-     -moz-transform:rotate(45deg);
-     -ms-transform:rotate(45deg);
-     -o-transform:rotate(45deg);
-     transform:rotate(45deg);
-     -webkit-transition: all 0.3s ease-in-out;
-      -moz-transition: all 0.3s ease-in-out;
-      -o-transition: all 0.3s ease-in-out;
-     transition: all 0.3s ease-in-out;
-   }
-
-   .rotated{
-        transform:rotate(135deg);
-       -webkit-transform:rotate(135deg);
-       -moz-transform:rotate(135deg);
-       -o-transform:rotate(135deg);
-       margin-left: 1px;
-   }

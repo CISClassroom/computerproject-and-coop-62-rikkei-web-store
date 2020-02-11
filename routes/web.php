@@ -11,6 +11,11 @@
 |
 */
 
+Auth::routes(['verify' => true]);
+
+// Client routes
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('client/home');
 });
@@ -22,11 +27,14 @@ Route::get('/store', function () {
 Route::get('/test', function () {
     return view('client/test');
 });
+
+// Admin routes
 Route::get('/admin/test', function () {
     return view('admin/layouts/test');
 });
-
-Auth::routes(['verify' => true]);
+Route::get('/admin/dashboard', function () {
+    return view('admin/layouts/test');
+});
 
 Route::get('/profile', function () {
     // Only verified users may enter...
@@ -39,11 +47,9 @@ Route::get('/admin', function () {
     return view('admin/index');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::resource('/users', 'UserController');
-    Route::resource('/roles', 'RoleController');
-    Route::resource('/products', 'ProductController');
+    Route::resource('/admin/users', 'UserController');
+    Route::resource('/admin/roles', 'RoleController');
+    Route::resource('/admin/products', 'ProductController');
 });
