@@ -13,9 +13,9 @@
 
 Auth::routes(['verify' => true]);
 
-// Client routes
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Client routes
 Route::get('/', function () {
     return view('client/home');
 });
@@ -44,7 +44,7 @@ Route::get('/profile', function () {
 
 // })->middleware('');
 Route::get('/admin', function () {
-    return view('admin/index');
+    return view('admin/home');
 });
 
 Route::group(['middleware' => ['auth']], function () {

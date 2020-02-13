@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('admin.layouts.app')
+{{-- @can('user-list') --}}
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -21,3 +21,4 @@
     </div>
 </div>
 @endsection
+{{-- @endcan --}}

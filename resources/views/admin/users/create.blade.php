@@ -2,17 +2,18 @@
 
 
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
+<div class="row mb-3">
+    <div class="col-8 margin-tb">
         <div class="pull-left">
             <h2>Create New User</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+    </div>
+    <div class="col">
+        <div class="pull-right text-right">
+            <a class="btn btn-secondary rounded-0" href="{{ route('users.index') }}">Back</a>
         </div>
     </div>
 </div>
-
 
 @if (count($errors) > 0)
   <div class="alert alert-danger">
@@ -55,16 +56,34 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>Gender:</strong>
+            {!! Form::text('gender', null, array('placeholder' => 'Gender','class' => 'form-control')) !!}
+                {{-- {!! Form::select('gender', null, array('placeholder' => 'Email','class' => 'form-control')) !!} --}}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Date of birth:</strong>
+            {!! Form::text('date_of_birth', null, array('placeholder' => 'Date of birth','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Newsletter:</strong>
+            {!! Form::text('newsletter', null, array('placeholder' => 'Newsletter','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <strong>Role:</strong>
             {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success rounded-0">Submit</button>
     </div>
 </div>
 {!! Form::close() !!}
 
-
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
+{{-- <p class="text-center text-primary"><small></small></p> --}}
 @endsection

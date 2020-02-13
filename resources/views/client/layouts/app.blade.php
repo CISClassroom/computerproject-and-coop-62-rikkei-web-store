@@ -4,7 +4,7 @@
 @include('client.layouts.head')
 
 <body>
-
+    {{-- @include('client.layouts.header') --}}
     @include('client.layouts.nav')
 
     <!-- Modal -->

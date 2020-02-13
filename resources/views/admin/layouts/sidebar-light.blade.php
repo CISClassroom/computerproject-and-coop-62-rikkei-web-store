@@ -9,7 +9,7 @@
         <div class="__sidebarlistMenu">
             <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                 data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
-                <div class="icon-grid">Dashboard</div>
+                <div class="icon-grid">TestDropList</div>
                 <span class="badge badge-primary badge-pill">14</span>
             </a>
 

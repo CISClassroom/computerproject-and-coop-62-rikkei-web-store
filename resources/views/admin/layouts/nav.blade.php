@@ -3,7 +3,7 @@
     <a class="navbar-brand icon-home-nike-white" href="/admin"></a>
     <a class="navbar-brand show" id="collapseNavTitle" href="/admin">Admin System</a>
     <div class="icon-edit-tools-white mr-auto" id="menu-toggle" data-toggle="collapse" data-target="#collapseNavTitle"
-        aria-expanded="true" aria-controls="collapseNavTitle"></div>
+        aria-expanded="true" aria-controls="collapseNavTitle" style="cursor: pointer;"></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/dashboard">Dashboard<span class="sr-only"></span></a>
+                <a class="nav-link" href="/admin">Dashboard<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Client Site<span class="sr-only"></span></a>
             </li>
             {{-- <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>

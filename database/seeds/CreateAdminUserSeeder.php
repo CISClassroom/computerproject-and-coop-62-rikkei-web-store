@@ -22,7 +22,7 @@ class CreateAdminUserSeeder extends Seeder
             'date_of_birth' => '1997-01-16',
             'gender' => 'Male',
             'newsletter' => '1',
-            'role_id' => '3',
+            'role_id' => '1',
         ]);
 
         $role = Role::create(['name' => 'administrator']);

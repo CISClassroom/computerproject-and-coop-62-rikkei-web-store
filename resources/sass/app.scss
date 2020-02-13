@@ -56,7 +56,8 @@
         filter: brightness(100%) !important;
     }
 }
-
+@include icon("add", "add");
+@include icon("add-white", "add-white");
 @include icon("back", "back");
 @include icon("back-white", "back-white");
 @include icon("box", "box");
@@ -173,8 +174,9 @@
     position: sticky;
     top: 5%;
     // width: 20%;
-    height: 100vh; // experiment with this value, try changing to 110vh
-    // min-height: 200px;
+    height: 96vh !important;
+    min-height: 96vh !important;
+    max-height: 96vh !important;
     // overflow: auto;
 }
 

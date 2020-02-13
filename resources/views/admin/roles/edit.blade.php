@@ -2,13 +2,15 @@
 
 
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
+<div class="row mb-3">
+    <div class="col-8 margin-tb">
         <div class="pull-left">
             <h2>Edit Role</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+    </div>
+    <div class="col">
+        <div class="pull-right text-right">
+            <a class="btn btn-secondary rounded-0" href="{{ route('roles.index') }}">Back</a>
         </div>
     </div>
 </div>
@@ -46,11 +48,10 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success rounded-0">Submit</button>
     </div>
 </div>
 {!! Form::close() !!}
 
 
 @endsection
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>

@@ -6,6 +6,9 @@
     <title>Nike Store</title>
     {{-- <title>{{ config('app.name', 'Nike Store') }}</title> --}}
 
+    {{-- favicon --}}
+    <link rel="icon" href="{{ URL::asset('/images/favicon.png') }}" type="image/x-icon"/>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

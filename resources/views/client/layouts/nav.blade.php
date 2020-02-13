@@ -1,4 +1,18 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+@can('isAdmin')
+<nav class="navbar fixed-top navbar-expand-lg justify-content-center" style="background-color: #ffd57b; height:80px;">
+    <span class="text-center">You're logged in as Administrator &nbsp;</span>
+    <a class="text-center" href="/admin">Go back to Admin page</a>
+</nav>
+@endcan
+@can('isManager')
+<nav class="navbar fixed-top navbar-expand-lg justify-content-center" style="background-color: #ffd57b; height:80px;">
+    <span class="text-center">You're logged in as Manager &nbsp;</span>
+    <a class="text-center" href="/admin">Go back to Manager page</a>
+</nav>
+@endcan
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"
+@can('isAdmin')style="margin-top: 80px;"@endcan
+@can('isManager')style="margin-top: 80px;"@endcan>
 
     <a class="navbar-brand icon-home-nike" href="/"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
@@ -98,7 +112,8 @@
                                 Apparel</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Nike
                                 React</a>
-                            <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Air Max</a>
+                            <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Air
+                                Max</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">NikeLap</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Sale</a>
                         </div>
@@ -172,7 +187,8 @@
                                 Releases</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">New
                                 Apparel</a>
-                            <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Easy on &
+                            <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Easy on
+                                &
                                 Off shoes</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Jordan</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Sale</a>
@@ -240,7 +256,8 @@
                                 Apparel</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Nike
                                 React</a>
-                            <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Air Max</a>
+                            <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Air
+                                Max</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">NikeLap</a>
                             <a class="dropdown-item text-wrap text-uppercase font-weight-bold my-3" href="#">Sale</a>
                         </div>
