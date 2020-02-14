@@ -105,7 +105,7 @@
           <td>litora</td>
         </tr>
         <tr>
-          <td>1,013</td>
+          <td>1,013</td> 
           <td>torquent</td>
           <td>per</td>
           <td>conubia</td>

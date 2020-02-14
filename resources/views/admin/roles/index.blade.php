@@ -27,12 +27,14 @@
 <table class="table table-bordered">
     <tr>
         <th>No</th>
+        <th>ID</th>
         <th>Name</th>
         <th width="230px">Action</th>
     </tr>
     @foreach ($roles as $key => $role)
     <tr>
         <td>{{ ++$i }}</td>
+        <td>{{ $role->id }}</td>
         <td>{{ $role->name }}</td>
         <td>
             @can('role-list')

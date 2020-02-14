@@ -13,43 +13,48 @@
 
 Auth::routes(['verify' => true]);
 
+// home
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Client routes
+Route::get('/shop', 'ShopController@index');
 Route::get('/', function () {
     return view('client/home');
 });
 
-Route::get('/store', function () {
-    return view('client/store');
-});
-
+// test
 Route::get('/test', function () {
     return view('client/test');
 });
 
-// Admin routes
-Route::get('/admin/test', function () {
-    return view('admin/layouts/test');
-});
-Route::get('/admin/dashboard', function () {
-    return view('admin/layouts/test');
-});
-
+// verified user profile Only verified users may enter...
 Route::get('/profile', function () {
-    // Only verified users may enter...
+    //
 })->middleware('verified');
 
 // Route::get('/admin', function () {
-
 // })->middleware('');
-Route::get('/admin', function () {
-    return view('admin/home');
-});
 
+
+// Admin routes
 Route::group(['middleware' => ['auth']], function () {
+    Route::prefix('admin')->group(function () {
+        // Route::resource('/', 'UserController');
+        Route::get('/', function () {
+            return view('admin/home');
+        })->middleware('');
 
-    Route::resource('/admin/users', 'UserController');
-    Route::resource('/admin/roles', 'RoleController');
-    Route::resource('/admin/products', 'ProductController');
+        // used to be outside of group
+        Route::get('/test', function () {
+            return view('admin/layouts/test');
+        });
+        Route::get('/dashboard', function () {
+            return view('admin/layouts/test');
+        });
+
+        //shoud be in here
+        Route::resource('/users', 'UserController');
+        Route::resource('/roles', 'RoleController');
+        Route::resource('/products', 'ProductController');
+    });
 });

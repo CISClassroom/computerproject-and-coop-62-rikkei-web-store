@@ -9,29 +9,29 @@
         <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="img-fluid" alt="Responsive image">
     </div> --}}
 
-    @if (session('status'))
-<div class="alert alert-success" role="alert">
-    {{ session('status') }}
-</div>
-@endif
+    {{-- @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+    @endif
 
-@can('isAdmin')
-<div class="btn btn-success btn-lg">
-    You have Admin Access
-</div>
-@elsecan('isManager')
-<div class="btn btn-primary btn-lg">
-    You have Manager Access
-</div>
-@elsecan('isMember')
-<div class="btn btn-primary btn-lg">
-    You have Member Access
-</div>
-@else
-<div class="btn btn-info btn-lg">
-    You have User Access
-</div>
-@endcan
+    @can('isAdmin')
+    <div class="btn btn-success btn-lg">
+        You have Admin Access
+    </div>
+    @elsecan('isManager')
+    <div class="btn btn-primary btn-lg">
+        You have Manager Access
+    </div>
+    @elsecan('isMember')
+    <div class="btn btn-primary btn-lg">
+        You have Member Access
+    </div>
+    @else
+    <div class="btn btn-info btn-lg">
+        You have User Access
+    </div>
+    @endcan --}}
 
     <div class="mx-5">
         <div class="__mainCarousel">
@@ -44,7 +44,7 @@
                             <h1 class="text-uppercase font-weight-bolder">{{__('DESIGNED TO HELP REDUCE INJURY')}}</h1>
                             <p class="text-size-10">Our newest shoe is built to help keep you doing what you love.
                                 Because there’s only one thing that’s worse than being injured—not running.</p>
-                            <a class="btn btn-light rounded-pill text-size-10" type="button" href="/store">Shop</a>
+                            <a class="btn btn-light rounded-pill text-size-10" type="button" href="/shop">Shop</a>
 
                         </div>
                     </div>

@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     function __construct()
     {
         $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index', 'show']]);
@@ -19,34 +15,19 @@ class ProductController extends Controller
         $this->middleware('permission:product-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+     public function index()
     {
         $products = Product::latest()->paginate(5);
         return view('admin.products.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.products.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         request()->validate([
@@ -54,47 +35,33 @@ class ProductController extends Controller
             'code' => ['required', 'string'],
             'price' => ['required'],
             'detail' => ['string'],
-            'image_url' => ['required'],
+            'image_url' => ['required', 'image', 'mimes: jpeg, png, jpg, gif, svg', 'max:2048'],
             'product_category_id' => ['required', 'int'],
             'product_type_id' => ['required', 'int'],
 
         ]);
 
-        Product::create($request->all());
+        $imageName = time().'.'.request()->image_url->getClientOriginalExtension();
+        request()->image_url->move(public_path('images/products/upload'), $imageName);
+        $arrData = $request->all();
+        $arrData['image_url'] = 'images/products/upload/' . $imageName;
+
+        Product::create($arrData);
 
         return redirect()->route('products.index')
             ->with('success', 'Product created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function show(Product $product)
     {
         return view('admin.products.show', compact('product'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
     {
         return view('admin.products.edit', compact('product'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Product $product)
     {
         request()->validate([
@@ -102,23 +69,23 @@ class ProductController extends Controller
             'code' => ['required', 'string'],
             'price' => ['required'],
             'detail' => ['string'],
-            'image_url' => ['required'],
+            'image_url' => ['required', 'image', 'max:2048'],
             'product_category_id' => ['required', 'int'],
             'product_type_id' => ['required', 'int'],
         ]);
 
-        $product->update($request->all());
+        $imageName = time().'.'.request()->image_url->getClientOriginalExtension();
+        request()->image_url->move(public_path('images/products/upload'), $imageName);
+        $arrData = $request->all();
+        $arrData['image_url'] = 'images/products/upload/' . $imageName;
+        $product->update($arrData);
+
 
         return redirect()->route('products.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Product updated successfully')
+            ->with('image',$imageName);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Product $product)
     {
         $product->delete();

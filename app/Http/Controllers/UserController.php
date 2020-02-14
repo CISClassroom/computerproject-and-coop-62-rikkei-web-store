@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
-use App\UserPost;
+// use App\UserPost;
 class UserController extends Controller
 {
     /**

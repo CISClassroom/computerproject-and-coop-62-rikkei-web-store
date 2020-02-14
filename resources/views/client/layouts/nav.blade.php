@@ -359,3 +359,12 @@
 </nav>
 
 <div class="mb-5"></div>
+@can('isAdmin')
+    <div class="btn btn-success btn-lg">
+        You have Admin Access
+    </div>
+    @elsecan('isManager')
+    <div class="btn btn-primary btn-lg">
+        You have Manager Access
+    </div>
+@endcan

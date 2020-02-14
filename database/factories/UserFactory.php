@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -22,11 +22,12 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->Name,
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'gender' => $faker->gender,
+        'gender' => $faker->randomElement($array = array ('male', 'female')),
         'date_of_birth' => $faker->date,
-        'role' => $faker->role,
-        'subscribe_to_news_letter' => $faker->boolean::random(),
+        'role_id' => '3',
+        'newsletter' => 1,
         'email_verified_at' => now(),
         'remember_token' => Str::random(10),
     ];
 });
+// PHP Error:  Class name must be a valid object or a string in D:/Works/Laravel/nike-webstore/database/factories/UserFactory.php on line 28

@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('code');
             $table->decimal('price');
             $table->longText('detail');
-            $table->text('image_url');
+            $table->string('image_url')->nullable();;
             $table->timestamps();
             $table->unsignedBigInteger('product_category_id')->index()->unsigned();
             $table->unsignedBigInteger('product_type_id')->index()->unsigned();

@@ -19,7 +19,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Product ID:</strong>
-            {{ $product->name }}
+            {{ $product->id }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -48,12 +48,6 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Image:</strong>
-            {{ $product->image_url }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
             <strong>Created at:</strong>
             {{ $product->created_at }}
         </div>
@@ -74,6 +68,18 @@
         <div class="form-group">
             <strong>Type:</strong>
             {{ $product->product_type_id }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Image path:</strong>
+            {{ $product->image_url }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong></strong>
+            <img src="{{ url($product->image_url) }}" alt="product picture" style="width: 200px; height: 200px;">
         </div>
     </div>
 </div>
