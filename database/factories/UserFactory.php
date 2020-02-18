@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -30,4 +31,5 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+factory(App\Models\User::class)->assignRole('member')->make();
 // PHP Error:  Class name must be a valid object or a string in D:/Works/Laravel/nike-webstore/database/factories/UserFactory.php on line 28

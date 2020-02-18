@@ -19,6 +19,10 @@
         background-color: #F5F5F5 !important;
     }
 
+    &-gray {
+        background-color: #3f464d !important;
+    }
+
     &-red {
         background-color: #D00022 !important;
     }
@@ -72,10 +76,18 @@
 @include icon("home-white", "home-white");
 @include icon("key", "key");
 @include icon("key-white", "key-white");
+@include icon("list", "list");
+@include icon("list-white", "list-white");
+@include icon("modules", "modules");
+@include icon("modules-white", "modules-white");
 @include icon("next", "next");
 @include icon("next-white", "next-white");
 @include icon("question", "question");
 @include icon("search", "search");
+@include icon("shield", "shield");
+@include icon("shield-white", "shield-white");
+@include icon("style", "style");
+@include icon("style-white", "style-white");
 @include icon("support", "support");
 @include icon("user", "user");
 @include icon("user-white", "user-white");
@@ -174,9 +186,9 @@
     position: sticky;
     top: 5%;
     // width: 20%;
-    height: 96vh !important;
-    min-height: 96vh !important;
-    max-height: 96vh !important;
+    height: 97vh !important;
+    min-height: 97vh !important;
+    max-height: 100vh !important;
     // overflow: auto;
 }
 

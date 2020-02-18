@@ -38,11 +38,10 @@ Route::get('/profile', function () {
 
 // Admin routes
 Route::group(['middleware' => ['auth']], function () {
-    Route::prefix('admin')->group(function () {
-        // Route::resource('/', 'UserController');
+    Route::prefix('/admin')->group(function () {
         Route::get('/', function () {
             return view('admin/home');
-        })->middleware('');
+        });
 
         // used to be outside of group
         Route::get('/test', function () {
@@ -56,5 +55,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/users', 'UserController');
         Route::resource('/roles', 'RoleController');
         Route::resource('/products', 'ProductController');
+        Route::resource('/producttypes', 'ProductTypeController');
+        Route::resource('/productcategories', 'ProductCategoryController');
     });
 });

@@ -5,7 +5,7 @@
 <div class="row mb-3">
     <div class="col-8 margin-tb">
         <div class="pull-left">
-            <h2>Edit Role</h2>
+            <h2 class="text-uppercase">Edit Role</h2>
         </div>
     </div>
     <div class="col">
@@ -17,19 +17,25 @@
 
 
 @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
-        </ul>
-    </div>
+    </ul>
+</div>
 @endif
 
 
 {!! Form::model($role, ['method' => 'PATCH','route' => ['roles.update', $role->id]]) !!}
 <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Role ID:</strong>
+            {{ $role->id }}
+        </div>
+    </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name:</strong>
@@ -39,15 +45,17 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Permission:</strong>
-            <br/>
+            <br />
             @foreach($permission as $value)
-                <label>{{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name')) }}
-                {{ $value->name }}</label>
-            <br/>
+            <div class="custom-control custom-checkbox">
+                {{ Form::checkbox('permission[]', $value->id, in_array($value->id, $rolePermissions) ? true : false, array('class' => 'name custom-control-input', 'id' => 'customRoleCheckbox'.$value->id)) }}
+                <label class="custom-control-label" for="customRoleCheckbox{{ $value->id }}">{{ $value->name }}</label>
+            </div>
+            <br />
             @endforeach
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
         <button type="submit" class="btn btn-success rounded-0">Submit</button>
     </div>
 </div>

@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'code', 'price', 'detail', 'image_url', 'name', 'detail', 'product_category_id', 'product_type_id',
+        'name', 'code', 'price', 'detail', 'image_url', 'name', 'detail', 'productcategory_id', 'producttype_id',
     ];
 
 
     protected $hidden = [
-        'product_category_id', 'product_type_id',
+        'productcategory_id', 'producttype_id',
     ];
 
     /**
@@ -23,4 +23,14 @@ class Product extends Model
     protected $casts = [
         // 'product_create_at' => 'datetime',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class, 'productcategory_id');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(ProductType::class, 'producttype_id');
+    }
 }

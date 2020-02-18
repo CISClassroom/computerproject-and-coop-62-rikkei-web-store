@@ -5,7 +5,7 @@
 <div class="row mb-3">
     <div class="col-8 margin-tb">
         <div class="pull-left">
-            <h2>Product details</h2>
+            <h2 class="text-uppercase">Product details</h2>
         </div>
     </div>
     <div class="col">
@@ -42,8 +42,15 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Details:</strong>
-            {{ $product->detail }}
+            <strong>Type:</strong>
+            {{ $product->producttype_id }} : {{ $product->type->name }} {{-- fetch function from Product class --}}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Category:</strong>
+            {{ $product->productcategory_id }} : {{ $product->category->name }} {{-- fetch function from Product class --}}
+
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -60,18 +67,6 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Category:</strong>
-            {{ $product->product_category_id }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Type:</strong>
-            {{ $product->product_type_id }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
             <strong>Image path:</strong>
             {{ $product->image_url }}
         </div>
@@ -82,5 +77,12 @@
             <img src="{{ url($product->image_url) }}" alt="product picture" style="width: 200px; height: 200px;">
         </div>
     </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Details:</strong>
+            {{ $product->detail }}
+        </div>
+    </div>
+
 </div>
 @endsection

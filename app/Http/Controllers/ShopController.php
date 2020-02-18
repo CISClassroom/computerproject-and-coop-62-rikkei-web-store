@@ -8,8 +8,8 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
-        $products = Product::latest()->paginate(30);
+        $products = Product::latest()->paginate(60);
         return view('client.store.index', compact('products'))
-            ->with('i', (request()->input('page', 1) - 1) * 30);
+            ->with('i', (request()->input('page', 1) - 1) * 60);
     }
 }

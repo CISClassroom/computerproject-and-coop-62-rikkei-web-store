@@ -5,7 +5,7 @@
 <div class="row mb-3">
     <div class="col-8 margin-tb">
         <div class="pull-left">
-            <h2>Edit User</h2>
+            <h2 class="text-uppercase">Edit User</h2>
         </div>
     </div>
     <div class="col">
@@ -29,6 +29,12 @@
 
 {!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!}
 <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>User ID:</strong>
+            {{ $user->id }}
+        </div>
+    </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name:</strong>
@@ -78,7 +84,7 @@
             {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
         <button type="submit" class="btn btn-success rounded-0">Submit</button>
     </div>
 </div>

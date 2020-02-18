@@ -5,7 +5,7 @@
 <div class="row mb-3">
     <div class="col-8 margin-tb">
         <div class="pull-left">
-            <h2>Create New Role</h2>
+            <h2 class="text-uppercase">Create New Role</h2>
         </div>
     </div>
     <div class="col">
@@ -46,7 +46,7 @@
             @endforeach
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
         <button type="submit" class="btn btn-success rounded-0">Submit</button>
     </div>
 </div>

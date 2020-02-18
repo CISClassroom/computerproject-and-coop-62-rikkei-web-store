@@ -5,7 +5,7 @@
 <div class="row mb-3">
     <div class="col-8 margin-tb">
         <div class="pull-left">
-            <h2>User details</h2>
+            <h2 class="text-uppercase">User details</h2>
         </div>
     </div>
     <div class="col">

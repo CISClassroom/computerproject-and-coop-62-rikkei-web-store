@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->longText('detail');
             $table->string('image_url')->nullable();;
             $table->timestamps();
-            $table->unsignedBigInteger('product_category_id')->index()->unsigned();
-            $table->unsignedBigInteger('product_type_id')->index()->unsigned();
+            $table->unsignedBigInteger('productcategory_id')->index()->unsigned();
+            $table->unsignedBigInteger('producttype_id')->index()->unsigned();
         });
     }
 

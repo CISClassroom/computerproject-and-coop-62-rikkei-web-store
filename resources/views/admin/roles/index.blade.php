@@ -5,7 +5,7 @@
 <div class="row mb-3">
     <div class="col-8 margin-tb">
         <div class="pull-left">
-            <h2>Role Management</h2>
+            <h2 class="text-uppercase">Role Management</h2>
         </div>
     </div>
     @can('role-create')
