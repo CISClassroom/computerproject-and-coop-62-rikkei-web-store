@@ -10,30 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Public Routes
 
+// Auth
 Auth::routes(['verify' => true]);
 
 // home
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Client routes
-Route::get('/shop', 'ShopController@index');
-Route::get('/', function () {
-    return view('client/home');
-});
-
-// test
-Route::get('/test', function () {
-    return view('client/test');
-});
-
-// verified user profile Only verified users may enter...
+// profile
 Route::get('/profile', function () {
-    //
+    // verified user profile Only verified users may enter...
 })->middleware('verified');
-
-// Route::get('/admin', function () {
-// })->middleware('');
 
 
 // Admin routes
@@ -42,20 +30,42 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', function () {
             return view('admin/home');
         });
-
-        // used to be outside of group
-        Route::get('/test', function () {
-            return view('admin/layouts/test');
-        });
         Route::get('/dashboard', function () {
             return view('admin/layouts/test');
         });
 
-        //shoud be in here
         Route::resource('/users', 'UserController');
         Route::resource('/roles', 'RoleController');
         Route::resource('/products', 'ProductController');
         Route::resource('/producttypes', 'ProductTypeController');
         Route::resource('/productcategories', 'ProductCategoryController');
+    });
+});
+
+// Client routes
+Route::get('/', function () {
+    return view('client/home');
+});
+Route::resource('/shop', 'ShopController');
+Route::resource('/swiper', 'SwiperController');
+
+// cannot use, cause bug, why?
+// Route::prefix('/shop')->group(function () {
+// });
+
+// test
+Route::name('Test')->group(function () {
+    Route::get('/test', function () {
+        return view('client/test');
+    });
+    Route::get('/email', function () {
+        return view('auth/oldauth/passwords/email');
+    });
+    Route::get('/show', function () {
+        return view('client/shop/show');
+    });
+    //admin test
+    Route::get('/admin/test', function () {
+        return view('admin/layouts/test');
     });
 });

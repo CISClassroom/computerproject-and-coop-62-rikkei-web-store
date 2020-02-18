@@ -47,7 +47,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Price:</strong>
-            <input type="text" name="price" class="form-control currency" id="currencyField" placeholder="Price" step="any" min="0.00" data-type="currency">
+            <input type="text" name="price" class="form-control currency" id="currencyField" placeholder="Price" step="any" min="0.00">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

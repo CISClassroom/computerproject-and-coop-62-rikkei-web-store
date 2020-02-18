@@ -23,10 +23,10 @@
                                 {{-- item card --}}
                                 @foreach ($products as $product)
                                 <div class="col-md-4">
-                                    <a class="text-decoration-none" href="/shop/{{ $product->id }}">
+                                    <a class="text-decoration-none" href="{{ route('shop.show',$product->id) }}">
                                         <div class="card border-0">
                                             <img class="img-responsive" src="{{ $product->image_url }}"
-                                                style="width: 100%; max-height: 400px; height: 400; object-fit: cover;">
+                                                style="width: 100%; max-height: 400px; height: 400px; object-fit: cover;">
                                             <div class="card-body">
                                                 <div class="row row-cols-1 row-cols-md-2">
                                                     <div class="col-md-8">
@@ -35,10 +35,10 @@
                                                         </div>
                                                         {{-- for show category --}}
                                                         <div class="product-subtitle text-left">
-                                                            <p class="card-text text-muted">{{ $product->detail }}</p>
+                                                            <p class="card-text text-muted">{{ $product->category->name }}</p>
                                                         </div>
                                                         <div class="product-color text-left">
-                                                            <p class="card-text text-muted text-nowrap">4 colors</p>
+                                                            <p class="card-text text-muted text-nowrap">{{ __('4 colors') }}</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">

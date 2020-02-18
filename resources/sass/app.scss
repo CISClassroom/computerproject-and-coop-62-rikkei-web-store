@@ -40,6 +40,8 @@
         display: inline-block;
         height: 20px;
         width: 20px;
+        padding-right: 25px;
+        padding: inherit;
         vertical-align: middle;
     }
 
@@ -59,7 +61,12 @@
     .icon-social-#{$name}:hover {
         filter: brightness(100%) !important;
     }
+
+    .icon-heart-blank:hover {
+        filter: invert(100%) !important;
+    }
 }
+
 @include icon("add", "add");
 @include icon("add-white", "add-white");
 @include icon("back", "back");
@@ -72,6 +79,9 @@
 @include icon("edit-tools", "edit-tools");
 @include icon("edit-tools-white", "edit-tools-white");
 @include icon("grid", "grid");
+@include icon("heart", "heart");
+@include icon("heart-white", "heart-white");
+@include icon("heart-blank", "heart-blank");
 @include icon("home", "home");
 @include icon("home-white", "home-white");
 @include icon("key", "key");
@@ -181,6 +191,62 @@
     }
 }
 
+@media screen and (min-width: 1200px) {
+    .showproduct {
+        &-title {
+            font-size: 40px !important;
+        }
+
+        &-subtitle {
+            font-size: 20px !important;
+        }
+
+        // &-type {
+        //     font-size: 28px;
+        // }
+
+        // &-category {
+        //     font-size: 24px;
+        // }
+
+        &-price {
+            font-size: 40px !important;
+        }
+
+        &-size {
+            font-size: 20px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .showproduct {
+        &-title {
+            font-size: 30px !important;
+        }
+
+        &-subtitle {
+            font-size: 16px !important;
+        }
+
+        // &-type {
+        //     font-size: 18px;
+        // }
+
+        // &-category {
+        //     font-size: 14px;
+        // }
+
+        &-price {
+            font-size: 34px !important;
+        }
+
+        &-size {
+            font-size: 16px !important;
+        }
+    }
+}
+
 .sidebar {
     position: -webkit-sticky;
     position: sticky;
@@ -194,4 +260,14 @@
 
 body {
     padding: 30px 0 0 0;
+}
+
+.dotcolor {
+    height: 35px;
+    width: 35px;
+    background-color: #bbb;
+    border-radius: 50%;
+    border-width: 5px !important;
+    border-color: #6c757d !important;
+    display: inline-block;
 }

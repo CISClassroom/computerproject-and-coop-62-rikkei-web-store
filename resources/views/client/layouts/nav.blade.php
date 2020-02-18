@@ -10,9 +10,8 @@
     <a class="text-center" href="/admin">Go back to Manager page</a>
 </nav>
 @endcan
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"
-@can('isAdmin')style="margin-top: 80px;"@endcan
-@can('isManager')style="margin-top: 80px;"@endcan>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" @can('isAdmin')style="margin-top: 80px;" @endcan
+    @can('isManager')style="margin-top: 80px;" @endcan>
 
     <a class="navbar-brand icon-home-nike" href="/"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
@@ -339,6 +338,9 @@
             <button class="btn btn-outline-transparent icon-user-filled rounded-0 my-2" type="button" id="userDropdown"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre></button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
@@ -347,24 +349,25 @@
                     @csrf
                 </form>
             </div>
-            @endguest
-            {{-- <button class="btn btn-outline-transparent icon-user rounded-0 my-2" type="button" data-toggle="modal"
-                data-target="#loginModal"></button> --}}
-            <a href="#" class="btn btn-outline-transparent icon-question rounded-0 my-2" type="button"></a>
-            <a href="#" class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button"></a>
-
         </div>
+        @endguest
+        {{-- <button class="btn btn-outline-transparent icon-user rounded-0 my-2" type="button" data-toggle="modal"
+                data-target="#loginModal"></button> --}}
+        <a href="#" class="btn btn-outline-transparent icon-question rounded-0 my-2" type="button"></a>
+        <a href="#" class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button"></a>
+
+    </div>
     </div>
 
 </nav>
 
 <div class="mb-5"></div>
 @can('isAdmin')
-    <div class="btn btn-success btn-lg">
-        You have Admin Access
-    </div>
-    @elsecan('isManager')
-    <div class="btn btn-primary btn-lg">
-        You have Manager Access
-    </div>
+<div class="btn btn-success btn-lg">
+    You have Admin Access
+</div>
+@elsecan('isManager')
+<div class="btn btn-primary btn-lg">
+    You have Manager Access
+</div>
 @endcan
