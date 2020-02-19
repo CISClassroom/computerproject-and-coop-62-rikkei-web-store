@@ -201,14 +201,6 @@
             font-size: 20px !important;
         }
 
-        // &-type {
-        //     font-size: 28px;
-        // }
-
-        // &-category {
-        //     font-size: 24px;
-        // }
-
         &-price {
             font-size: 40px !important;
         }
@@ -228,14 +220,6 @@
         &-subtitle {
             font-size: 16px !important;
         }
-
-        // &-type {
-        //     font-size: 18px;
-        // }
-
-        // &-category {
-        //     font-size: 14px;
-        // }
 
         &-price {
             font-size: 34px !important;
@@ -271,3 +255,14 @@ body {
     border-color: #6c757d !important;
     display: inline-block;
 }
+
+// custom checkbox color
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: black !important;
+}
+
+/** focus shadow **/
+.custom-checkbox .custom-control-input:focus~.custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(150, 150, 150, 0.25);
+}
+

@@ -6,6 +6,29 @@
     <img class="" src="{{ asset('/storage/assets/icons/1200px-Logo_NIKE.png') }}" style="height: 20px; width: 60px;">
     <img src="{{url('/storage/assets/icons/1200px-Logo_NIKE.png')}}" style="height: 20px; width: 60px;" alt="Image" />
     --}}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"/>
+                        <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker4').datetimepicker({
+                        format: 'L'
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
 {{-- from store featured items --}}
 <div class="__featured-items">
     <p class="text-size-6">Featured Footwear</p>

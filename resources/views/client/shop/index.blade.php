@@ -3,12 +3,12 @@
 @section('content')
 <div class="mt-5">
     <div class="mx-5 outerspace">
-        {{-- sortnav --}}
-        @include('client.shop.sortnav')
+        {{-- filternav --}}
+        @include('client.shop.components.filternav')
 
         <div class="row row-cols-1" style="display: flex;">
-            {{-- sortbar --}}
-            @include('client.shop.sortbar')
+            {{-- filterbar --}}
+            @include('client.shop.components.filterbar')
 
             <div class="__product-column mx-3" style="flex: 1;">
                 <div class="mt-5">

@@ -54,10 +54,16 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            // 'roles' => 'required',
+            'gender' => 'required|in:Male,Female',
+            'date_of_birth' => 'required|date',
         ]);
+        // news letter function
+        if ($request->newsletter == null) {
+            $request->newsletter = 0;
+        }
+        $news = $request->newsletter;
+        $input = $request->all() + ['newsletter' => $news];
 
-        $input = $request->all();
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
@@ -107,7 +113,8 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             // 'password' => 'same:confirm-password',
-            'roles' => 'required'
+            'gender' => 'required|in:Male,Female',
+            'date_of_birth' => 'required|date',
         ]);
 
         $input = $request->all();

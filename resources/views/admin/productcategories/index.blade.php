@@ -11,7 +11,8 @@
     @can('product-create')
     <div class="col">
         <div class="pull-right text-right">
-            <a class="btn btn-primary rounded-0" href="{{ route('productcategories.create') }}">Create New Product Category</a>
+            <a class="btn btn-primary rounded-0" href="{{ route('productcategories.create') }}">Create New Product
+                Category</a>
         </div>
     </div>
     @endcan
@@ -24,13 +25,15 @@
 @endif
 
 
-<table class="table table-bordered">
-    <tr>
-        <th>No</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th width="230px">Action</th>
-    </tr>
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th width="230px">Action</th>
+        </tr>
+    </thead>
     @foreach ($productcategories as $type)
     <tr>
         <td>{{ ++$i }}</td>

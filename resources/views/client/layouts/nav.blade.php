@@ -338,7 +338,7 @@
             <button class="btn btn-outline-transparent icon-user-filled rounded-0 my-2" type="button" id="userDropdown"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre></button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/account/profile">Profile</a>
                 <a class="dropdown-item" href="#">Settings</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -362,7 +362,7 @@
 </nav>
 
 <div class="mb-5"></div>
-@can('isAdmin')
+{{-- @can('isAdmin')
 <div class="btn btn-success btn-lg">
     You have Admin Access
 </div>
@@ -370,4 +370,4 @@
 <div class="btn btn-primary btn-lg">
     You have Manager Access
 </div>
-@endcan
+@endcan --}}

@@ -1635,3 +1635,13 @@ body {
   display: inline-block;
 }
 
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: black !important;
+}
+
+/** focus shadow **/
+
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(150, 150, 150, 0.25);
+}
+

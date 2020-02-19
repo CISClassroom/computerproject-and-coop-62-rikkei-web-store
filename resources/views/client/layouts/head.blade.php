@@ -7,13 +7,14 @@
     {{-- <title>{{ config('app.name', 'Nike Store') }}</title> --}}
 
     {{-- favicon --}}
-    <link rel="icon" href="{{ URL::asset('/images/favicon.png') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ URL::asset('/images/favicon.png') }}" type="image/x-icon" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Bootstrap Dropdown Hover CSS -->
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
@@ -28,6 +29,7 @@
 
     {{-- Gijgo DatePicker --}}
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

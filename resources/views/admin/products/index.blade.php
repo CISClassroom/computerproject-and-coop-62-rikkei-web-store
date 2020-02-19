@@ -24,16 +24,18 @@
 @endif
 
 
-<table class="table table-bordered">
-    <tr>
-        <th>No</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Code</th>
-        <th>Picture</th>
-        <th>Details</th>
-        <th width="230px">Action</th>
-    </tr>
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Picture</th>
+            <th>Details</th>
+            <th width="230px">Action</th>
+        </tr>
+    </thead>
     @foreach ($products as $product)
     <tr>
         <td>{{ ++$i }}</td>

@@ -66,8 +66,8 @@
                                 </div>
                                 <div class="form-group row d-flex justify-content-center">
                                     <div class="col-12 col-lg-10 col-xl-8">
-                                        <div class='input-group date' id='register-date_of_birth'>
-                                            <input type='date' class="form-control" name="date_of_birth">
+                                        <div class='input-group'>
+                                            <input class="form-control datepicker" name="date_of_birth" autocomplete="off">
                                             @error('date_of_birth')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

@@ -51,7 +51,7 @@
                                             <input class="custom-control-input" type="checkbox" name="remember" id="loginRemember"
                                                 {{ old('remember') ? 'checked' : 'checked' }}>
 
-                                            <label class="custom-control-label" for="remember">
+                                            <label class="custom-control-label" for="loginRemember">
                                                 {{ __('Remember Me') }}
                                             </label>
                                         </div>

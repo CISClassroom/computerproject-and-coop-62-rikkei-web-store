@@ -173,7 +173,7 @@
             </div>
         </div>
         <div class="container-fluid pt-5">
-            @include('client.shop.swiper')
+            @include('client.shop.components.swiper')
         </div>
 
     </div>

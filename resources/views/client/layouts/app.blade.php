@@ -3,7 +3,12 @@
 
 @include('client.layouts.head')
 
-<body>
+<body
+@can('isAdmin') style="padding-top: 100px;"
+@elsecan('isManager') style="padding-top: 100px;"
+@endcan
+>
+
     {{-- @include('client.layouts.header') --}}
     @include('client.layouts.nav')
 
@@ -11,20 +16,6 @@
     @include('auth.login-modal')
     @include('auth.register-modal')
     @include('auth.passwords.email-modal')
-
-    {{-- Alert --}}
-    {{-- @if(Session::has('success'))
-  <script type="text/javascript">
-     swal({
-         title:'Success!',
-         text:"{{Session::get('success')}}",
-         timer:5000,
-         type:'success'
-     }).then((value) => {
-       //location.reload();
-     }).catch(swal.noop);
- </script>
- @endif --}}
 
     @yield('content')
 

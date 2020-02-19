@@ -30,7 +30,6 @@ class ShopController extends Controller
     {
         // dd($product);
         $product = Product::find($id);
-        
         return view('client.shop.show', compact('product'));
     }
 

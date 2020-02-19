@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Roles;
 use Illuminate\Support\Facades\Auth;
-// use Spatie\Permission\Models\Role;
-// use Spatie\Permission\Models\Permission;
 
 class HomeController extends Controller
 {
@@ -28,16 +24,11 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if ($user->role_id == "1") {
-            return view('admin.home');
-        }
-        elseif ($user->role_id == "2") {
-            return view('admin.home');
-        }
-        elseif ($user->role_id == "3"){
+        if ($user->role_id == "1" || $user->role_id == "2") {
+            return redirect()->action('AdminHomeController@index');
+        } elseif ($user->role_id == "3") {
             return view('client.home');
-        }
-        else {
+        } else {
             return view('client.home');
         }
     }

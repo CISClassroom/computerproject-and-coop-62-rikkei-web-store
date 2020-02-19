@@ -23,7 +23,8 @@
 </div>
 @endif
 
-<table class="table table-bordered">
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
     <tr>
         <th>No</th>
         <th>ID</th>
@@ -32,6 +33,7 @@
         <th>Roles</th>
         <th width="230px">Action</th>
     </tr>
+</thead>
     @foreach ($data as $key => $user)
     <tr>
         <td>{{ ++$i }}</td>

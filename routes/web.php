@@ -16,24 +16,21 @@
 Auth::routes(['verify' => true]);
 
 // home
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('Nike Store');
 
 // profile
-Route::get('/profile', function () {
-    // verified user profile Only verified users may enter...
-})->middleware('verified');
+// Route::get('/profile', function () {
+// verified user profile Only verified users may enter...
+// })->middleware('verified');
 
 
 // Admin routes
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/admin')->group(function () {
-        Route::get('/', function () {
-            return view('admin/home');
-        });
         Route::get('/dashboard', function () {
             return view('admin/layouts/test');
         });
-
+        Route::resource('/', 'AdminHomeController');
         Route::resource('/users', 'UserController');
         Route::resource('/roles', 'RoleController');
         Route::resource('/products', 'ProductController');
@@ -46,6 +43,9 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/', function () {
     return view('client/home');
 });
+Route::prefix('/account')->group(function () {
+    Route::resource('/profile', 'ProfileController')->middleware('verified');
+});
 Route::resource('/shop', 'ShopController');
 Route::resource('/swiper', 'SwiperController');
 
@@ -57,6 +57,9 @@ Route::resource('/swiper', 'SwiperController');
 Route::name('Test')->group(function () {
     Route::get('/test', function () {
         return view('client/test');
+    });
+    Route::get('/test2', function () {
+        return view('client/test2');
     });
     Route::get('/email', function () {
         return view('auth/oldauth/passwords/email');
