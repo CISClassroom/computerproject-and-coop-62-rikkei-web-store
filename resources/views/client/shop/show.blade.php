@@ -146,10 +146,16 @@
                                             </h2>
                                         </div>
                                         <div class="__addtocart mt-5">
-                                            <a href="#"
+                                            {{-- <a href="{{ url('add-to-cart',$product->id) }}"
                                                 class="btn btn-dark btn-lg btn-block rounded-pill text-uppercase">
                                                 {{ __('ADD TO CART')}}
-                                            </a>
+                                            </a> --}}
+                                            {!! Form::open(['url' => route('cart.store', ['id' => $product->id])]) !!}
+                                            <button type="submit"
+                                                class="btn btn-dark btn-lg btn-block rounded-pill text-uppercase">
+                                                {{ __('ADD TO CART')}}
+                                            </button>
+                                            {!! Form::close() !!}
                                         </div>
                                         <div class="__favorite mt-3">
                                             <a href="#"

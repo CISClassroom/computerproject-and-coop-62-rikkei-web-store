@@ -8,7 +8,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
-{{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+{{-- script --}}
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 {{-- Ajax CDN --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -74,3 +76,45 @@ $('.carousel .carousel-item').each(function(){
         orientation: "top auto",
     });
 </script>
+
+    <script type="text/javascript">
+        $('.txt-quantity').change(function () {
+        let dataUrl = $(this).closest('tr').find('button').attr('data-url');
+        let dataOldUrl = $(this).closest('tr').find('button').attr('data-old-url');
+        let quantity = $(this).val();
+        let newUrl = dataOldUrl + '?quantity=' + $(this).val();
+        $(this).closest('tr').find('button').attr('data-url', newUrl);
+    });
+
+    $(".update-cart").click(function (e) {
+       e.preventDefault();
+
+       var ele = $(this);
+
+        $.ajax({
+           url: ele.attr("data-url"),
+           method: "patch",
+           data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
+           success: function (response) {
+               window.location.reload();
+           }
+        });
+    });
+
+    $(".remove-from-cart").click(function (e) {
+        e.preventDefault();
+
+        var ele = $(this);
+
+        if(confirm("Are you sure to remove this item?")) {
+            $.ajax({
+                url: ele.attr("data-url"),
+                method: "DELETE",
+                data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
+    </script>

@@ -3,11 +3,7 @@
 
 @include('client.layouts.head')
 
-<body
-@can('isAdmin') style="padding-top: 100px;"
-@elsecan('isManager') style="padding-top: 100px;"
-@endcan
->
+<body @can('isAdmin') style="padding-top: 100px;" @elsecan('isManager') style="padding-top: 100px;" @endcan>
 
     {{-- @include('client.layouts.header') --}}
     @include('client.layouts.nav')
@@ -16,6 +12,7 @@
     @include('auth.login-modal')
     @include('auth.register-modal')
     @include('auth.passwords.email-modal')
+    {{-- @include('client.shop.carts.cart-modal') --}}
 
     @yield('content')
 

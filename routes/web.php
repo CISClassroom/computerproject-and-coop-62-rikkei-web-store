@@ -15,13 +15,13 @@
 // Auth
 Auth::routes(['verify' => true]);
 
-// home
 Route::get('/home', 'HomeController@index')->name('Nike Store');
+Route::resource('/cart', 'CartController');
+// Route::get('/cart', 'CartController@index');
+// Route::get('add-to-cart/{id}', 'CartController@addToCart');
 
-// profile
-// Route::get('/profile', function () {
-// verified user profile Only verified users may enter...
-// })->middleware('verified');
+// Route::patch('update-cart', 'ProductsController@update');
+// Route::delete('remove-from-cart', 'ProductsController@remove');
 
 
 // Admin routes
@@ -60,6 +60,9 @@ Route::name('Test')->group(function () {
     });
     Route::get('/test2', function () {
         return view('client/test2');
+    });
+    Route::get('/test3', function () {
+        return view('client/shop/carts/index');
     });
     Route::get('/email', function () {
         return view('auth/oldauth/passwords/email');

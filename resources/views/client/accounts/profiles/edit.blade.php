@@ -62,12 +62,12 @@
                                                     <select class="form-control" name="gender" id="gender"
                                                         value="{{ $user->gender }}" placeholder="Gender">
 
-                                                    @if ( $user->gender === 'Male' )
+                                                        {{-- @if ( $user->gender === 'Male' )
                                                             $select = 'selected'
                                                             @elseif ( $user->gender === 'Female' )
                                                             $select2 = 'selected'
-                                                            
-                                                            @endif
+
+                                                            @endif --}}
 
 
                                                         <option value="Male" $select>Male</option>
