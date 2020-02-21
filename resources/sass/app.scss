@@ -26,6 +26,9 @@
     &-red {
         background-color: #D00022 !important;
     }
+    &-btn-lgray:hover {
+        background-color: #F5F5F5 !important;
+    }
 }
 
 
@@ -71,9 +74,14 @@
 @include icon("add-white", "add-white");
 @include icon("back", "back");
 @include icon("back-white", "back-white");
+@include icon("bin", "bin");
+@include icon("bin-red", "bin-red");
+@include icon("bin-white", "bin-white");
 @include icon("box", "box");
 @include icon("box-white", "box-white");
 @include icon("cart", "cart");
+@include icon("check", "check");
+@include icon("check-white", "check-white");
 @include icon("close", "close");
 @include icon("close-white", "close-white");
 @include icon("edit-tools", "edit-tools");
@@ -93,6 +101,8 @@
 @include icon("next", "next");
 @include icon("next-white", "next-white");
 @include icon("question", "question");
+@include icon("refresh", "refresh");
+@include icon("refresh-white", "refresh-white");
 @include icon("search", "search");
 @include icon("shield", "shield");
 @include icon("shield-white", "shield-white");
@@ -266,3 +276,12 @@ body {
     box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(150, 150, 150, 0.25);
 }
 
+// side scroll
+.testimonial-group .table-nw {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .testimonial-group .table-nw .tr-nw {
+    display: inline-block;
+    float: none;
+  }

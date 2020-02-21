@@ -350,91 +350,96 @@
                 </form>
             </div>
             @endguest
-        </div>
-        <a href="#" class="btn btn-outline-transparent icon-question rounded-0 my-2" type="button"></a>
+            <a href="#" class="btn btn-outline-transparent icon-question rounded-0 my-2" type="button"></a>
 
-        {{-- <a class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button" data-target="cartModal"
+            {{-- <a class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button" data-target="cartModal"
             data-toggle="modal"></a> --}}
 
-        <button class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button" data-target="#cartDropdown"
-            data-toggle="dropdown"></button>
+            <button class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button"
+                data-target="#cartDropdown" data-toggle="dropdown"></button>
 
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropdown" id="cartDropdown">
-            <ul class="nav navbar-nav">
-                <div class="container">
-                    <div class="pl-3">
-                        <h3 class="__detailheader my-3">{{ __('Cart') }}</h3>
-                    </div>
-                    <div class="dropdown-divider"><br></div>
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success mt-5">
-                        <p>{{ $message }}</p>
-                    </div>
-                    @endif
-                        <a class="icon-home my-3"></a>
-                    @if(session('cart') == null)
-                    <div class="container text-center my-5">
-                        <label class="showproduct-title text-muted"> {{ __('Your cart is emty') }} </label>
-                    </div>
-                    @else
-                    {{ Form::hidden('total', $total = 0) }}
-                    {{ Form::hidden('stotal', $stotal = 0) }}
-                    {{ Form::hidden('i', $i = 0) }}
-                    <table class="table table-hover table-borderless">
-                        <thead>
-                            <tr>
-                                <th style="white-space: nowrap; width: 1%;">No.</th>
-                                <th style="white-space: nowrap; width: 1%;">Image</th>
-                                <th>Name</th>
-                                <th style="white-space: nowrap; width: 1%;">Quantity</th>
-                                <th style="white-space: nowrap; width: 1%;">Subtotal</th>
-                                <th style="white-space: nowrap; width: 1%;">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if(session('cart'))
-                            @foreach(session('cart') as $id => $details)
-
-                            <tr style="line-height: 80px; min-height: 80px; height: 80px;">
-                                <td>
-                                    {{ ++$i }}
-                                </td>
-                                <td>
-                                    <img src="{{ $details['image_url'] }}" width="60" height="60"
-                                        class="img-responsive" />
-                                </td>
-                                <td>
-                                    {{ $details['name'] }}
-                                </td>
-                                <td>
-                                    <input type="number" value="{{ $details['quantity'] }}" name="quantity"
-                                        class="form-control mt-3 txt-quantity" min="1" />
-                                </td>
-                                <td class="text-right">
-                                    {{ $stotal = $details['quantity'] * $details['price'] }}
-                                    {{ Form::hidden('invisible', $total += $stotal) }}
-                                </td>
-                                <td class="actions text-right" data-th="">
-                                    <div class="row text-center mt-4" style="margin-left: 0px !important;">
-                                        <button class="btn btn-dark btn-sm rounded-0 update-cart"
-                                            data-old-url="{{ route('cart.update', ['cart' => $id]) }}"
-                                            data-id="{{ $id }}"
-                                            data-url="{{ route('cart.update', ['cart' => $id, 'quantity' => $details['quantity']]) }}">
-                                            U
-                                        </button>
-                                        <button class="btn btn-outline-danger btn-sm rounded-0 remove-from-cart"
-                                            data-id="{{ $id }}"
-                                            data-url="{{ route('cart.update', ['cart' => $id]) }}"></i>R</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropdown" id="cartDropdown">
+                <ul class="">
+                    <div class="container">
+                        <div class="pl-3">
+                            <h3 class="__detailheader my-3">{{ __('Cart') }}</h3>
+                        </div>
+                        <div class="dropdown-divider"><br></div>
+                        <div class="container">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success" style="width: 100%;">
+                                <p>{{ $message }}</p>
+                            </div>
                             @endif
-                        </tbody>
-                    </table>
-                    @endif
-                </div>
-            </ul>
+                        </div>
+                        @if(session('cart') == null)
+                        <div class="container text-center my-5">
+                            <label class="showproduct-title text-muted"> {{ __('Your cart is emty') }} </label>
+                        </div>
+                        @else
+                        {{ Form::hidden('total', $total = 0) }}
+                        {{ Form::hidden('stotal', $stotal = 0) }}
+                        {{ Form::hidden('i', $i = 0) }}
+                        <table class="table table-hover table-borderless">
+                            <thead>
+                                <tr>
+                                    <th style="white-space: nowrap; width: 1%;">No.</th>
+                                    <th style="white-space: nowrap; width: 1%;">Image</th>
+                                    <th>Name</th>
+                                    <th style="white-space: nowrap; width: 1%;">Quantity</th>
+                                    <th style="white-space: nowrap; width: 1%;">Subtotal</th>
+                                    <th style="white-space: nowrap; width: 1%;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(session('cart'))
+                                @foreach(session('cart') as $id => $details)
+
+                                <tr style="line-height: 80px; min-height: 80px; height: 80px;">
+                                    <td>
+                                        {{ ++$i }}
+                                    </td>
+                                    <td>
+                                        <img src="/{{ $details['image_url'] }}" width="60" height="60"
+                                            class="img-responsive" />
+                                    </td>
+                                    <td>
+                                        {{ $details['name'] }}
+                                    </td>
+                                    <td>
+                                        <input type="number" value="{{ $details['quantity'] }}" name="quantity"
+                                            class="form-control mt-3 txt-quantity" min="1" />
+                                    </td>
+                                    <td class="text-right">
+                                        @currency($stotal = $details['quantity'] * $details['price'])
+                                        {{ Form::hidden('invisible', $total += $stotal) }}
+                                    </td>
+                                    <td class="actions text-right" data-th="">
+                                        <div class="row text-center mt-4">
+                                            <button class="btn btn-dark btn-sm rounded-0 icon-refresh-white update-cart"
+                                                data-old-url="{{ route('cart.update', ['cart' => $id]) }}"
+                                                data-id="{{ $id }}"
+                                                data-url="{{ route('cart.update', ['cart' => $id, 'quantity' => $details['quantity']]) }}">
+                                            </button>
+                                            <button
+                                                class="btn btn-outline-danger btn-sm rounded-0 icon-bin-red bg-btn-lgray remove-from-cart"
+                                                data-id="{{ $id }}"
+                                                data-url="{{ route('cart.update', ['cart' => $id]) }}"></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                        <div class="container">
+                            <a href="/cart" class="btn btn-outline-dark rounded-0 btn-block"
+                                style="">{{ __('Review cart') }}</a>
+                        </div>
+                        @endif
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
 

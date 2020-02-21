@@ -12,8 +12,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
 {
-    $users = factory(App\Models\User::class, 15)->make()->toArray();
-
+    $users = factory(App\Models\User::class, 15)->assignRole('member')->make()->toArray();
     foreach ($users as $user) {
         App\Models\User::create($user);
     }

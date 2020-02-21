@@ -30,7 +30,7 @@ class CreateProductSeeder extends Seeder
                 'price' => '250.00',
                 'detail' => 'Nike Air Max 200',
                 'image_url' => 'images/products/upload/1581654263.jpg',
-                'product_category_id' => '1',
+                'product_category_id' => '2',
                 'product_type_id' => '1',
             ],
         );
@@ -41,7 +41,7 @@ class CreateProductSeeder extends Seeder
                     'price' => '179.00',
                     'detail' => 'Nike Air Monarch IV lifestyle-gym-shoe',
                     'image_url' => 'images/products/upload/1581654415.jpg',
-                    'product_category_id' => '1',
+                    'product_category_id' => '3',
                     'product_type_id' => '1',
                 ],
         );
@@ -53,7 +53,7 @@ class CreateProductSeeder extends Seeder
                 'detail' => 'Nike Epic React Flyknit 2 running shoe',
                 'image_url' => 'images/products/upload/1581654725.jpg',
                 'product_category_id' => '1',
-                'product_type_id' => '1',
+                'product_type_id' => '2',
             ],
         );
         Product::create(
@@ -63,8 +63,8 @@ class CreateProductSeeder extends Seeder
                 'price' => '130.00',
                 'detail' => 'Nike Joyride Run Flyknit running shoe',
                 'image_url' => 'images/products/upload/1581654741.jpg',
-                'product_category_id' => '1',
-                'product_type_id' => '1',
+                'product_category_id' => '2',
+                'product_type_id' => '2',
             ],
         );
         Product::create(
@@ -85,7 +85,7 @@ class CreateProductSeeder extends Seeder
                 'price' => '159.00',
                 'detail' => 'Nike React Infinity Run Flyknit',
                 'image_url' => 'images/products/upload/1581654758.jpg',
-                'product_category_id' => '1',
+                'product_category_id' => '3',
                 'product_type_id' => '1',
             ],
         );
@@ -96,7 +96,7 @@ class CreateProductSeeder extends Seeder
                 'price' => '250.00',
                 'detail' => 'Nike Air Max 200',
                 'image_url' => 'images/products/upload/1581654263.jpg',
-                'product_category_id' => '1',
+                'product_category_id' => '3',
                 'product_type_id' => '1',
             ],
         );

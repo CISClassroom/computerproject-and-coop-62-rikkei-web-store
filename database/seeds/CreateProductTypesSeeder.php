@@ -14,7 +14,10 @@ class CreateProductTypesSeeder extends Seeder
     {
         ProductType::create(
             [
-                'name' => 'Shoes',
+                'name' => 'Mens Shoes',
+                'name' => 'Womens Shoes',
+                'name' => 'Boys Shoes',
+                'name' => 'Girls Shoes',
             ]
         );
     }

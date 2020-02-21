@@ -102,6 +102,14 @@ $("input[data-type='currency']").on({
     formatCurrency($(this), "blur");
   }
 });
+$("[data-type='currency']").on({
+  keyup: function keyup() {
+    formatCurrency($(this));
+  },
+  blur: function blur() {
+    formatCurrency($(this), "blur");
+  }
+});
 
 function formatNumber(n) {
   // format number 1000000 to 1,234,567

@@ -2,29 +2,24 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Public Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
-// Public Routes
-
 // Auth
 Auth::routes(['verify' => true]);
 
+// store
 Route::get('/home', 'HomeController@index')->name('Nike Store');
 Route::resource('/cart', 'CartController');
-// Route::get('/cart', 'CartController@index');
-// Route::get('add-to-cart/{id}', 'CartController@addToCart');
-
-// Route::patch('update-cart', 'ProductsController@update');
-// Route::delete('remove-from-cart', 'ProductsController@remove');
 
 
-// Admin routes
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin routes
+|--------------------------------------------------------------------------
+*/
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/admin')->group(function () {
         Route::get('/dashboard', function () {
@@ -39,24 +34,38 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-// Client routes
+
+
+/*
+|--------------------------------------------------------------------------
+| Client routes
+|--------------------------------------------------------------------------
+*/
 Route::get('/', function () {
     return view('client/home');
 });
 Route::prefix('/account')->group(function () {
     Route::resource('/profile', 'ProfileController')->middleware('verified');
+    Route::resource('/address', 'AddressController')->middleware('verified');
 });
 Route::resource('/shop', 'ShopController');
 Route::resource('/swiper', 'SwiperController');
 
-// cannot use, cause bug, why?
-// Route::prefix('/shop')->group(function () {
-// });
+//need to login and verified to checkout
+Route::resource('/checkout', 'CheckoutController')->middleware('verified');
+Route::resource('/payment', 'CheckoutController')->middleware('verified');
 
-// test
+
+
+
+/*
+|--------------------------------------------------------------------------
+| test routes
+|--------------------------------------------------------------------------
+*/
 Route::name('Test')->group(function () {
     Route::get('/test', function () {
-        return view('client/test');
+        return view('client/shop/checkouts/index');
     });
     Route::get('/test2', function () {
         return view('client/test2');

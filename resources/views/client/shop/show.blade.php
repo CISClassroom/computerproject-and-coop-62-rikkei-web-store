@@ -65,79 +65,68 @@
                                         </div>
 
                                         <div class="container" id="size-container">
-                                            <div class="row row-eq-height row-cols-1 row-cols-md-2">
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{ __('US M 7 / W 8.5') }}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 7.5 / W 9')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 8 / W 9.5')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 8.5 / W 10')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 9 / W 10.5')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 9.5 / W 11')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 10 / W 11.5')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 10.5 / W 12')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 11 / W 12.5')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 11.5 / W 13')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 12 / W 13.5')}}
-                                                    </a>
-                                                </div>
-                                                <div class="my-1">
-                                                    <a href="#" type="button"
-                                                        class="btn btn-lg btn-block btn-outline-dark showproduct-size">
-                                                        {{__('US M 13 / W 14.5')}}
-                                                    </a>
-                                                </div>
+                                            <div class="row row-eq-height row-cols-1 row-cols-md-2 btn-group btn-group-toggle"
+                                                data-toggle="buttons">
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1 active">
+                                                    <input type="radio" name="size" id="option-1" checked>
+                                                    {{ __('US M 7 / W 8.5') }}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 7.5 / W 9')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 8 / W 9.5')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 8.5 / W 10')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 9 / W 10.5')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 9.5 / W 11')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 10 / W 11.5')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 10.5 / W 12')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 11 / W 12.5')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 11.5 / W 13')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 12 / W 13.5')}}
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
+                                                    <input type="radio" name="size" id="option-1">
+                                                    {{__('US M 13 / W 14.5')}}
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="font-weight-bold text-right mt-5">
@@ -146,10 +135,7 @@
                                             </h2>
                                         </div>
                                         <div class="__addtocart mt-5">
-                                            {{-- <a href="{{ url('add-to-cart',$product->id) }}"
-                                                class="btn btn-dark btn-lg btn-block rounded-pill text-uppercase">
-                                                {{ __('ADD TO CART')}}
-                                            </a> --}}
+
                                             {!! Form::open(['url' => route('cart.store', ['id' => $product->id])]) !!}
                                             <button type="submit"
                                                 class="btn btn-dark btn-lg btn-block rounded-pill text-uppercase">

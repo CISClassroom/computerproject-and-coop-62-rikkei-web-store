@@ -6,7 +6,7 @@
             class="btn btn-outline-dark btn-lg btn-block">{{ __('Order History') }}</a>
         <a href="account/favorite" type="button"
             class="btn btn-outline-dark btn-lg btn-block">{{ __('Favorites') }}</a>
-        <a href="#" type="button"
+        <a href="{{ route('address.index') }}" type="button"
             class="btn btn-outline-dark btn-lg btn-block">{{ __('Address book') }}</a>
     </div>
 </div>
