@@ -60,8 +60,15 @@ Route::resource('/swiper', 'SwiperController');
 Route::resource('/checkout', 'CheckoutController')->middleware('verified');
 Route::post('/storeCartSummary', 'CheckoutController@storeCartSummary')->middleware('verified')->name('storeCartSummary');
 Route::post('/applyPromotionCode', 'CheckoutController@applyPromotionCode')->middleware('verified')->name('applyPromotionCode');
-Route::get('/summary', 'CheckoutController@applyPromotionCode')->middleware('verified')->name('applyPromotionCode');
+Route::get('/summary', 'CheckoutController@summary')->middleware('verified')->name('summary');
 Route::resource('/payment', 'PaymentController')->middleware('verified');
+Route::resource('/order', 'OrderController')->middleware('verified');
+Route::get('/postOrder', 'OrderController@postOrder')->middleware('verified')->name('postOrder');
+Route::get('/postProductOrder', 'OrderController@postProductOrder')->middleware('verified')->name('postProductOrder');
+
+// Route::resource('/ordercomplete', 'OrderController@store')->middleware('verified')->name('ordercomplete');
+
+
 
 
 

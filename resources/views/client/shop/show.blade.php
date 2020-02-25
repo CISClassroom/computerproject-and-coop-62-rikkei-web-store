@@ -57,22 +57,26 @@
                                                 <label
                                                     class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
                                                     style="background-color: blue;">
-                                                    <input type="radio" name="color" value="blue" id="option-1" checked>
+                                                    <input type="radio" name="color" value="blue" id="option-blue"
+                                                        checked>
                                                 </label>
                                                 <label
                                                     class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
                                                     style="background-color: red;">
-                                                    <input type="radio" name="color" value="red" id="option-2" checked>
+                                                    <input type="radio" name="color" value="red" id="option-red"
+                                                        checked>
                                                 </label>
                                                 <label
                                                     class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
                                                     style="background-color: green;">
-                                                    <input type="radio" name="color" value="green" id="option-3" checked>
+                                                    <input type="radio" name="color" value="green" id="option-green"
+                                                        checked>
                                                 </label>
                                                 <label
                                                     class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
                                                     style="background-color: yellow;">
-                                                    <input type="radio" name="color" value="yellow" id="option-4" checked>
+                                                    <input type="radio" name="color" value="yellow" id="option-yellow"
+                                                        checked>
                                                 </label>
                                                 {{-- <input type="radio" name="color" id="color-4" value="yellow" class="border border-dark rounded-circle dotcolor"
                                                 style="background-color: yellow;"> --}}

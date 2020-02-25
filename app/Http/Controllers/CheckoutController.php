@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -117,8 +118,10 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $user_id = Auth::user()->id;
         $address_id = $request->address_id;
         $address = Address::find($address_id);
+
         // dd($address->name);
 
 
@@ -131,7 +134,8 @@ class CheckoutController extends Controller
         if ($address) {
 
             $address = [
-                $address_id => [
+                $user_id => [
+                    "address_id" => $address_id,
                     "name" => $address->name,
                     "addressline1" => $address->addressline1,
                     "addressline2" => $address->addressline2,
@@ -148,7 +152,7 @@ class CheckoutController extends Controller
                 ->with('summary-warning', 'Please check all details before proceed!');
         }
         // if item not exist then add
-        $address[$address_id] = [
+        $address[$user_id] = [
             "id" => $address->id,
             "name" => $address->name,
             "addressline1" => $address->addressline1,
@@ -167,7 +171,7 @@ class CheckoutController extends Controller
 
     public function summary()
     {
-        return view('client.shop.checkouts.summary');
+        return view('client.shop.checkouts.summary')->with('i');
     }
 
     public function show($id)

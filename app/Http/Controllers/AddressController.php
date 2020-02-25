@@ -59,7 +59,7 @@ class AddressController extends Controller
         ]);
         $arrData = $request->all();
         // dd($arrData);
-
+            dd($arrData);
         Address::create($arrData);
 
         // return redirect(Session::get('_previous')['url'])

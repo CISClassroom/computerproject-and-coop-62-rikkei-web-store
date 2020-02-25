@@ -17,7 +17,7 @@
                                 <h3 class="__detailheader">{{ __('Delivery Address') }}</h3>
                                 <hr>
                                 {{ Form::hidden('i', $i = 0) }}
-                                {{ Form::hidden('total', $total = 0) }}
+                                {{-- {{ Form::hidden('total', $total = 0) }} --}}
                                 @if ($message = Session::get('success'))
                                 <div class="alert alert-success">
                                     <p>{{ $message }}</p>
@@ -28,14 +28,6 @@
                                     <label class="showproduct-title text-muted"> {{ __('Your cart is emty') }} </label>
                                 </div>
                                 @else
-                                @if(session('cart'))
-
-                                @foreach(session('cart') as $id => $details)
-                                {{ Form::hidden('stotal', $stotal = $details['quantity'] * $details['price']) }}
-                                {{ Form::hidden('total', $total += $stotal) }}
-                                @endforeach
-                                @endif
-
                                 @if ($message = Session::get('address-success'))
                                 <div class="alert alert-success">
                                     <p>{{ $message }}</p>
@@ -188,4 +180,4 @@
         </div>
     </div>
 </div>
-@include('client.shop.checkouts.newaddress-modal')
+@include('client.shop.checkouts.components.newaddress-modal')

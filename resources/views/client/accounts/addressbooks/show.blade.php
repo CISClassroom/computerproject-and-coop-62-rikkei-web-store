@@ -26,32 +26,32 @@
                                     </tr>
                                     <tr style="line-height: 50px; min-height: 50px; height: 50px;">
                                         <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
-                                            {{ __('Email') }} </td>
+                                            {{ __('Address Line 1') }} </td>
                                         <td>{{ $address->addressline1 }}</td>
                                     </tr>
                                     <tr style="line-height: 50px; min-height: 50px; height: 50px;">
                                         <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
-                                            {{ __('Gender') }} </td>
+                                            {{ __('Address Line 2') }} </td>
                                         <td>{{ $address->addressline2 }}</td>
                                     </tr>
                                     <tr style="line-height: 50px; min-height: 50px; height: 50px;">
                                         <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
-                                            {{ __('Date of birth') }} </td>
+                                            {{ __('City') }} </td>
                                         <td>{{ $address->city }}</td>
                                     </tr>
                                     <tr style="line-height: 50px; min-height: 50px; height: 50px;">
                                         <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
-                                            {{ __('Email') }} </td>
+                                            {{ __('Country') }} </td>
                                         <td>{{ $address->country }}</td>
                                     </tr>
                                     <tr style="line-height: 50px; min-height: 50px; height: 50px;">
                                         <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
-                                            {{ __('Gender') }} </td>
+                                            {{ __('Phonenumber') }} </td>
                                         <td>{{ $address->phonenumber }}</td>
                                     </tr>
                                     <tr style="line-height: 50px; min-height: 50px; height: 50px;">
                                         <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
-                                            {{ __('Date of birth') }} </td>
+                                            {{ __('ZIPcode') }} </td>
                                         <td>{{ $address->zipcode }}</td>
                                     </tr>
                                 </tbody>

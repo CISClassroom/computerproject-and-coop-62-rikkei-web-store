@@ -172,4 +172,3 @@
 </div>
 </div>
 </div>
-@include('client.shop.checkouts.newaddress-modal')
