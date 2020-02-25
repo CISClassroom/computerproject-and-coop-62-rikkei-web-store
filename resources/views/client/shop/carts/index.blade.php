@@ -11,7 +11,7 @@
                             <h3 class="__detailheader">{{ __('Product Summary') }}</h3>
                             <hr>
                             {{ Form::hidden('total', $total = 0) }}
-                            @if ($message = Session::get('success'))
+                            @if ($message = Session::get('cart-success'))
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
@@ -57,7 +57,7 @@
                                         </td>
                                         <td class="text-right">
                                             @currency( $stotal = $details['quantity'] * $details['price'] )
-                                            {{ Form::hidden('invisible', $total += $stotal) }}
+                                            {{ Form::hidden('sumtotal', $total += $stotal) }}
                                         </td>
                                         <td class="actions text-right" data-th="">
                                             <div class="row text-center mt-4">
@@ -80,16 +80,21 @@
                             </table>
                             @endif
                             <div class="row row-cols-2 mb-3">
-                                <div class="container">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Apply coupon code here"
-                                            aria-label="coupon code" aria-describedby="buttonApplyCoupon">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-dark" type="button"
-                                                id="buttonApplyCoupon">{{ __('Apply') }}</button>
+                                <form action=" {{ route('applyPromotionCode') }} " method="post">
+                                    @method('POST')
+                                    @csrf
+                                    <div class="container">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="promotioncode"
+                                                placeholder="Apply promotion code here" aria-label="Promotion code"
+                                                aria-describedby="buttonApplyPromotionCode">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-dark" type="submit"
+                                                    id="buttonApplyPromotionCode">{{ __('Apply') }}</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                                 <div class="container text-right mb-3">
                                     <a href="#" class="btn btn-outline-danger rounded-0">
                                         {{ __('Clear') }}
@@ -103,72 +108,82 @@
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="card">
-                        <div class="card-body">
-                            <div class="row row-cols-2 mb-3">
-                                <div class="col">
-                                    <label for="" class="showproduct-subtitle font-weight-bold">
-                                        {{ __('Subtotal') }}
-                                    </label>
+                        <form action=" {{ route('storeCartSummary') }} " method="post">
+                            @method('POST')
+                            @csrf
+                            <div class="card-body">
+                                <div class="row row-cols-2 mb-3">
+                                    <div class="col">
+                                        <label for="" class="showproduct-subtitle font-weight-bold">
+                                            {{ __('Subtotal') }}
+                                        </label>
+                                    </div>
+                                    <div class="col text-right">
+                                        <label for="" class="showproduct-subtitle font-weight-bold"
+                                            data-type="currency">
+                                            @currency($total)
+                                            {{ Form::hidden('subtotal', $total) }}
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="col text-right">
-                                    <label for="" class="showproduct-subtitle font-weight-bold" data-type="currency">
-                                        @currency($total)
-                                    </label>
+                                <div class="row row-cols-2 mb-3">
+                                    <div class="col">
+                                        <label for="" class="showproduct-subtitle font-weight-bold">
+                                            {{ __('Shipping') }}
+                                        </label>
+                                    </div>
+                                    <div class="col text-right">
+                                        <label for="" class="showproduct-subtitle font-weight-bold">
+                                            @currency($shipping = 100.00)
+                                            {{ Form::hidden('shipping', $shipping) }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row row-cols-2 mb-3">
+                                    <div class="col">
+                                        <label for="" class="showproduct-subtitle font-weight-bold">
+                                            {{ __('Discount') }}
+                                        </label>
+                                    </div>
+                                    <div class="col text-right">
+                                        <label for="" class="showproduct-subtitle font-weight-bold">
+                                            {{ __('-') }}@currency($discount = 50.00)
+                                            {{ Form::hidden('discount', $discount) }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row row-cols-1 mb-3">
+                                    <hr>
+                                </div>
+                                <div class="row row-cols-2 mb-3">
+                                    <div class="col">
+                                        <label for="" class="showproduct-subtitle font-weight-bold">
+                                            {{ __('Total') }}
+                                        </label>
+                                    </div>
+                                    <div class="col text-right">
+                                        <label for="" class="showproduct-subtitle font-weight-bold">
+                                            @currency($sumtotal = $total + $shipping - $discount)
+                                            {{ Form::hidden('sumtotal', $sumtotal) }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="container">
+                                        <button type="submit"
+                                            class="btn btn-dark rounded-0 btn-lg btn-block text-uppercase">
+                                            {{ __('Check out') }}
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="container">
+                                        <a href="{{ route('shop.index') }}"
+                                            class="btn btn-outline-dark rounded-0 btn-lg btn-block text-uppercase">{{ __('Continue Shopping') }}</a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row row-cols-2 mb-3">
-                                <div class="col">
-                                    <label for="" class="showproduct-subtitle font-weight-bold">
-                                        {{ __('Shipping') }}
-                                    </label>
-                                </div>
-                                <div class="col text-right">
-                                    <label for="" class="showproduct-subtitle font-weight-bold">
-                                        @currency($shipping = 100.00)
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row row-cols-2 mb-3">
-                                <div class="col">
-                                    <label for="" class="showproduct-subtitle font-weight-bold">
-                                        {{ __('Discount') }}
-                                    </label>
-                                </div>
-                                <div class="col text-right">
-                                    <label for="" class="showproduct-subtitle font-weight-bold">
-                                        {{ __('-') }}@currency($discount = 100.00)
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row row-cols-1 mb-3">
-                                <hr>
-                            </div>
-                            <div class="row row-cols-2 mb-3">
-                                <div class="col">
-                                    <label for="" class="showproduct-subtitle font-weight-bold">
-                                        {{ __('Total') }}
-                                    </label>
-                                </div>
-                                <div class="col text-right">
-                                    <label for="" class="showproduct-subtitle font-weight-bold">
-                                        @currency($sumtotal = $total + $shipping - $discount)
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row mt-5">
-                                <div class="container">
-                                    <a href="#" class="btn btn-dark rounded-0 btn-lg btn-block text-uppercase">
-                                        {{ __('Check out') }}
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="container">
-                                    <a href="{{ url('/shop') }}"
-                                        class="btn btn-outline-dark rounded-0 btn-lg btn-block text-uppercase">{{ __('Continue Shopping') }}</a>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -41,16 +41,20 @@ class CartController extends Controller
 
             $cart = [
                 $id => [
+
+                    "product_id" => $product->id,
                     "name" => $product->name,
                     "quantity" => 1,
                     "price" => $product->price,
-                    "image_url" => $product->image_url
+                    "image_url" => '/'.$product->image_url,
+                    "color" => $request->color,
+                    "size" => $request->size,
                 ]
             ];
 
             session()->put('cart', $cart);
 
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('cart-success', 'Product added to cart successfully!');
         }
 
         // if cart not empty then check if this product exist then increment quantity
@@ -60,21 +64,85 @@ class CartController extends Controller
 
             session()->put('cart', $cart);
 
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('cart-success', 'Product added to cart successfully!');
         }
 
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
+            "product_id" => $product->id,
             "name" => $product->name,
             "quantity" => 1,
             "price" => $product->price,
-            "image_url" => $product->image_url
+            "image_url" => $product->image_url,
+            "color" => $request->color,
+            "size" => $request->size,
         ];
 
         session()->put('cart', $cart);
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('cart-success', 'Product added to cart successfully!');
     }
+    // {
+    //     // dd($request->id);
+    //     $id = $request->id;
+    //     $product = Product::find($id);
+
+    //     if (!$product) {
+
+    //         abort(404);
+    //     }
+
+    //     $cart = session()->get('cart');
+
+    //     // if cart is empty then this the first product
+    //     if (!$cart) {
+
+    //         $cart = [
+    //             $id = [
+    //                 $request->color = [
+    //                     $request->size => [
+    //                         "product_id" => $product->id,
+    //                         "name" => $product->name,
+    //                         "quantity" => 1,
+    //                         "price" => $product->price,
+    //                         "image_url" => $product->image_url,
+    //                         "color" => $request->color,
+    //                         "size" => $request->size,
+    //                     ]
+    //                 ]
+    //             ]
+    //         ];
+
+    //         session()->put('cart', $cart);
+
+    //         return redirect()->back()->with('cart-success', 'Product added to cart successfully!');
+    //     }
+
+    //     // if cart not empty then check if this product exist then increment quantity
+    //     if (isset($cart[$id][$request->color][$request->size])) {
+
+    //         $cart[$id][$request->color][$request->size]['quantity']++;
+
+    //         session()->put('cart', $cart);
+
+    //         return redirect()->back()->with('cart-success', 'Product added to cart successfully!');
+    //     }
+
+    //     // if item not exist in cart then add to cart with quantity = 1
+    //     $cart[$id][$request->color][$request->size] = [
+    //         "product_id" => $product->id,
+    //         "name" => $product->name,
+    //         "quantity" => 1,
+    //         "price" => $product->price,
+    //         "image_url" => $product->image_url,
+    //         "color" => $request->color,
+    //         "size" => $request->size,
+    //     ];
+
+    //     session()->put('cart', $cart);
+
+    //     return redirect()->back()->with('cart-success', 'Product added to cart successfully!');
+    // }
 
     public function show($id)
     {

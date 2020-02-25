@@ -9,10 +9,10 @@
                 @include('client.accounts.components.sidebar')
                 <div class="col-8 col-md-8">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body overflow-auto">
                             <h3 class="__detailheader">{{ __('Account details') }}</h3>
                             <hr>
-                            @if ($message = Session::get('success'))
+                            @if ($message = Session::get('profile-success'))
                                 <div class="alert alert-success">
                                     <p>{{ $message }}</p>
                                 </div>

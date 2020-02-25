@@ -365,16 +365,14 @@
                             <h3 class="__detailheader my-3">{{ __('Cart') }}</h3>
                         </div>
                         <div class="dropdown-divider"><br></div>
-                        <div class="container">
-                            @if ($message = Session::get('success'))
+                            @if ($message = Session::get('cart-success'))
                             <div class="alert alert-success" style="width: 100%;">
                                 <p>{{ $message }}</p>
                             </div>
                             @endif
-                        </div>
                         @if(session('cart') == null)
                         <div class="container text-center my-5">
-                            <label class="showproduct-title text-muted"> {{ __('Your cart is emty') }} </label>
+                            <label class="showproduct-subtitle text-muted"> {{ __('Your cart is emty') }} </label>
                         </div>
                         @else
                         {{ Form::hidden('total', $total = 0) }}
@@ -400,7 +398,7 @@
                                         {{ ++$i }}
                                     </td>
                                     <td>
-                                        <img src="/{{ $details['image_url'] }}" width="60" height="60"
+                                        <img src="{{ $details['image_url'] }}" width="60" height="60"
                                             class="img-responsive" />
                                     </td>
                                     <td>

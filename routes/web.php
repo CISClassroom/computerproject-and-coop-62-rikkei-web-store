@@ -47,13 +47,21 @@ Route::get('/', function () {
 Route::prefix('/account')->group(function () {
     Route::resource('/profile', 'ProfileController')->middleware('verified');
     Route::resource('/address', 'AddressController')->middleware('verified');
+
+    Route::post('/address-store-ajax', 'AddressController@storeAjax')
+        ->middleware('verified')
+        ->name('storeAjax');
 });
+
 Route::resource('/shop', 'ShopController');
 Route::resource('/swiper', 'SwiperController');
 
 //need to login and verified to checkout
 Route::resource('/checkout', 'CheckoutController')->middleware('verified');
-Route::resource('/payment', 'CheckoutController')->middleware('verified');
+Route::post('/storeCartSummary', 'CheckoutController@storeCartSummary')->middleware('verified')->name('storeCartSummary');
+Route::post('/applyPromotionCode', 'CheckoutController@applyPromotionCode')->middleware('verified')->name('applyPromotionCode');
+Route::get('/summary', 'CheckoutController@applyPromotionCode')->middleware('verified')->name('applyPromotionCode');
+Route::resource('/payment', 'PaymentController')->middleware('verified');
 
 
 

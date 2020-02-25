@@ -27,8 +27,17 @@
                         <div class="__product-detail">
                             <div class="card">
                                 <div class="card-body">
+                                    {!! Form::open(['url' => route('cart.store', ['id' => $product->id])]) !!}
                                     <div class="container">
-
+                                        @if ($message = Session::get('cart-success'))
+                                        <div class="alert alert-success">
+                                            <span>{{ $message }}</span>
+                                            <span>
+                                                <a href="{{ route('cart.index') }}"
+                                                    class="btn btn-dark">{{  __('Proceed to checkout')   }}</a>
+                                            </span>
+                                        </div>
+                                        @endif
                                         <div class="font-weight-bold mt-3">
                                             <h2 class="text-size-6"><a href="#"
                                                     class="text-decoration-none text-dark">{{ $product->type->name }}</a>
@@ -44,14 +53,30 @@
                                                 class="showproduct-subtitle">{{ __('Select color') }}</label>
                                         </div>
                                         <div class="container" id="color-container">
-                                            <span class="border border-dark rounded-circle dotcolor"
-                                                style="background-color: blue;"></span>
-                                            <span class="border border-dark rounded-circle dotcolor"
-                                                style="background-color: red;"></span>
-                                            <span class="border border-dark rounded-circle dotcolor"
-                                                style="background-color: green;"></span>
-                                            <span class="border border-dark rounded-circle dotcolor"
-                                                style="background-color: yellow;"></span>
+                                            <div class="btn-group-toggle" data-toggle="buttons">
+                                                <label
+                                                    class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
+                                                    style="background-color: blue;">
+                                                    <input type="radio" name="color" value="blue" id="option-1" checked>
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
+                                                    style="background-color: red;">
+                                                    <input type="radio" name="color" value="red" id="option-2" checked>
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
+                                                    style="background-color: green;">
+                                                    <input type="radio" name="color" value="green" id="option-3" checked>
+                                                </label>
+                                                <label
+                                                    class="btn btn-lg btn-outline-dark border border-dark rounded-circle dotcolor showproduct-size my-1 active"
+                                                    style="background-color: yellow;">
+                                                    <input type="radio" name="color" value="yellow" id="option-4" checked>
+                                                </label>
+                                                {{-- <input type="radio" name="color" id="color-4" value="yellow" class="border border-dark rounded-circle dotcolor"
+                                                style="background-color: yellow;"> --}}
+                                            </div>
                                         </div>
                                         <div class="row row-cols-2">
                                             <div class="text-left col-6 mt-3">
@@ -65,66 +90,76 @@
                                         </div>
 
                                         <div class="container" id="size-container">
-                                            <div class="row row-eq-height row-cols-1 row-cols-md-2 btn-group btn-group-toggle"
+                                            <div class="row row-eq-height row-cols-1 row-cols-md-2 btn-group-toggle"
                                                 data-toggle="buttons">
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1 active">
-                                                    <input type="radio" name="size" id="option-1" checked>
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1 active">
+                                                    <input type="radio" name="size" value="US M 7 / W 8.5" id="option-1"
+                                                        checked>
                                                     {{ __('US M 7 / W 8.5') }}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 7.5 / W 9" id="option-2">
                                                     {{__('US M 7.5 / W 9')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 8 / W 9.5" id="option-3">
                                                     {{__('US M 8 / W 9.5')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 8.5 / W 10"
+                                                        id="option-4">
                                                     {{__('US M 8.5 / W 10')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 9 / W 10.5"
+                                                        id="option-5">
                                                     {{__('US M 9 / W 10.5')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 9.5 / W 11"
+                                                        id="option-6">
                                                     {{__('US M 9.5 / W 11')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 10 / W 11.5"
+                                                        id="option-7">
                                                     {{__('US M 10 / W 11.5')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 10.5 / W 12"
+                                                        id="option-8">
                                                     {{__('US M 10.5 / W 12')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 11 / W 12.5"
+                                                        id="option-9">
                                                     {{__('US M 11 / W 12.5')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 11.5 / W 13"
+                                                        id="option-10">
                                                     {{__('US M 11.5 / W 13')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 12 / W 13.5"
+                                                        id="option-11">
                                                     {{__('US M 12 / W 13.5')}}
                                                 </label>
                                                 <label
-                                                    class="btn btn-lg btn-block btn-outline-dark rounded-0 showproduct-size my-1">
-                                                    <input type="radio" name="size" id="option-1">
+                                                    class="btn btn-lg btn-block btn-outline-dark showproduct-size my-1">
+                                                    <input type="radio" name="size" value="S M 13 / W 14.5"
+                                                        id="option-12">
                                                     {{__('US M 13 / W 14.5')}}
                                                 </label>
                                             </div>
@@ -136,12 +171,12 @@
                                         </div>
                                         <div class="__addtocart mt-5">
 
-                                            {!! Form::open(['url' => route('cart.store', ['id' => $product->id])]) !!}
+                                            {{-- {!! Form::open(['url' => route('cart.store', ['id' => $product->id])]) !!} --}}
                                             <button type="submit"
                                                 class="btn btn-dark btn-lg btn-block rounded-pill text-uppercase">
                                                 {{ __('ADD TO CART')}}
                                             </button>
-                                            {!! Form::close() !!}
+                                            {{-- {!! Form::close() !!} --}}
                                         </div>
                                         <div class="__favorite mt-3">
                                             <a href="#"
@@ -157,6 +192,7 @@
                                             <p class="text-size-12"> {{ $product->detail }}</p>
                                         </div>
                                     </div>
+                                    {!! Form::close() !!}
                                 </div>
                             </div>
                         </div>

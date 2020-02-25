@@ -6,6 +6,7 @@ use App\Models\Address;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AddressController extends Controller
 {
@@ -21,11 +22,17 @@ class AddressController extends Controller
         // dd($user->address()->toSql());
         // dd($user);
 
-
         // $addresses = Address::where('user_id', '=', $user->id)->paginate(8);
         // dd($addresses);
         // return view('client.accounts.addressbooks.index', compact('addresses'))
         // ->with('i', (request()->input('page', 1) - 1) * 8);
+
+        // $address = Auth::user()->address;
+        // $address->paginate(8);
+        // return view('client.accounts.addressbooks.index', compact('address'))
+        // ->with('i', (request()->input('page', 1) - 1) * 8);
+
+
 
         return view('client.accounts.addressbooks.index')
         ->with('i', (request()->input('page', 1) - 1) * 8);
@@ -55,23 +62,55 @@ class AddressController extends Controller
 
         Address::create($arrData);
 
+        // return redirect(Session::get('_previous')['url'])
+        // ->with('address-success', 'Address created successfully');
+
         return redirect()->route('address.index')
-            ->with('success', 'Address created successfully');
+            ->with('address-success', 'Address created successfully');
+    }
+
+    public function storeAjax(Request $request)
+    {
+        if (!$request->ajax()) {
+            return response()->json([]);
+        }
+
+        $this->validate($request, [
+            'name' => 'required|string',
+            'user_id' => 'required',
+            'addressline1' => 'required',
+            'city' => 'required|string',
+            'country' => 'required|string',
+            'phonenumber' => 'required',
+            'zipcode' => 'required|int',
+        ]);
+        $arrData = $request->all();
+        // dd($arrData);
+
+        $address = Address::create($arrData);
+        // $i = 0;
+        $i = $request->count;
+
+        // Get the view after render to string and pass to client via json data
+        $view = view('client.shop.checkouts.components.newaddress-ajax', compact('address', 'i'))->render();
+
+        return response()->json([
+            'view' => $view
+        ]);
     }
 
 
     public function show($id)
     {
-        $addresses = Address::find($id);
-        return view('client.accounts.addressbooks.show', compact('addresses'));
+        $address = Auth::user()->address->find($id);
+        return view('client.accounts.addressbooks.show', compact('address'));
     }
 
 
-    public function edit(User $user, $id)
+    public function edit(Request $request, $id)
     {
-        $user = User::find($id);
-        $addresses = Address::find($user->id);
-        return view('client.accounts.addressbooks.edit', compact('addresses','id'));
+        $address = Auth::user()->address->find($id);
+        return view('client.accounts.addressbooks.edit', compact('address', 'id'));
     }
 
 
@@ -85,17 +124,15 @@ class AddressController extends Controller
             'phonenumber' => 'required',
             'zipcode' => 'required|int',
         ]);
-        // news letter function
 
         $input = $request->all();
 
         //update
-        $user = User::find($id);
-        // $addresses = Address::find($user->id);
-        $addresses->update($input);
+        $address = Auth::user()->address->find($id);
+        $address->update($input);
 
         return redirect()->route('address.index')
-            ->with('success', 'Address updated successfully');
+            ->with('address-success', 'Address updated successfully');
     }
 
 
@@ -103,6 +140,6 @@ class AddressController extends Controller
     {
         Address::find($id)->delete();
         return redirect()->route('address.index')
-        ->with('success', 'Address deleted successfully');
+        ->with('address-success', 'Address deleted successfully');
     }
 }

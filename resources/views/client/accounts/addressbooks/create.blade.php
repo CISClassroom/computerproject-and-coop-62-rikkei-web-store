@@ -12,7 +12,7 @@
                         @csrf
                         {{ Form::hidden('user_id', $user->id) }}
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <h3 class="__detailheader">{{ __('Account details') }}</h3>
                                 <hr class="mb-2">
                                 @if ($errors->any())
@@ -103,7 +103,7 @@
                                             </td>
                                             <td>
                                                 <div class="form-group pt-1">
-                                                    <input type="text" name="zipcode" id="zipcode"
+                                                    <input type="number" name="zipcode" id="zipcode"
                                                         value="{{ old('zipcode') }}" class="form-control"
                                                         placeholder="ZIP code">
                                                 </div>

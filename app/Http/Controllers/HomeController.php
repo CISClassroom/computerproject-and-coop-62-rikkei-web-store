@@ -25,10 +25,20 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         if ($user->role_id == "1" || $user->role_id == "2") {
-            return redirect()->action('AdminHomeController@index');
-        } elseif ($user->role_id == "3") {
-            return view('client.home');
-        } else {
+            if (!session()->has('url.intended')) {
+                session(['url.intended' => url()->previous()]);
+            }
+
+                return redirect()->action('AdminHomeController@index');
+            
+        }
+        elseif ($user->role_id == "3") {
+            if (!session()->has('url.intended')) {
+                session(['url.intended' => url()->previous()]);
+            }
+                return view('client.home');
+        }
+        else {
             return view('client.home');
         }
     }

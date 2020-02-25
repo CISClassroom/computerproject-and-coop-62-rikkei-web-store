@@ -12,7 +12,7 @@
                         @csrf
                         @method('PUT')
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <h3 class="__detailheader">{{ __('Account details') }}</h3>
                                 <hr class="mb-2">
                                 @if ($errors->any())

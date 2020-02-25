@@ -1,23 +1,46 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 4 DatePicker</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <input id="datepicker" width="276" />
-    <script>
-        $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: "yyyy-mm-dd",
-    startView: 2,
-    autoclose: true,
-    todayHighlight: true
-        });
-    </script>
-</body>
-</html>
+{{-- @if(!count($count))
+                                        <div class="container">
+                                            <label class=" text-size-10 text-center">
+                                                {{ __('You don\'t have any card here') }}
+                                            </label>
+                                        </div>
+                                        <div class="container">
+                                            <button class="btn btn-dark btn-lg rounded-0" type="button" data-toggle="modal"
+                                                data-target="#newAddressModal">
+                                                {{ __('Add new card') }}
+                                            </button>
+                                        </div>
+                                        @elseif(count($addresses)) --}}
+                                        {{-- Loop --}}
+                                        {{-- @foreach ($addresses as $address)
+                                        <tr style="line-height: 50px; min-height: 50px; height: 50px;">
+                                            <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
+                                                {{ ++$i }}
+                                            </td>
+
+                                            <td>
+                                                {{ Str::limit($address->name , 10) }}
+                                                {{ Str::limit($address->addressline1 , 10) }}
+                                            </td>
+                                            <td>
+                                                {{ $address->city }}
+                                            </td>
+                                            <td>
+                                                {{ $address->phonenumber }}
+                                            </td>
+                                            <td style="white-space: nowrap; width: 1%;">
+                                                <a href=" {{ route('address.edit', $address->id) }} "
+                                                    class="btn btn-link rounded-0 text-muted mt-2">
+                                                    {{ __('edit') }}
+                                                </a>
+                                            </td>
+                                            <td class="acction" style="white-space: nowrap; width: 1%;">
+                                                <label
+                                                    class="btn btn-outline-dark rounded-0 mt-2 @if($i == 1) active @endif">
+                                                    <input type="radio" name="address_id" id="Address-{{ $address->id }}"
+                                                        value="{{ $address->id }}" @if($i==1) checked @endif>
+                                                    {{ __('Select') }}
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        @endforeach --}}

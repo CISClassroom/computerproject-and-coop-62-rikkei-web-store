@@ -16,9 +16,13 @@
 
     @yield('content')
 
+
     @include('client.layouts.footer')
 
     @include('client.layouts.footer_scripts')
+
+    @include('client.layouts.custom_scripts')
+
 
 </body>
 

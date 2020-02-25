@@ -8,13 +8,16 @@
             <div class="row row-cols-1 row-cols-md-2 mt-3">
                 @include('client.accounts.components.sidebar')
                 <div class="col-8 col-md-8">
-                    <form action="{{ route('address.create') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('address.update',$address->id ) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body overflow-auto">
                                 <h3 class="__detailheader">{{ __('Account details') }}</h3>
                                 <hr class="mb-2">
+                                {{-- @php
+                                $address = auth()->user()->address->find($id);
+                                @endphp --}}
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -33,8 +36,9 @@
                                             </td>
                                             <td>
                                                 <div class="form-group pt-1">
-                                                    <input type="text" name="name" id="name" value="{{ $address->name }}"
-                                                        class="form-control" placeholder="Name">
+                                                    <input type="text" name="name" id="name"
+                                                        value="{{ $address->name }}" class="form-control"
+                                                        placeholder="Name">
                                                 </div>
                                             </td>
                                         </tr>
@@ -47,6 +51,18 @@
                                                     <input type="text" name="addressline1" id="addressline1"
                                                         value="{{ $address->addressline1 }}" class="form-control"
                                                         placeholder="Address Line 1">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="line-height: 50px; min-height: 50px; height: 50px;">
+                                            <td class="font-weight-bold" style="white-space: nowrap; width: 1%;">
+                                                {{ __('Address Line 2') }}
+                                            </td>
+                                            <td>
+                                                <div class="form-group pt-1">
+                                                    <input type="text" name="addressline2" id="addressline2"
+                                                        value="{{ $address->addressline2 }}" class="form-control"
+                                                        placeholder="Address Line 2">
                                                 </div>
                                             </td>
                                         </tr>
@@ -92,7 +108,7 @@
                                             </td>
                                             <td>
                                                 <div class="form-group pt-1">
-                                                    <input type="text" name="zipcode" id="zipcode"
+                                                    <input type="number" name="zipcode" id="zipcode"
                                                         value="{{ $address->zipcode }}" class="form-control"
                                                         placeholder="ZIP code">
                                                 </div>
@@ -109,9 +125,11 @@
                                             {{ __('Cancel') }}
                                         </a>
                                     </div>
-                                    <div class="__updatebtn col-6 text-right">
-                                        <button type="submit" class="btn btn-dark rounded-0 btn-lg
-                            text-uppercase"> {{ __('Save') }} </a>
+                                    <div class="__createbtn col-6 text-right">
+                                        <button type="submit"
+                                        class="btn btn-dark rounded-0 btn-lg text-uppercase">
+                                            {{ __('Save') }}
+                                        </button>
                                     </div>
                                 </div>
                             </div>

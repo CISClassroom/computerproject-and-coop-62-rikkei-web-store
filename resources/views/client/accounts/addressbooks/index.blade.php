@@ -9,13 +9,13 @@
                 @include('client.accounts.components.sidebar')
                 <div class="col-8 col-md-8">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body overflow-auto">
                             <h3 class="__detailheader">{{ __('Account details') }}</h3>
                             <hr>
                             @php
-                                $addresses = auth()->user()->address;
+                            $addresses = auth()->user()->address;
                             @endphp
-                            @if ($message = Session::get('success'))
+                            @if ($message = Session::get('address-success'))
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
@@ -55,21 +55,24 @@
                                         <td>{{ $address->name }}</td>
                                         <td>{{ Str::limit($address->addressline1 , 10) }} {{ $address->city }}</td>
                                         <td>{{ $address->phonenumber }}</td>
-                                        <td class="actions text-right">
-                                            <div class="row text-center mt-2">
-                                                <button
-                                                    class="btn btn-dark btn-sm rounded-0 icon-refresh-white update-cart"
-                                                    data-old-url="{{ route('address.update', ['address' => $address->id]) }}"
-                                                    data-id="{{ $address->id }}"
-                                                    data-url="{{ route('address.edit', $address->id) }}">
-                                                </button>
-                                                <button
-                                                    class="btn btn-outline-danger btn-sm rounded-0 icon-bin-red bg-btn-lgray remove-from-cart"
-                                                    data-id="{{ $address->id }}"
-                                                    data-url="{{ route('address.update', ['address' => $address->id]) }}">
-                                                </button>
-                                            </div>
-                                        </td>
+                                        <form action="{{ route('address.destroy',$address->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <td class="actions text-right">
+                                                <div class="row text-center mt-2">
+                                                    <a class="btn btn-dark btn-sm rounded-0 icon-eye-white"
+                                                    href="{{ route('address.show',$address->id) }}">
+                                                    </a>
+                                                    <a class="btn btn-outline-dark btn-sm rounded-0 icon-edit bg-btn-lgray"
+                                                        href="{{ route('address.edit',$address->id) }}">
+                                                    </a>
+                                                    <button type="submit"
+                                                        class="btn btn-outline-danger btn-sm rounded-0 icon-bin-red bg-btn-lgray"
+                                                        onclick="return confirm('Are you sure you want to delete this item? This action can not be undone.')">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </form>
                                     </tr>
                                     @endforeach
                                 </tbody>

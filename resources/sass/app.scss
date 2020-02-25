@@ -79,13 +79,18 @@
 @include icon("bin-white", "bin-white");
 @include icon("box", "box");
 @include icon("box-white", "box-white");
+@include icon("buy", "buy");
 @include icon("cart", "cart");
 @include icon("check", "check");
 @include icon("check-white", "check-white");
 @include icon("close", "close");
 @include icon("close-white", "close-white");
+@include icon("edit", "edit");
+@include icon("edit-white", "edit-white");
 @include icon("edit-tools", "edit-tools");
 @include icon("edit-tools-white", "edit-tools-white");
+@include icon("eye", "eye");
+@include icon("eye-white", "eye-white");
 @include icon("grid", "grid");
 @include icon("heart", "heart");
 @include icon("heart-white", "heart-white");
@@ -134,6 +139,28 @@
 
 @include icon-home("nike", "1200px-Logo_NIKE");
 @include icon-home("nike-white", "1200px-Logo_NIKE-White");
+
+
+@mixin icon-payment($name, $fname) {
+    .icon-payment-#{$name}::before {
+        background: url("./public/storage/assets/icons/#{$fname}") no-repeat;
+        // object-fit: contain;
+        background-position: initial;
+        background-size: contain;
+        content: '';
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        vertical-align: middle;
+    }
+}
+
+@include icon-payment("mastercard", "512-mastercard.png");
+@include icon-payment("visa", "512-visa.png");
+@include icon-payment("paypal", "512-paypal.png");
+@include icon-payment("vietinbank", "512-vietinbank.png");
+@include icon-payment("bidv", "512-bidv.png");
+@include icon-payment("cod", "buy.svg");
 
 
 .textcolor {
@@ -285,3 +312,10 @@ body {
     display: inline-block;
     float: none;
   }
+
+
+  .hide-radio-btn {
+    width: 0;
+    height: 0;
+  }
+

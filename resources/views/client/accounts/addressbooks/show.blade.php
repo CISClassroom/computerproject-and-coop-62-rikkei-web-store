@@ -9,10 +9,10 @@
                 @include('client.accounts.components.sidebar')
                 <div class="col-8 col-md-8">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body overflow-auto">
                             <h3 class="__detailheader">{{ __('Account details') }}</h3>
                             <hr>
-                            @if ($message = Session::get('success'))
+                            @if ($message = Session::get('address-success'))
                                 <div class="alert alert-success">
                                     <p>{{ $message }}</p>
                                 </div>
@@ -58,7 +58,20 @@
                             </table>
                         </div>
                         <div class="container mb-3">
-                            <a href="{{ route('address.edit',$address->id) }}" class="btn btn-dark rounded-0 btn-lg text-uppercase"> {{ __('Edit Address') }} </a>
+                            <div class="row">
+                                <div class="__cancelbtn col-6">
+                                    <a href="{{ route('address.index') }}"
+                                        class="btn btn-secondary rounded-0 btn-lg text-uppercase">
+                                        {{ __('Back') }}
+                                    </a>
+                                </div>
+                                <div class="__editbtn col-6 text-right">
+                                    <a href="{{ route('address.edit',$address->id) }}"
+                                        class="btn btn-dark rounded-0 btn-lg text-uppercase">
+                                        {{ __('Edit') }}
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

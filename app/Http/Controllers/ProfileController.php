@@ -65,7 +65,7 @@ class ProfileController extends Controller
         $user->update($input);
 
         return redirect()->route('profile.index')
-            ->with('success', 'Profile updated successfully');
+            ->with('profile-success', 'Profile updated successfully');
     }
 
 

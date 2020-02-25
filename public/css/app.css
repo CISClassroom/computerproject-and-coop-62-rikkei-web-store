@@ -353,6 +353,42 @@
           filter: invert(100%) !important;
 }
 
+.icon-buy::before {
+  background: url(/images/buy.svg?676635cdfa76f44467b38d0c629559b9) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-buy::before {
+  background: url(/images/buy.svg?676635cdfa76f44467b38d0c629559b9) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-buy:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
 .icon-cart::before {
   background: url(/images/cart.svg?df132d79acb80a6e7247180c5afa1848) no-repeat;
   background-position: initial;
@@ -380,6 +416,78 @@
 }
 
 .icon-social-cart:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.icon-check::before {
+  background: url(/images/check.svg?5d1227310dec5d3b4ecffe3b6b798b69) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-check::before {
+  background: url(/images/check.svg?5d1227310dec5d3b4ecffe3b6b798b69) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-check:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.icon-check-white::before {
+  background: url(/images/check-white.svg?954b4099cd19aba480ab37ae1407d519) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-check-white::before {
+  background: url(/images/check-white.svg?954b4099cd19aba480ab37ae1407d519) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-check-white:hover {
   -webkit-filter: brightness(100%) !important;
           filter: brightness(100%) !important;
 }
@@ -461,6 +569,78 @@
           filter: invert(100%) !important;
 }
 
+.icon-edit::before {
+  background: url(/images/edit.svg?7f4f12d49bcbaa692898c0d04d32c050) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-edit::before {
+  background: url(/images/edit.svg?7f4f12d49bcbaa692898c0d04d32c050) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-edit:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.icon-edit-white::before {
+  background: url(/images/edit-white.svg?c1355649aa9d0206f07a9150e85fc2b1) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-edit-white::before {
+  background: url(/images/edit-white.svg?c1355649aa9d0206f07a9150e85fc2b1) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-edit-white:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
 .icon-edit-tools::before {
   background: url(/images/edit-tools.svg?97c51d4593b3ef4fbe0c7c0deeaba7e9) no-repeat;
   background-position: initial;
@@ -524,6 +704,78 @@
 }
 
 .icon-social-edit-tools-white:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.icon-eye::before {
+  background: url(/images/eye.svg?320fe8b07fbbdecaec80bd77dfe06fbb) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-eye::before {
+  background: url(/images/eye.svg?320fe8b07fbbdecaec80bd77dfe06fbb) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-eye:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.icon-eye-white::before {
+  background: url(/images/eye-white.svg?b019dc5af0f2963bf12d06c0045c6100) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-eye-white::before {
+  background: url(/images/eye-white.svg?b019dc5af0f2963bf12d06c0045c6100) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-eye-white:hover {
   -webkit-filter: brightness(100%) !important;
           filter: brightness(100%) !important;
 }
@@ -1635,6 +1887,72 @@
   vertical-align: middle;
 }
 
+.icon-payment-mastercard::before {
+  background: url(/images/512-mastercard.png?e5ad0f83a726fb2dbdef11c417f6173e) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+}
+
+.icon-payment-visa::before {
+  background: url(/images/512-visa.png?7d5d3f42ed5395cfe217c7de1cd9e435) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+}
+
+.icon-payment-paypal::before {
+  background: url(/images/512-paypal.png?2fa1d9a5c5fe4221d19663a985625eb6) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+}
+
+.icon-payment-vietinbank::before {
+  background: url(/images/512-vietinbank.png?727ff2141db61fc39e4b5dd205b85008) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+}
+
+.icon-payment-bidv::before {
+  background: url(/images/512-bidv.png?2546dd45ba6b72f05aaae30c04c5f878) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+}
+
+.icon-payment-cod::before {
+  background: url(/images/buy.svg?676635cdfa76f44467b38d0c629559b9) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+}
+
 .textcolor-lblack {
   color: #191919 !important;
 }
@@ -1837,5 +2155,10 @@ body {
 .testimonial-group .table-nw .tr-nw {
   display: inline-block;
   float: none;
+}
+
+.hide-radio-btn {
+  width: 0;
+  height: 0;
 }
 
