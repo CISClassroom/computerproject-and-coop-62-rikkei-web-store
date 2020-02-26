@@ -30,7 +30,7 @@ class HomeController extends Controller
             }
 
                 return redirect()->action('AdminHomeController@index');
-            
+
         }
         elseif ($user->role_id == "3") {
             if (!session()->has('url.intended')) {
@@ -41,5 +41,9 @@ class HomeController extends Controller
         else {
             return view('client.home');
         }
+    }
+    public function status()
+    {
+        return view('client/status');
     }
 }

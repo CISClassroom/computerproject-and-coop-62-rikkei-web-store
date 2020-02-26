@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Nike Store Management</title>
+    <title>{{ config('app.name', 'Nike Store Management') }}</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -28,5 +28,5 @@
 
 
     {{-- head JS --}}
-    
+
 </head>

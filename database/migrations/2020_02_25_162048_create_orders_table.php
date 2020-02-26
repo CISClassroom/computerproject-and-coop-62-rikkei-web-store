@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('discount');
             $table->decimal('sumtotal');
             $table->string('paymentoption');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

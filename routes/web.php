@@ -12,6 +12,8 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('Nike Store');
 Route::resource('/cart', 'CartController');
 
+// status
+Route::get('/status', 'HomeController@status')->name('status');
 
 
 
@@ -26,11 +28,15 @@ Route::group(['middleware' => ['auth']], function () {
             return view('admin/layouts/test');
         });
         Route::resource('/', 'AdminHomeController');
-        Route::resource('/users', 'UserController');
-        Route::resource('/roles', 'RoleController');
+        Route::resource('/queued', 'OrderController');
+        Route::resource('/preparing', 'OrderController');
+        Route::resource('/delivered', 'OrderController');
+        Route::resource('/completed', 'OrderController');
         Route::resource('/products', 'ProductController');
         Route::resource('/producttypes', 'ProductTypeController');
         Route::resource('/productcategories', 'ProductCategoryController');
+        Route::resource('/users', 'UserController');
+        Route::resource('/roles', 'RoleController');
     });
 });
 
@@ -46,7 +52,10 @@ Route::get('/', function () {
 });
 Route::prefix('/account')->group(function () {
     Route::resource('/profile', 'ProfileController')->middleware('verified');
+    Route::resource('/orderhistory', 'OrderHistoryController')->middleware('verified');
+    Route::resource('/favorite', 'FavoriteController')->middleware('verified');
     Route::resource('/address', 'AddressController')->middleware('verified');
+
 
     Route::post('/address-store-ajax', 'AddressController@storeAjax')
         ->middleware('verified')
@@ -62,11 +71,9 @@ Route::post('/storeCartSummary', 'CheckoutController@storeCartSummary')->middlew
 Route::post('/applyPromotionCode', 'CheckoutController@applyPromotionCode')->middleware('verified')->name('applyPromotionCode');
 Route::get('/summary', 'CheckoutController@summary')->middleware('verified')->name('summary');
 Route::resource('/payment', 'PaymentController')->middleware('verified');
-Route::resource('/order', 'OrderController')->middleware('verified');
-Route::get('/postOrder', 'OrderController@postOrder')->middleware('verified')->name('postOrder');
-Route::get('/postProductOrder', 'OrderController@postProductOrder')->middleware('verified')->name('postProductOrder');
+Route::get('/storeOrder', 'CartController@storeOrder')->middleware('verified')->name('storeOrder');
+Route::get('/storeProductOrder', 'CartController@storeProductOrder')->middleware('verified')->name('storeProductOrder');
 
-// Route::resource('/ordercomplete', 'OrderController@store')->middleware('verified')->name('ordercomplete');
 
 
 
@@ -80,7 +87,7 @@ Route::get('/postProductOrder', 'OrderController@postProductOrder')->middleware(
 */
 Route::name('Test')->group(function () {
     Route::get('/test', function () {
-        return view('client/shop/checkouts/index');
+        return view('client/shop/checkouts/success');
     });
     Route::get('/test2', function () {
         return view('client/test2');

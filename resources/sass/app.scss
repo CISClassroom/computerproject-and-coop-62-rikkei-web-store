@@ -85,12 +85,14 @@
 @include icon("check-white", "check-white");
 @include icon("close", "close");
 @include icon("close-white", "close-white");
+@include icon("delivery-white", "delivery-white");
 @include icon("edit", "edit");
 @include icon("edit-white", "edit-white");
 @include icon("edit-tools", "edit-tools");
 @include icon("edit-tools-white", "edit-tools-white");
 @include icon("eye", "eye");
 @include icon("eye-white", "eye-white");
+@include icon("finish-white", "finish-white");
 @include icon("grid", "grid");
 @include icon("heart", "heart");
 @include icon("heart-white", "heart-white");
@@ -101,19 +103,24 @@
 @include icon("key-white", "key-white");
 @include icon("list", "list");
 @include icon("list-white", "list-white");
+@include icon("login", "login");
 @include icon("modules", "modules");
 @include icon("modules-white", "modules-white");
 @include icon("next", "next");
 @include icon("next-white", "next-white");
+@include icon("prepair-white", "prepair-white");
 @include icon("question", "question");
 @include icon("refresh", "refresh");
 @include icon("refresh-white", "refresh-white");
 @include icon("search", "search");
 @include icon("shield", "shield");
 @include icon("shield-white", "shield-white");
+@include icon("shopping-cart", "shopping-cart");
+@include icon("shopping-cart-filled", "shopping-cart-filled");
 @include icon("style", "style");
 @include icon("style-white", "style-white");
 @include icon("support", "support");
+@include icon("theater-white", "theater-white");
 @include icon("user", "user");
 @include icon("user-white", "user-white");
 @include icon("user-filled", "user-filled");
@@ -161,6 +168,24 @@
 @include icon-payment("vietinbank", "512-vietinbank.png");
 @include icon-payment("bidv", "512-bidv.png");
 @include icon-payment("cod", "buy.svg");
+
+@mixin icon-status($name, $fname) {
+    .icon-status-#{$name}::before {
+        background: url("./public/storage/assets/icons/#{$fname}.svg") no-repeat;
+        // object-fit: contain;
+        background-position: initial;
+        background-size: contain;
+        content: '';
+        display: inline-block;
+        height: 220px;
+        width: 220px;
+        vertical-align: middle;
+    }
+}
+
+@include icon-status("success", "success");
+@include icon-status("warning", "warning");
+@include icon-status("fail", "fail");
 
 
 .textcolor {

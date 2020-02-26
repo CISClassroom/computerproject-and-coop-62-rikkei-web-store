@@ -25,16 +25,16 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
-
         $user_id = Auth::user()->id;
         $paymentdetail = $request;
 
+        //fail
         if (!$paymentdetail) {
-
-            abort(404);
+            return redirect()->route('status')
+            ->with('status-fail', 'abort-Payment_store:value_required');
         }
 
+        //complete
         //replace old address
         if ($paymentdetail) {
 
@@ -50,13 +50,9 @@ class PaymentController extends Controller
 
             session()->put('paymentdetail', $paymentdetail);
 
-            // return response()->view('view', compact('data'), 200)
-            //     ->header("Refresh", "5;url=/profile");
-
-
-            return redirect()->route('postOrder', compact('request'));
-            // ->with('select-address-success', 'Address has been selected!');
+            return redirect()->route('storeOrder', compact('request'));
         }
+
         // if item not exist then add
         $paymentdetail[$user_id] = [
             "paymentoption" => $request->paymentoption,
@@ -68,8 +64,12 @@ class PaymentController extends Controller
 
         session()->put('paymentdetail', $paymentdetail);
 
-        return redirect()->route('postOrder', compact('request'));
-        // ->with('select-address-success', 'Address has been selected!');
+        return redirect()->route('storeOrder', compact('request'));
+
+        //redirect
+        // return response()->view('view', compact('data'), 200)
+            //     ->header("Refresh", "5;url=/profile");
+
     }
 
 
