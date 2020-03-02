@@ -1,7 +1,7 @@
 {{-- Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom fixed-top">
-    <a class="navbar-brand icon-home-nike-white" href="/admin"></a>
-    <a class="navbar-brand show" id="collapseNavTitle" href="/admin">Admin System</a>
+    <a class="navbar-brand icon-nav-rikkeisoft-white-mini" href="{{ route('index') }}"></a>
+    <a class="navbar-brand show" id="collapseNavTitle" href="{{ route('index') }}">Admin System</a>
     <div class="icon-edit-tools-white mr-auto" id="menu-toggle" data-toggle="collapse" data-target="#collapseNavTitle"
         aria-expanded="true" aria-controls="collapseNavTitle" style="cursor: pointer;"></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/admin">Dashboard<span class="sr-only"></span></a>
+                <a class="nav-link" href="{{ route('index') }}">Dashboard<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Client Site<span class="sr-only"></span></a>

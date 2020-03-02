@@ -103,7 +103,7 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <p class="text-muted text-center text-md-left"> &copy; {{ date('Y') }} Nike, Inc. All Right Reserved</p>
+                    <p class="text-muted text-center text-md-left"> &copy; {{ date('Y') }} Chayangkoon Tona. All Right Reserved</p>
                 </div>
                 <div class="col-md-5">
                     <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-4" style="list-style-type: none;">

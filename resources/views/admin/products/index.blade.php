@@ -38,7 +38,7 @@
     </thead>
     @foreach ($products as $product)
     <tr>
-        <td>{{ ++$i }}</td>
+        <td class="font-weight-bold">{{ ++$i }}</td>
         <td>{{ $product->id }}</td>
         <td>{{ $product->name }}</td>
         <td>{{ $product->code }}</td>

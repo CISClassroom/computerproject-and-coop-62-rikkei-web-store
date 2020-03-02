@@ -35,19 +35,19 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name:</strong>
-            <input type="text" name="name" class="form-control" placeholder="Name">
+            <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Name">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Code:</strong>
-            <input type="text" name="code" class="form-control" placeholder="Code">
+            <input type="text" name="code" class="form-control" value="{{ old('code') }}" placeholder="Code">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Price:</strong>
-            <input type="text" name="price" class="form-control currency" id="currencyField" placeholder="Price" step="any" min="0.00">
+            <input type="text" name="price" class="form-control currency" value="{{ old('price') }}" id="currencyField" placeholder="Price" step="any" min="0.00">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -68,14 +68,14 @@
         <div class="form-group custom-file">
             <strong>Image:</strong>
             <input type="file" name="image_url" class="form-control custom-file-input" id="customFile"
-                placeholder="Image">
+            value="{{ old('image_url') }}" placeholder="Image">
             <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Detail:</strong>
-            <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
+            <textarea class="form-control" style="height:150px" name="detail" value="{{ old('detail') }}" placeholder="Detail"></textarea>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">

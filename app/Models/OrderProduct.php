@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductOrder extends Model
+class OrderProduct extends Model
 {
     protected $fillable = [
         'order_id', 'product_id', 'color', 'size', 'quantity',

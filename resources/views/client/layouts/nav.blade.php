@@ -1,19 +1,19 @@
 @can('isAdmin')
 <nav class="navbar fixed-top navbar-expand-lg justify-content-center" style="background-color: #ffd57b; height:80px;">
     <span class="text-center">You're logged in as Administrator &nbsp;</span>
-    <a class="text-center" href="/admin">Go back to Admin page</a>
+    <a class="text-center" href="{{ route('index') }}">Go back to Admin page</a>
 </nav>
 @endcan
 @can('isManager')
 <nav class="navbar fixed-top navbar-expand-lg justify-content-center" style="background-color: #ffd57b; height:80px;">
     <span class="text-center">You're logged in as Manager &nbsp;</span>
-    <a class="text-center" href="/admin">Go back to Manager page</a>
+    <a class="text-center" href="{{ route('index') }}">Go back to Manager page</a>
 </nav>
 @endcan
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" @can('isAdmin')style="margin-top: 80px;" @endcan
     @can('isManager')style="margin-top: 80px;" @endcan>
 
-    <a class="navbar-brand icon-home-nike" href="/"></a>
+    <a class="navbar-brand icon-nav-rikkeisoft" href="/"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
         aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

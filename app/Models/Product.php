@@ -24,6 +24,11 @@ class Product extends Model
         // 'product_create_at' => 'datetime',
     ];
 
+    public function promotionProduct()
+    {
+        return $this->hasMany(PromotionProduct::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(ProductCategory::class, 'productcategory_id');

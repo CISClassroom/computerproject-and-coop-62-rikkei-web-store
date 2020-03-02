@@ -29,8 +29,9 @@ class ShopController extends Controller
     public function show(Product $product, $id)
     {
         // dd($product);
+        $products = Product::latest()->paginate(9);
         $product = Product::find($id);
-        return view('client.shop.show', compact('product'));
+        return view('client.shop.show', compact('products','product'));
     }
 
     public function edit(Product $product)

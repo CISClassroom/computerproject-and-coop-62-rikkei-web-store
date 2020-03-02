@@ -35,7 +35,7 @@
     </thead>
     @foreach ($producttypes as $type)
     <tr>
-        <td>{{ ++$i }}</td>
+        <td class="font-weight-bold">{{ ++$i }}</td>
         <td>{{ $type->id }}</td>
         <td>{{ $type->name }}</td>
         <td>

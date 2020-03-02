@@ -22,18 +22,12 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
+    protected $maxAttempts = 5; // Default is 5 times
+    protected $decayMinutes = 24*60; // Default is 1 minutes _24*60 = 24 hours
+
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');

@@ -27,37 +27,51 @@
 <table class="table table-bordered table-hover">
     <thead class="thead-light">
         <tr>
-            <th>No</th>
-            <th>OrderID</th>
-            <th>UserID</th>
+            <th style="white-space: nowrap; width: 1%;">No</th>
+            <th>Order Date</th>
+            <th style="white-space: nowrap; width: 1%;">OrderID</th>
+            <th style="white-space: nowrap; width: 1%;">UserID</th>
             <th>Username</th>
-            <th>Total</th>
-            <th>Payment option</th>
-            <th>Status</th>
+            <th style="white-space: nowrap; width: 1%;">Total</th>
+            <th style="white-space: nowrap; width: 1%;">Payment option</th>
+            <th style="white-space: nowrap; width: 1%;">Status</th>
             <th>Delivery address</th>
             <th width="230px">Action</th>
         </tr>
     </thead>
-    @foreach ($products as $product)
+    @foreach ($orders as $order)
     <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $product->id }}</td>
-        <td>{{ $product->name }}</td>
-        <td>{{ $product->code }}</td>
-        <td><img src="{{ url($product->image_url) }}" alt="product picture" style="width: 100px; height: 100px;"></td>
-        {{-- <td>{{ $product->image_url }}</td> --}}
-        <td>{{ $product->detail }}</td>
+        <td class="font-weight-bold">{{ ++$i }}</td>
+        <td>{{ $order->created_at }}</td>
+        <td>{{ $order->id }}</td>
+        <td>{{ $order->user_id }}</td>
+        <td>{{ $order->user->name }}</td>
+        <td>{{ $order->sumtotal }}</td>
+        <td>{{ $order->paymentoption }}</td>
         <td>
-            <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                @can('product-list')
-                <a class="btn btn-info rounded-0" href="{{ route('products.show',$product->id) }}">Show</a>
+            @if($order->orderstatus->id == 1)
+            <label class="badge badge-pill badge-secondary">{{ $order->orderstatus->name }}</label>
+            @elseif($order->orderstatus->id == 2)
+            <label class="badge badge-pill badge-warning">{{ $order->orderstatus->name }}</label>
+            @elseif($order->orderstatus->id == 3)
+            <label class="badge badge-pill badge-primary">{{ $order->orderstatus->name }}</label>
+            @elseif($order->orderstatus->id == 4)
+            <label class="badge badge-pill badge-success">{{ $order->orderstatus->name }}</label>
+            @endif
+        </td>
+        <td>{{ Str::limit($order->address->addressline1 , 12) }}-{{ $order->address->city }}-{{ $order->address->zipcode }}</td>
+        {{-- <td>{{ $product->image_url }}</td> --}}
+        <td>
+            <form action="{{ route('orders.destroy',$order->id) }}" method="POST">
+                @can('order-list')
+                <a class="btn btn-info rounded-0" href="{{ route('orders.show',$order->id) }}">Show</a>
                 @endcan
-                @can('product-edit')
-                <a class="btn btn-warning rounded-0" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                @can('order-edit')
+                <a class="btn btn-warning rounded-0" href="{{ route('orders.edit',$order->id) }}">Edit</a>
                 @endcan
                 @csrf
                 @method('DELETE')
-                @can('product-delete')
+                @can('order-delete')
                 <button type="submit" class="btn btn-danger rounded-0"
                     onclick="return confirm('Are you sure you want to delete this item? This action can not be undone.')">
                     Delete
@@ -70,6 +84,6 @@
 </table>
 
 
-{!! $products->links() !!}
+{!! $orders->links() !!}
 
 @endsection

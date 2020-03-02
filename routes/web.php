@@ -6,6 +6,9 @@
 |--------------------------------------------------------------------------
 */
 // Auth
+
+use App\Models\Product;
+
 Auth::routes(['verify' => true]);
 
 // store
@@ -28,13 +31,15 @@ Route::group(['middleware' => ['auth']], function () {
             return view('admin/layouts/test');
         });
         Route::resource('/', 'AdminHomeController');
-        Route::resource('/queued', 'OrderController');
-        Route::resource('/preparing', 'OrderController');
-        Route::resource('/delivered', 'OrderController');
-        Route::resource('/completed', 'OrderController');
+        Route::resource('/orders', 'OrderController');
+        Route::get('/orders-queue', 'OrderController@queue')->name('orders.queue');
+        Route::get('/orders-prepare', 'OrderController@prepare')->name('orders.prepare');
+        Route::get('/orders-deliver', 'OrderController@deliver')->name('orders.deliver');
+        Route::get('/orders-complete', 'OrderController@complete')->name('orders.complete');
         Route::resource('/products', 'ProductController');
         Route::resource('/producttypes', 'ProductTypeController');
         Route::resource('/productcategories', 'ProductCategoryController');
+        Route::resource('/promotions', 'PromotionController');
         Route::resource('/users', 'UserController');
         Route::resource('/roles', 'RoleController');
     });
@@ -48,11 +53,13 @@ Route::group(['middleware' => ['auth']], function () {
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return view('client/home');
+    $products = Product::latest()->paginate(9);
+        return view('client/home', compact('products'));
 });
 Route::prefix('/account')->group(function () {
     Route::resource('/profile', 'ProfileController')->middleware('verified');
-    Route::resource('/orderhistory', 'OrderHistoryController')->middleware('verified');
+    // Route::resource('/orderhistory', 'OrderHistoryController')->middleware('verified');
+    Route::resource('/orderhistory', 'OrderHistoryController');
     Route::resource('/favorite', 'FavoriteController')->middleware('verified');
     Route::resource('/address', 'AddressController')->middleware('verified');
 
@@ -92,9 +99,7 @@ Route::name('Test')->group(function () {
     Route::get('/test2', function () {
         return view('client/test2');
     });
-    Route::get('/test3', function () {
-        return view('client/shop/carts/index');
-    });
+    Route::resource('/swiper', 'SwiperController');
     Route::get('/email', function () {
         return view('auth/oldauth/passwords/email');
     });

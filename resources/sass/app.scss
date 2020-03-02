@@ -83,8 +83,12 @@
 @include icon("cart", "cart");
 @include icon("check", "check");
 @include icon("check-white", "check-white");
+@include icon("clipboard", "clipboard");
+@include icon("clipboard-white", "clipboard-white");
 @include icon("close", "close");
 @include icon("close-white", "close-white");
+@include icon("coupon", "coupon");
+@include icon("coupon-white", "coupon-white");
 @include icon("delivery-white", "delivery-white");
 @include icon("edit", "edit");
 @include icon("edit-white", "edit-white");
@@ -92,6 +96,7 @@
 @include icon("edit-tools-white", "edit-tools-white");
 @include icon("eye", "eye");
 @include icon("eye-white", "eye-white");
+@include icon("filter", "filter");
 @include icon("finish-white", "finish-white");
 @include icon("grid", "grid");
 @include icon("heart", "heart");
@@ -104,11 +109,16 @@
 @include icon("list", "list");
 @include icon("list-white", "list-white");
 @include icon("login", "login");
+@include icon("megaphone", "megaphone");
+@include icon("megaphone-white", "megaphone-white");
 @include icon("modules", "modules");
 @include icon("modules-white", "modules-white");
 @include icon("next", "next");
 @include icon("next-white", "next-white");
+@include icon("order-white", "order-white");
 @include icon("prepair-white", "prepair-white");
+@include icon("promotions", "promotions");
+@include icon("promotions-white", "promotions-white");
 @include icon("question", "question");
 @include icon("refresh", "refresh");
 @include icon("refresh-white", "refresh-white");
@@ -117,6 +127,8 @@
 @include icon("shield-white", "shield-white");
 @include icon("shopping-cart", "shopping-cart");
 @include icon("shopping-cart-filled", "shopping-cart-filled");
+@include icon("star", "star");
+@include icon("star-white", "star-white");
 @include icon("style", "style");
 @include icon("style-white", "style-white");
 @include icon("support", "support");
@@ -129,6 +141,25 @@
 @include icon("facebook", "facebook-filled-white");
 @include icon("youtube", "youtube-filled-white");
 @include icon("instagram", "instagram-filled-white");
+
+@mixin icon-nav($name, $fname, $h, $w) {
+    .icon-nav-#{$name}::before {
+        background: url("./public/storage/assets/icons/#{$fname}.png") no-repeat;
+        // object-fit: contain;
+        background-position: initial;
+        background-size: contain;
+        content: '';
+        display: inline-block;
+        height: #{$h};
+        width: #{$w};
+        vertical-align: middle;
+    }
+}
+
+@include icon-nav("rikkeisoft", "Rikkeisoft-logo", "40px", "97px");
+@include icon-nav("rikkeisoft-mini", "Rikkeisoft-logo", "20px", "48px");
+@include icon-nav("rikkeisoft-white", "Rikkeisoft-logo-white", "50px", "93px");
+@include icon-nav("rikkeisoft-white-mini", "Rikkeisoft-logo-white", "25px", "46px");
 
 @mixin icon-home($name, $fname) {
     .icon-home-#{$name}::before {

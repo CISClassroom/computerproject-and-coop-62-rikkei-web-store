@@ -170,7 +170,7 @@
                                         </div>
                                         <div class="font-weight-bold text-right mt-5">
                                             <h2 class="showproduct-price"><a href="#"
-                                                    class="text-decoration-none text-dark">{{ $product->price }}</a>
+                                                    class="text-decoration-none text-dark">@currency($product->price)</a>
                                             </h2>
                                         </div>
                                         <div class="__addtocart mt-5">
@@ -205,6 +205,9 @@
             </div>
         </div>
         <div class="container-fluid pt-5">
+            <div class="__text-swiper">
+                <p class="text-size-6">Featured items</p>
+            </div>
             @include('client.shop.components.swiper')
         </div>
 

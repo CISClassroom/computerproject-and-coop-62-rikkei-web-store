@@ -4,35 +4,6 @@
 
 {{-- content --}}
 <section class="">
-
-    {{-- <div class="text-center">
-        <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="img-fluid" alt="Responsive image">
-    </div> --}}
-
-    {{-- @if (session('status'))
-    <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-    </div>
-    @endif
-
-    @can('isAdmin')
-    <div class="btn btn-success btn-lg">
-        You have Admin Access
-    </div>
-    @elsecan('isManager')
-    <div class="btn btn-primary btn-lg">
-        You have Manager Access
-    </div>
-    @elsecan('isMember')
-    <div class="btn btn-primary btn-lg">
-        You have Member Access
-    </div>
-    @else
-    <div class="btn btn-info btn-lg">
-        You have User Access
-    </div>
-    @endcan --}}
-
     <div class="mx-5">
         <div class="__mainCarousel">
             <div id="carouselSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -99,103 +70,10 @@
             </div>
         </div>
         <div class="mt-5">
-            <div class="__text-basketball">
-                <p class="text-size-6">Swiper</p>
+            <div class="__text-swiper">
+                <p class="text-size-6">Featured items</p>
             </div>
-            <!-- Swiper -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper row-cols-1 row-cols-md-3">
-                    <div class="swiper-slide card border-0 rounded-0">
-                        <a class="text-decoration-none" href="#">
-                            <div class="card border-0">
-                                <img class="img-responsive fade-in"
-                                    src="{{url('/storage/assets/images/nike-basketball-home.jpg')}}"
-                                    style="width: 100%;height: 400px;object-fit: cover;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-dark">Nike</h5>
-                                    <p class="card-text text-muted">Men's</p>
-                                    <p class="card-text text-muted">$149</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide card border-0 rounded-0">
-                        <a class="text-decoration-none" href="#">
-                            <div class="card border-0">
-                                <img class="img-responsive fade-in"
-                                    src="{{url('/storage/assets/images/nike-basketball-home.jpg')}}"
-                                    style="width: 100%;height: 400px;object-fit: cover;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-dark">Nike</h5>
-                                    <p class="card-text text-muted">Men's</p>
-                                    <p class="card-text text-muted">$149</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide card border-0 rounded-0">
-                        <a class="text-decoration-none" href="#">
-                            <div class="card border-0">
-                                <img class="img-responsive fade-in"
-                                    src="{{url('/storage/assets/images/nike-basketball-home.jpg')}}"
-                                    style="width: 100%;height: 400px;object-fit: cover;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-dark">Nike</h5>
-                                    <p class="card-text text-muted">Men's</p>
-                                    <p class="card-text text-muted">$149</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide card border-0 rounded-0">
-                        <a class="text-decoration-none" href="#">
-                            <div class="card border-0">
-                                <img class="img-responsive fade-in"
-                                    src="{{url('/storage/assets/images/nike-basketball-home.jpg')}}"
-                                    style="width: 100%;height: 400px;object-fit: cover;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-dark">Nike</h5>
-                                    <p class="card-text text-muted">Men's</p>
-                                    <p class="card-text text-muted">$149</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide card border-0 rounded-0">
-                        <a class="text-decoration-none" href="#">
-                            <div class="card border-0">
-                                <img class="img-responsive fade-in"
-                                    src="{{url('/storage/assets/images/nike-basketball-home.jpg')}}"
-                                    style="width: 100%;height: 400px;object-fit: cover;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-dark">Nike</h5>
-                                    <p class="card-text text-muted">Men's</p>
-                                    <p class="card-text text-muted">$149</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide card border-0 rounded-0">
-                        <a class="text-decoration-none" href="#">
-                            <div class="card border-0">
-                                <img class="img-responsive fade-in"
-                                    src="{{url('/storage/assets/images/nike-basketball-home.jpg')}}"
-                                    style="width: 100%;height: 400px;object-fit: cover;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-dark">Nike</h5>
-                                    <p class="card-text text-muted">Men's</p>
-                                    <p class="card-text text-muted">$149</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-            </div>
+            @include('client.shop.components.swiper')
         </div>
         <div class="mt-5">
             <div class="__text-more-nike">

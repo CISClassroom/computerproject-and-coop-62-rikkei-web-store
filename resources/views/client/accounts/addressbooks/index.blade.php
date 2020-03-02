@@ -43,7 +43,7 @@
                                             {{ __('Phone number') }}
                                         </th>
                                         <th class="__action">
-                                            {{ __('Action') }}
+                                            {{-- {{ __('Action') }} --}}
                                         </th>
                                     </tr>
                                 </thead>
@@ -51,7 +51,7 @@
                                     @foreach ($addresses as $address)
                                     <tr class="table table-hover table-borderless"
                                         style="line-height: 50px; min-height: 50px; height: 50px;">
-                                        <td> {{ ++$i }} </td>
+                                        <td class="font-weight-bold"> {{ ++$i }} </td>
                                         <td>{{ $address->name }}</td>
                                         <td>{{ Str::limit($address->addressline1 , 10) }} {{ $address->city }}</td>
                                         <td>{{ $address->phonenumber }}</td>

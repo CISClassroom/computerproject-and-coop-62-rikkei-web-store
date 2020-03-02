@@ -26,7 +26,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
 
-
+    {{-- Gijgo DatePicker --}}
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    
     {{-- head JS --}}
 
 </head>

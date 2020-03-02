@@ -6,10 +6,10 @@
                     <p class="text-size-6">Men's Shoes</p>
                 </div>
                 <div class="nav-item">
-                    <button class="btn btn-outline-dark border-0" type="button" data-toggle="collapse"
+                    <button class="btn btn-outline-dark border-0 icon-filter bg-btn-lgray" type="button" data-toggle="collapse"
                         data-target="#collapseSortbar" aria-expanded="false" aria-controls="collapseSortbar"
                         aria-label="Toggle navigation">
-                        data
+                        {{-- {{ __('Filter') }} --}}
                     </button>
                 </div>
             </div>

@@ -172,7 +172,7 @@ class CartController extends Controller
             Order::create($orderArrData);
 
             //select lastest order
-            $order_id = Order::select('id')->latest()->limit(1)->value('id');
+            $order_id = Order::select('id')->where('user_id','=',$user_id)->latest()->limit(1)->value('id');
 
             // put order id in session
             $order[$order_id] = [
@@ -191,8 +191,8 @@ class CartController extends Controller
     }
     public function storeProductOrder(Request $request)
     {
-        $order_id = Order::select('id')->latest()->limit(1)->value('id');
         $user_id = Auth::user()->id;
+        $order_id = Order::select('id')->where('user_id','=',$user_id)->latest()->limit(1)->value('id');
 
         // fail;
         if (!$request && !$user_id && $order_id) {
