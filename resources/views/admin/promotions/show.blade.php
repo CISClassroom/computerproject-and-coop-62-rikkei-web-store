@@ -84,21 +84,35 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Related product:</strong>
-            {{-- {{ dd($promotion->id) }} --}}
-            {{-- {{ dd($promotion->promotionProduct[$promotion->id]) }} --}}
-            {{-- {{ $promotion->product->id }} : {{ $promotion->product->name }} --}}
+            <strong>Related product:</strong><br>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th style="white-space: nowrap; width: 1%;">No</th>
+                        <th style="white-space: nowrap; width: 1%;">ID</th>
+                        <th>Name</th>
+                        <th>Code</th>
+                        <th style="white-space: nowrap; width: 1%;">Picture</th>
+                        <th style="white-space: nowrap; width: 1%;">Full price</th>
+                        <th style="white-space: nowrap; width: 1%;">Discounted</th>
+                        <th style="white-space: nowrap; width: 1%;">Final Price</th>
 
-            {{-- {{ dd($promotion->promotionProduct) }} --}}
-
-
-            @if(!empty($promotion->promotionProduct))
-                @foreach($promotion->promotionProduct as $promotionproduct)
-            {{ dd($promotionproduct->id) }}
-
-                    <label class="label label-success">{{ $promotionproduct->id }},</label>
+                    </tr>
+                </thead>
+                @foreach($promotion->products as $product)
+            {{-- {{ $product->id }}: {{ $product->name }}<br> --}}
+                <tr>
+                    <td class="font-weight-bold">{{ ++$i }}</td>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->code }}</td>
+                    <td><img src="{{ url($product->image_url) }}" alt="product picture" style="width: 60px; height: 60px;"></td>
+                    <td>{{ $product->price }}</td>
+                    <td>@currency($discounted = (($product->price)/100)*($promotion->discount_percent))</td>
+                    <td>@currency($discountedprice = ($product->price)-($discounted))</td>
+                </tr>
                 @endforeach
-            @endif
+            </table>
         </div>
     </div>
 </div>

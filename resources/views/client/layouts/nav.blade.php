@@ -23,15 +23,17 @@
         {{-- menu --}}
         @include('client.layouts.nav-dropdown-menu')
 
-        <form class="form-inline">
-            <div class="input-group">
-                <input class="form-control rounded-0 md-2" type="search" placeholder="Search"
-                    style="padding-left:30px;">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-dark icon-search rounded-0 mr-2" type="submit"></button>
-                </div>
+        {{-- <form class="form-inline" method="GET" action="{{ route('search') }}"> --}}
+        {!! Form::open(['route' => 'search']) !!}
+        <div class="input-group">
+            <input class="form-control rounded-0 md-2" name="query" type="search" placeholder="Search"
+                style="padding-left:30px;">
+            <div class="input-group-append">
+                <button class="btn btn-outline-dark icon-search rounded-0 mr-2" type="submit" value="Search"></button>
             </div>
-        </form>
+        </div>
+        {{-- </form> --}}
+        {!! Form::close() !!}
 
         <div class="text-center mr-0">
             @guest
@@ -70,7 +72,8 @@
             <button class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button"
                 data-target="#cartDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 style="position: initial;" v-pre>
-                <span class="badge badge-pill badge-danger badge-up" style="position: relative; top: -10px; right: 15px;">
+                <span class="badge badge-pill badge-danger badge-up"
+                    style="position: relative; top: -10px; right: 15px;">
                     {{count(session('cart'))}}
                 </span>
             </button>

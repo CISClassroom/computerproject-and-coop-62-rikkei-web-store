@@ -17,7 +17,6 @@ class CreatePromotionProductsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('promotion_id')->index()->unsigned();
             $table->unsignedBigInteger('product_id')->index()->unsigned();
-            $table->timestamps();
         });
     }
 

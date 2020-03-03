@@ -1,29 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductType;
+use App\Models\Promotion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class ShopController extends Controller
 {
     public function index(Request $request)
     {
-        $productCategoriesList = ProductCategory::pluck('name', 'id')->all();
+        $productCategoriesList = ProductCategory::get();
+        $productTypesList = ProductType::get();
+        $promotions = Promotion::all();
         $products = Product::latest()->paginate(60);
-        return view('client.shop.index', compact('products','productCategoriesList'))
+        return view('client.shop.index', compact('products', 'productCategoriesList', 'productTypesList', 'promotions'))
             ->with('i', (request()->input('page', 1) - 1) * 60);
     }
+
     public function create()
     {
-
     }
 
     public function store(Request $request)
     {
-
     }
 
     public function show(Product $product, $id)
@@ -31,21 +35,18 @@ class ShopController extends Controller
         // dd($product);
         $products = Product::latest()->paginate(9);
         $product = Product::find($id);
-        return view('client.shop.show', compact('products','product'));
+        return view('client.shop.show', compact('products', 'product'));
     }
 
     public function edit(Product $product)
     {
-
     }
 
     public function update(Request $request, Product $product)
     {
-
     }
 
     public function destroy(Product $product)
     {
-
     }
 }

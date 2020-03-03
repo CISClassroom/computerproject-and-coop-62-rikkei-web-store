@@ -15,8 +15,14 @@ class Promotion extends Model
         'event_id',
     ];
 
-    public function promotionProduct()
+    // public function promotionProduct()
+    // {
+    //     return $this->hasMany(PromotionProduct::class);
+    // }
+
+    public function products()
     {
-        return $this->hasMany(PromotionProduct::class);
+        return $this->belongsToMany(Product::class, 'promotion_products', 'promotion_id', 'product_id')
+            ->withPivot('promotion_id', 'product_id');
     }
 }

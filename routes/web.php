@@ -13,6 +13,8 @@ Auth::routes(['verify' => true]);
 
 // store
 Route::get('/home', 'HomeController@index')->name('Nike Store');
+Route::post('/search', 'SearchController@index')->name('search');
+Route::get('/filter', 'SearchController@filter')->name('filter');
 Route::resource('/cart', 'CartController');
 
 // status
@@ -42,6 +44,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/promotions', 'PromotionController');
         Route::resource('/users', 'UserController');
         Route::resource('/roles', 'RoleController');
+
+        // status
+        Route::get('/status', 'HomeController@adminStatus')->name('status');
     });
 });
 
@@ -54,7 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
 */
 Route::get('/', function () {
     $products = Product::latest()->paginate(9);
-        return view('client/home', compact('products'));
+    return view('client.home.index', compact('products'));
 });
 Route::prefix('/account')->group(function () {
     Route::resource('/profile', 'ProfileController')->middleware('verified');

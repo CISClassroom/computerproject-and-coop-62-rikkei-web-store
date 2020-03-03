@@ -92,10 +92,17 @@
             <div class="form-group">
                 {{-- {{ dd($promotionProduct) }} --}}
 
+                @php
+                    // dd($promotion->products->toArray());
+                    $existsProducts = [];
+                    foreach ($promotion->products->toArray() as $key => $value) {
+                        $existsProducts[] = $value['pivot']['product_id'];
+                    }
+                @endphp
                 @foreach($products as $product)
                 {{-- {{ dd($product->promotionProduct) }} --}}
                 <div class="custom-control custom-checkbox">
-                    {!! Form::checkbox('product_id[]', $product->id,null, array(
+                    {!! Form::checkbox('product_id[]', $product->id, in_array($product->id, $existsProducts), array(
                     'class' =>'custom-control-input','id' => 'customRoleCheckbox'.$product->id)) !!}
                     <label class="custom-control-label" for="customRoleCheckbox{{ $product->id }}">
                         <img src="/{{ $product->image_url }}" alt="product picture" style="width: 30px; height: 30px;">

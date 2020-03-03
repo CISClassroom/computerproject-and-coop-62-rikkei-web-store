@@ -34,8 +34,6 @@ class PromotionController extends Controller
 
     public function store(Request $request)
     {
-
-
         $promotion = request()->validate([
             'title' => 'required|string',
             'discount_percent' => 'required|numeric|min:0|max:100',
@@ -47,40 +45,42 @@ class PromotionController extends Controller
         ]);
         DB::beginTransaction();
         try {
-        $promotionData = Promotion::create($promotion);
-        response()->json(array('success' => true, 'last_insert_id' => $promotionData->id), 200);
-        $promotion_id = $promotionData->id;
+            $promotionData = Promotion::create($promotion);
+            response()->json(array('success' => true, 'last_insert_id' => $promotionData->id), 200);
+            $promotion_id = $promotionData->id;
 
-        if (!$promotion_id) {
-            throw new \Exception('Not have promotion_id');
-        }
+            if (!$promotion_id) {
+                throw new \Exception('Not have promotion_id');
+            }
 
-        $arrData = [];
-        $now = date('Y-m-d H:i:s');
-        foreach ($request->input('product_id') as $product_id) {
-            $arrData[] = [
-                'promotion_id' => $promotion_id,
-                'product_id' => $product_id,
-                'created_at' => $now,
-                'updated_at' => $now
-            ];
-        }
+            $arrData = [];
+            $now = date('Y-m-d H:i:s');
+            foreach ($request->input('product_id') as $product_id) {
+                $arrData[] = [
+                    'promotion_id' => $promotion_id,
+                    'product_id' => $product_id,
+                    'created_at' => $now,
+                    'updated_at' => $now
+                ];
+            }
 
-        DB::table('promotion_products')->insert($arrData);
+            DB::table('promotion_products')->insert($arrData);
 
-        DB::commit();
+            DB::commit();
 
-        return redirect()->route('promotions.index')
-            ->with('success', 'Promotion created successfully.');
+            return redirect()->route('promotions.index')
+                ->with('success', 'Promotion created successfully.');
         } catch (\Exception $e) {
-        DB::rollback();
-        dd($e, $request->all(), $arrData);
+            DB::rollback();
+            return redirect()->route('status')
+                ->with('status-fail', 'Promotion could not be created.');
         }
     }
 
     public function show(Promotion $promotion)
     {
-        return view('admin.promotions.show', compact('promotion'));
+        $products = Product::orderBy('id', 'ASC')->paginate();
+        return view('admin.promotions.show', compact('promotion', 'products'))->with('i');
     }
 
     public function edit(Promotion $promotion)
@@ -93,7 +93,6 @@ class PromotionController extends Controller
 
     public function update(Request $request, Promotion $promotion)
     {
-        // dd($request);
         request()->validate([
             'title' => 'required|string',
             'discount_percent' => 'required|numeric|min:0|max:100',
@@ -111,27 +110,23 @@ class PromotionController extends Controller
                 throw new \Exception('Not have promotion_id');
             }
 
-            $arrData = [];
-            $now = date('Y-m-d H:i:s');
+            $ids = [];
             foreach ($request->input('product_id') as $product_id) {
-                $arrData = [
-                    'promotion_id' => $promotion_id,
-                    'product_id' => $product_id,
-                    'created_at' => null,
-                    'updated_at' => $now,
-                ];
+                $ids[] = $product_id;
             }
-            DB::table('promotion_products')->update($arrData);
+            $arrData = $request->all();
+            $promotion->update($arrData);
+            $promotion->products()->sync($ids);
             DB::commit();
 
             return redirect()->route('promotions.index')
                 ->with('success', 'Promotion updated successfully.');
 
-            } catch (\Exception $e) {
+        } catch (\Exception $e) {
             DB::rollback();
-            dd($e, $request->all(), $arrData);
-            }
-
+            return redirect()->route('status')
+                ->with('status-fail', 'Promotion could not be updated.');
+        }
     }
 
     public function destroy(Promotion $promotion)

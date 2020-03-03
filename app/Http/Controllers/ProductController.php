@@ -19,7 +19,7 @@ class ProductController extends Controller
         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
 
-     public function index()
+    public function index()
     {
         $products = Product::latest()->paginate(30);
         return view('admin.products.index', compact('products'))
@@ -32,8 +32,7 @@ class ProductController extends Controller
         // $product_categories = ProductCategory::all(['id','name'])->pluck('name', 'name')->all();
         $productCategoriesList = ProductCategory::pluck('name', 'id')->all();
         $productTypesList = ProductType::pluck('name', 'id')->all();
-        return view('admin.products.create', compact('productCategoriesList','productTypesList'));
-
+        return view('admin.products.create', compact('productCategoriesList', 'productTypesList'));
     }
 
     public function store(Request $request)
@@ -49,7 +48,7 @@ class ProductController extends Controller
             'producttype_id' => ['required', 'int'],
             // 'mimes: jpeg, png, jpg, gif, svg',
         ]);
-        $imageName = time().'.'.request()->image_url->getClientOriginalExtension();
+        $imageName = time() . '.' . request()->image_url->getClientOriginalExtension();
         request()->image_url->move(public_path('images/products/upload'), $imageName);
         $arrData = $request->all();
         $arrData['image_url'] = 'images/products/upload/' . $imageName;
@@ -68,7 +67,7 @@ class ProductController extends Controller
     {
         $productCategoriesList = ProductCategory::pluck('name', 'id')->all();
         $productTypesList = ProductType::pluck('name', 'id')->all();
-        return view('admin.products.edit', compact('product','productCategoriesList','productTypesList'));
+        return view('admin.products.edit', compact('product', 'productCategoriesList', 'productTypesList'));
     }
 
     public function update(Request $request, Product $product)
@@ -78,21 +77,25 @@ class ProductController extends Controller
             'code' => ['required', 'string'],
             'price' => ['required'],
             'detail' => ['string'],
-            'image_url' => ['required', 'image', 'max:2048'],
+            'image_url' => ['image', 'max:2048'],
             'productcategory_id' => ['required', 'int'],
             'producttype_id' => ['required', 'int'],
         ]);
-
-        $imageName = time().'.'.request()->image_url->getClientOriginalExtension();
-        request()->image_url->move(public_path('images/products/upload'), $imageName);
-        $arrData = $request->all();
-        $arrData['image_url'] = 'images/products/upload/' . $imageName;
-        $product->update($arrData);
+        if (request()->image_url) {
+            $imageName = time() . '.' . request()->image_url->getClientOriginalExtension();
+            request()->image_url->move(public_path('images/products/upload'), $imageName);
+            $arrData = $request->all();
+            $arrData['image_url'] = 'images/products/upload/' . $imageName;
+            $product->update($arrData);
+        }
+        else {
+            $arrData = $request->all();
+            $product->update($arrData);
+        }
 
 
         return redirect()->route('products.index')
-            ->with('success', 'Product updated successfully')
-            ->with('image',$imageName);
+            ->with('success', 'Product updated successfully');
     }
 
     public function destroy(Product $product)
