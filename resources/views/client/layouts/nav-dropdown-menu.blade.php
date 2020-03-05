@@ -220,7 +220,7 @@
     <li class="nav-item dropdown" style="position: initial;">
         <a href="#" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
             type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            style="height: 100%;">Collections</a>
+            style="height: 100%;">News</a>
         <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink"
             style="width: 100%;">
             <div class="row">

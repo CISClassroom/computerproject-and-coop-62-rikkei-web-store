@@ -2923,3 +2923,8 @@ body {
   height: 0;
 }
 
+.dim {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+

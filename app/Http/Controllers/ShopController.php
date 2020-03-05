@@ -14,11 +14,13 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
+        $now = date('Y-m-d');
         $productCategoriesList = ProductCategory::get();
         $productTypesList = ProductType::get();
-        $promotions = Promotion::all();
-        $products = Product::latest()->paginate(60);
-        return view('client.shop.index', compact('products', 'productCategoriesList', 'productTypesList', 'promotions'))
+        // $promotions = Promotion::all();
+        $products = Product::with('promotions', 'category')->latest()->paginate(60);
+        // dd($products);
+        return view('client.shop.index', compact('products', 'productCategoriesList', 'productTypesList', 'now'))
             ->with('i', (request()->input('page', 1) - 1) * 60);
     }
 
@@ -32,10 +34,10 @@ class ShopController extends Controller
 
     public function show(Product $product, $id)
     {
-        // dd($product);
-        $products = Product::latest()->paginate(9);
+        $now = date('Y-m-d');
+        $products = Product::with('promotions', 'type', 'category')->latest()->paginate(9);
         $product = Product::find($id);
-        return view('client.shop.show', compact('products', 'product'));
+        return view('client.shop.show', compact('products', 'product', 'now'));
     }
 
     public function edit(Product $product)

@@ -30,6 +30,12 @@ class Product extends Model
         ->withPivot('promotion_id', 'product_id');
     }
 
+    public function promotions()
+    {
+        return $this->belongsToMany(Promotion::class, 'promotion_products', 'product_id', 'promotion_id')
+            ->withPivot('promotion_id', 'product_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(ProductCategory::class, 'productcategory_id');

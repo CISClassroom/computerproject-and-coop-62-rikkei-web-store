@@ -72,7 +72,7 @@ class PromotionController extends Controller
                 ->with('success', 'Promotion created successfully.');
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->route('status')
+            return redirect()->route('adminstatus')
                 ->with('status-fail', 'Promotion could not be created.');
         }
     }
@@ -124,7 +124,7 @@ class PromotionController extends Controller
 
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->route('status')
+            return redirect()->route('adminstatus')
                 ->with('status-fail', 'Promotion could not be updated.');
         }
     }

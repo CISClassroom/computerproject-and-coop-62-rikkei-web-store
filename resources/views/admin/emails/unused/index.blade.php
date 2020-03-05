@@ -5,13 +5,13 @@
 <div class="row mb-3">
     <div class="col-8 margin-tb">
         <div class="pull-left">
-            <h2 class="text-uppercase">Promotions Management</h2>
+            <h2 class="text-uppercase">Newsletter</h2>
         </div>
     </div>
     @can('promotion-create')
     <div class="col">
         <div class="pull-right text-right">
-            <a class="btn btn-primary rounded-0" href="{{ route('promotions.create') }}">Create New Promotion</a>
+            <a class="btn btn-primary rounded-0" href="{{ route('promotions.create') }}">Send Newsletter</a>
         </div>
     </div>
     @endcan
@@ -30,14 +30,8 @@
             <th>No</th>
             <th>ID</th>
             <th>Title</th>
-            <th>Description</th>
-            <th>Discount</th>
-            <th>Max discount</th>
-            <th>Min purchase</th>
-            <th>Start at</th>
-            <th>End at</th>
+            <th>Message</th>
             <th>Created at</th>
-            {{-- <th>Related Event</th> --}}
             <th width="230px">Action</th>
         </tr>
     </thead>

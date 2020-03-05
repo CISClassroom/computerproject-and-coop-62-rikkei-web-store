@@ -13,9 +13,11 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
+        // dd($request->get('query'));
+
+        $now = date('Y-m-d');
         $productTypesList = ProductType::get();
         $productCategoriesList = ProductCategory::get();
-        $promotions = Promotion::all();
 
         $query = $request->get('query');
         $type = ProductType::where('name', 'LIKE', "%$query%")->get('id');
@@ -30,6 +32,7 @@ class SearchController extends Controller
 
         $category = ProductCategory::where('name', 'LIKE', "%$query%")->get('id');
         $category_id = null;
+
         foreach ($category as $categoryItem)
         {
             if (!$category_id)
@@ -38,24 +41,25 @@ class SearchController extends Controller
             }
         }
 
-        $products = Product::where('name', 'LIKE', "%$query%")
+        $products = Product::with('promotions', 'category')
+            ->where('name', 'LIKE', "%$query%")
             ->orWhere('code', 'LIKE', "%$query%")
             ->orWhere('detail', 'LIKE', "%$query%")
             ->orWhere('producttype_id', 'LIKE', "%$query%")
-            ->orWhere('producttype_id', 'LIKE', $type_id)
+            ->orWhere('producttype_id', '=', $type_id)
             ->orWhere('productcategory_id', 'LIKE', "%$query%")
-            ->orWhere('productcategory_id', 'LIKE', $category_id)
+            ->orWhere('productcategory_id', '=', $category_id)
             ->paginate(60);
 
-        // return view('client.shop.search', compact('products', 'productTypes', 'productCategories'))
-            return view('client.shop.search', compact('products', 'promotions', 'productTypesList', 'productCategoriesList'))
+            return view('client.shop.search', compact('products', 'productTypesList', 'productCategoriesList', 'now'))
             ->with('i', (request()->input('page', 1) - 1) * 60);
+
     }
     public function filter(Request $request)
     {
+        $now = date('Y-m-d');
         $productTypesList = ProductType::get();
         $productCategoriesList = ProductCategory::get();
-        $promotions = Promotion::all();
 
         $type_id = $request->get('type');
         $type_all = 0;
@@ -68,14 +72,13 @@ class SearchController extends Controller
 
         $category_id = $request->get('category');
 
-        // dd($type_id);
 
-        $products = Product::where('producttype_id', '=', $type_id)
+        $products = Product::with('promotions', 'category')
+            ->where('producttype_id', '=', $type_id)
             ->orWhere('producttype_id', '=', $type_all)
             ->orWhere('productcategory_id', '=', $category_id)
             ->paginate(60);
-            // dd($products);
-            return view('client.shop.search', compact('products', 'promotions', 'productTypesList', 'productCategoriesList'))
+            return view('client.shop.search', compact('products', 'productTypesList', 'productCategoriesList', 'now'))
             ->with('i', (request()->input('page', 1) - 1) * 60);
     }
 }

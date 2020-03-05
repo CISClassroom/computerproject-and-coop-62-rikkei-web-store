@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\ProductOrder;
 use Illuminate\Http\Request;
@@ -34,6 +35,13 @@ class CartController extends Controller
         $id = $request->id;
         $product = Product::find($id);
 
+        $now = date('Y-m-d');
+        $discountedPercent = $product->promotions->where('start_at', '<=', $now )->where('end_at', '>=', $now)->first();
+        $discountedPercent = $discountedPercent ? $discountedPercent->discount_percent : 0;
+        $discountedPrice = (($product->price) / 100) * ($discountedPercent);
+        $finalPrice = ($product->price) - ($discountedPrice);
+
+
         if (!$product) {
 
             abort(404);
@@ -51,7 +59,8 @@ class CartController extends Controller
                     "product_id" => $product->id,
                     "name" => $product->name,
                     "quantity" => 1,
-                    "price" => $product->price,
+                    "fullprice" => $product->price,
+                    "price" => $finalPrice,
                     "image_url" => '/' . $product->image_url,
                     "color" => $request->color,
                     "size" => $request->size,
@@ -78,7 +87,8 @@ class CartController extends Controller
             "product_id" => $product->id,
             "name" => $product->name,
             "quantity" => 1,
-            "price" => $product->price,
+            "fullprice" => $product->price,
+            "price" => $finalPrice,
             "image_url" => '/' . $product->image_url,
             "color" => $request->color,
             "size" => $request->size,
@@ -221,7 +231,7 @@ class CartController extends Controller
                 ]);
 
                 //store productOrderArrData to DB table Product_orders
-                ProductOrder::create($productOrderArrData);
+                OrderProduct::create($productOrderArrData);
             }
             session()->forget('cart');
             session()->forget('sumprice');

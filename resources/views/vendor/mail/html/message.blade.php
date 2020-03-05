@@ -2,7 +2,7 @@
 {{-- Header --}}
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-<img src="{{url('/storage/assets/icons/1200px-Logo_NIKE.png')}}" style="height: 20px; width: 60px;" alt="Nike logo" />
+<img src="{{url('/storage/assets/icons/Rikkeisoft-logo.png')}}" style="height: 40px; width: 97px;" alt="Rikkeisoft logo" />
 {{-- <br> --}}
 {{-- {{ config('app.name') }} --}}
 @endcomponent

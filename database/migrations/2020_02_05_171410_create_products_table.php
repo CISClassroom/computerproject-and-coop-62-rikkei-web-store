@@ -19,7 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('code');
             $table->decimal('price');
             $table->longText('detail');
-            $table->string('image_url')->nullable();;
+            $table->string('image_url')->nullable();
+            $table->string('slug');
             $table->timestamps();
             $table->unsignedBigInteger('productcategory_id')->index()->unsigned();
             $table->unsignedBigInteger('producttype_id')->index()->unsigned();

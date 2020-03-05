@@ -1,7 +1,9 @@
 @extends('client.layouts.app')
 
 @section('content')
-
+@php
+    $now = date('Y-m-d');
+@endphp
 {{-- content --}}
 <section class="">
     <div class="mx-5">
@@ -9,8 +11,8 @@
             <div id="carouselSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="d-block w-100"
-                            alt="...">
+                        <img src="{{url('/storage/assets/images/nike-react-home.jpg')}}" class="d-block w-100 dim"
+                            alt="homepage cover">
                         <div class="carousel-caption d-none d-md-block mb-5">
                             <h1 class="text-uppercase font-weight-bolder">{{__('DESIGNED TO HELP REDUCE INJURY')}}</h1>
                             <p class="text-size-10">Our newest shoe is built to help keep you doing what you love.
@@ -33,7 +35,7 @@
                                 style="width: 100%;height: 700px;object-fit: cover;">
                             <div class="img-overlay">
                                 <p class="text-light font-weight-bold text-size-8">Nike Air Force 1 React</p>
-                                <button class="btn btn-light rounded-pill" type="button" href="#">Shop</button>
+                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('shop.show',4) }}">Shop</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +45,7 @@
                                 style="width: 100%;height: 700px;object-fit: cover;">
                             <div class="img-overlay">
                                 <p class="text-light font-weight-bold text-size-8">Nike Icon Clash Collection</p>
-                                <button class="btn btn-light rounded-pill" type="button" href="#">Shop</button>
+                                <a class="btn btn-light rounded-pill" type="button" href="{{ route('shop.show',3) }}">Shop</a>
                             </div>
                         </div>
                     </div>
@@ -60,9 +62,12 @@
                                 style="width: 100%;height: 700px;object-fit: cover;">
                             <div class="img-overlay">
                                 <p class="text-dark font-weight-bold text-size-1">PG 4</p>
-                                <button class="btn btn-dark rounded-pill" type="button" href="#">Shop</button>
-                                <button class="btn btn-dark rounded-pill" type="button" href="#">Shop
-                                    Collection</button>
+                                <a class="btn btn-dark rounded-pill" type="button" href="{{ route('shop.show',7) }}">
+                                    Shop
+                                </a>
+                                <a class="btn btn-dark rounded-pill" type="button" href="{{ route('filter','category='.'5') }}">
+                                    Shop Collection
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -86,7 +91,7 @@
                             style="width: 100%;height: 500px;object-fit: cover;">
                         <div class="img-overlay">
                             <p></p>
-                            <button class="btn btn-light rounded-pill" type="button" href="#">Men's</button>
+                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('filter','type='.'1') }}">Men's</a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +101,7 @@
                             style="width: 100%;height: 500px;object-fit: cover;">
                         <div class="img-overlay">
                             <p></p>
-                            <button class="btn btn-light rounded-pill" type="button" href="#">Women's</button>
+                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('filter','type='.'2') }}">Women's</a>
                         </div>
                     </div>
                 </div>
@@ -106,7 +111,7 @@
                             style="width: 100%;height: 500px;object-fit: cover;">
                         <div class="img-overlay">
                             <p></p>
-                            <button class="btn btn-light rounded-pill" type="button" href="#">Kid's</button>
+                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('filter','type='.'6') }}">Kid's</a>
                         </div>
                     </div>
                 </div>

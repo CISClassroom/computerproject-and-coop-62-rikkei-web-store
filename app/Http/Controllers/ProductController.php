@@ -51,6 +51,10 @@ class ProductController extends Controller
         $imageName = time() . '.' . request()->image_url->getClientOriginalExtension();
         request()->image_url->move(public_path('images/products/upload'), $imageName);
         $arrData = $request->all();
+        //slug
+        // $nameSlug = Str::slug($request->name);
+        // $arrData['slug'] = $nameSlug;
+
         $arrData['image_url'] = 'images/products/upload/' . $imageName;
 
         Product::create($arrData);

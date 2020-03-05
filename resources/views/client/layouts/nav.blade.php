@@ -58,7 +58,7 @@
                 </form>
             </div>
             @endguest
-            <a href="#" class="btn btn-outline-transparent icon-question rounded-0 my-2" type="button"></a>
+            <a href="{{ route('support') }}" class="btn btn-outline-transparent icon-question rounded-0 my-2" type="button"></a>
 
             {{-- <a class="btn btn-outline-transparent icon-cart rounded-0 my-2" type="button" data-target="cartModal"
             data-toggle="modal"></a> --}}
@@ -105,6 +105,7 @@
                                     <th style="white-space: nowrap; width: 1%;">Image</th>
                                     <th>Name</th>
                                     <th style="white-space: nowrap; width: 1%;">Quantity</th>
+                                    <th class="text-center" style="white-space: nowrap; width: 1%;">Price</th>
                                     <th style="white-space: nowrap; width: 1%;">Subtotal</th>
                                     <th style="white-space: nowrap; width: 1%;">Action</th>
                                 </tr>
@@ -128,6 +129,13 @@
                                         <input type="number" value="{{ $details['quantity'] }}" name="quantity"
                                             class="form-control mt-3 txt-quantity" min="1" />
                                     </td>
+                                    <td class="text-right text-nowrap">
+                                        @if ($details['fullprice'] != $details['price'])
+                                            <del>@currency($details['fullprice'])</del> <label class="text-danger">@currency($details['price'])</label>
+                                        @else
+                                            @currency($details['price'])
+                                        @endif
+                                        </td>
                                     <td class="text-right">
                                         @currency($stotal = $details['quantity'] * $details['price'])
                                         {{ Form::hidden('invisible', $total += $stotal) }}

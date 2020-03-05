@@ -22,18 +22,28 @@
 
                                 {{-- item card --}}
                                 @foreach ($products as $product)
+                                @php
+                                    $discountedPercent = $product->promotions
+                                        ->where('start_at', '<=', $now )
+                                        ->where('end_at', '>=', $now)->first();
+                                    $discountedPercent = $discountedPercent ? $discountedPercent->discount_percent : 0;
+                                    $discountedPrice = (($product->price) / 100) * ($discountedPercent);
+                                    $finalPrice = ($product->price) - ($discountedPrice);
+                                @endphp
                                 <div class="col-md-4">
                                     <a class="text-decoration-none" href="{{ route('shop.show',$product->id) }}">
                                         <div class="card border-0">
                                             <div class="img-wrapper">
                                                 <img class="img-responsive" src="{{ $product->image_url }}"
-                                                style="width: 100%; max-height: 400px; height: 400px; object-fit: cover;">
+                                                    style="width: 100%; max-height: 400px; height: 400px; object-fit: cover;">
                                                 <div class="img-overlay">
+                                                    @if ($discountedPercent != 0)
                                                     <p class="text-light badge badge-pill badge-danger font-weight-bold text-size-8 text-nowrap"
-                                                    style="margin-top: 20%;">
-                                                        -00%
+                                                        style="margin-top: 15%;">
+                                                        -{{ $discountedPercent }}%
                                                     </p>
-                                                </div>
+                                                    @endif
+                                            </div>
                                             </div>
                                             <div class="card-body">
                                                 <div class="row row-cols-1 row-cols-md-2">
@@ -44,64 +54,32 @@
                                                         {{-- for show category --}}
                                                         <div class="product-subtitle text-left">
                                                             <p class="card-text text-muted">
-                                                                {{ $product->category->name }}</p>
+                                                                {{ $product->category->name }}
+                                                            </p>
                                                         </div>
                                                         <div class="product-color text-left">
                                                             <p class="card-text text-muted text-nowrap">
-                                                                {{ __('4 colors') }}</p>
+                                                                {{ __('4 colors') }}
+                                                            </p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="product-price text-right">
                                                             <div class="card-text text-muted text-nowrap" id="oldPrice">
-                                                                @foreach($promotions as $promotion)
-                                                                    @foreach($promotion->products as $productItem)
-                                                                        @if ($product->id === $productItem->id)
-                                                                        <del>
-                                                                        @endif
-                                                                    @endforeach
-                                                                @endforeach
-                                                                @currency($finalprice = $product->price)
-                                                                @foreach($promotions as $promotion)
-                                                                    @foreach($promotion->products as $productItem)
-                                                                        @if ($product->id === $productItem->id)
-                                                                        </del>
-                                                                        @endif
-                                                                    @endforeach
-                                                                @endforeach
+                                                                @if ($discountedPercent != 0)
+                                                                    <del>
+                                                                @endif
+                                                                    @currency($fullprice = $product->price)
+                                                                @if ($discountedPercent != 0)
+                                                                    </del>
+                                                                @endif
                                                             </div>
-                                                            {{-- @php
-                                                            $tableData = DB::table('promotion_products')
-                                                            ->join('products', 'products.id', '=', 'promotion_products.product_id')
-                                                            ->join('promotions', 'promotions.id', '=', 'promotion_products.promotion_id')
-                                                            ->where('promotions.id', '=', 35)
-                                                            ->get();
-                                                            @endphp
-                                                            @foreach($tableData as $data)
-                                                            {{ dd($data->id) }}
-                                                            @if ($product->id === $data->id)
-                                                            <input type="hidden"
-                                                                value="@currency($discounted = (($product->price)/100)*($promotion->discount_percent))">
-                                                            <label for="oldPrice">@currency($discountedprice =
-                                                                ($product->price)-($discounted))</label>
-                                                            @endif
-                                                            @endforeach --}}
-                                                            @foreach($promotions as $promotion)
-                                                            @foreach($promotion->products as $productItem)
-                                                            @if ($product->id === $productItem->id)
-                                                            {{-- {{ $productItem->id }}-{{ $promotion->id}}-{{ $productItem->price }}:{{ $promotion->discount_percent }}<br>
-                                                            --}}
-                                                            <div class="card-text text-danger text-nowrap"
-                                                                id="newPrice">
-                                                                <input type="hidden"
-                                                                    value="@currency($discounted = (($product->price)/100)*($promotion->discount_percent))">
-                                                                <label for="newPrice">@currency($finalprice =
-                                                                    ($product->price)-($discounted))</label>
+                                                            <div class="card-text text-danger text-nowrap" id="newPrice">
+                                                                <input type="hidden" value="@currency($discountedPrice)">
+                                                                @if ($discountedPercent != 0)
+                                                                    <label for="newPrice">@currency($finalPrice)</label>
+                                                                @endif
                                                             </div>
-                                                            @endif
-                                                            @endforeach
-                                                            @endforeach
-
                                                         </div>
                                                     </div>
                                                 </div>

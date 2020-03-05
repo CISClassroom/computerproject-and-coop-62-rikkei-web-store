@@ -10,7 +10,7 @@ class SwiperController extends Controller
 
     public function index()
     {
-        $products = Product::latest()->paginate(9);
+        $products = Product::with('type', 'category')->latest()->paginate(9);
         return view('client.shop.components.swiper', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 9);
     }

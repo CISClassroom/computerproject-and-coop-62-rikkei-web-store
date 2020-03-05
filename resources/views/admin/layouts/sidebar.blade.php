@@ -4,7 +4,7 @@
         <div class="col sidebar-heading text-light text-center ml-3">Navigation</div>
     </div>
 
-    <a href="/admin/dashboard"
+    <a href="{{ route('index') }}"
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-dark text-light">
         <div class="icon-home-white">&emsp;Dashboard</div>
         <span class="badge badge-primary badge-pill"></span>
@@ -109,9 +109,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('index') }}"
+                    <a href="{{ route('mails.index') }}"
                         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-gray text-light">
-                        <div class="icon-megaphone-white pl-3">&emsp;Products list</div>
+                        <div class="icon-megaphone-white pl-3">&emsp;Newsletter</div>
                         <span class="badge badge-primary badge-pill"></span>
                     </a>
                 </li>

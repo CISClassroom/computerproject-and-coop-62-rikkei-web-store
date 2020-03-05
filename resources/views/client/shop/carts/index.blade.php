@@ -24,13 +24,13 @@
                             <table class="table table-hover table-borderless">
                                 <thead>
                                     <tr>
-                                        <th style="white-space: nowrap; width: 1%;">No.</th>
-                                        <th style="white-space: nowrap; width: 1%;">Image</th>
-                                        <th>Name</th>
-                                        <th style="white-space: nowrap; width: 1%;">Quantity</th>
-                                        <th style="white-space: nowrap; width: 1%;">Price</th>
-                                        <th style="white-space: nowrap; width: 1%;">Subtotal</th>
-                                        <th style="white-space: nowrap; width: 1%;">Action</th>
+                                        <th class="text-center" style="white-space: nowrap; width: 1%;">No.</th>
+                                        <th class="text-center" style="white-space: nowrap; width: 1%;">Image</th>
+                                        <th class="text-center">Name</th>
+                                        <th class="text-center" style="white-space: nowrap; width: 1%;">Quantity</th>
+                                        <th class="text-center" style="white-space: nowrap; width: 1%;">Price</th>
+                                        <th class="text-center" style="white-space: nowrap; width: 1%;">Subtotal</th>
+                                        <th class="text-center" style="white-space: nowrap; width: 1%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,8 +52,12 @@
                                             <input type="number" value="{{ $details['quantity'] }}" name="quantity"
                                                 class="form-control mt-3 txt-quantity" min="1" />
                                         </td>
-                                        <td class="text-right">
-                                            @currency($details['price'])
+                                        <td class="text-right text-nowrap">
+                                            @if ($details['fullprice'] != $details['price'])
+                                                <del>@currency($details['fullprice'])</del> <label class="text-danger">@currency($details['price'])</label>
+                                            @else
+                                                @currency($details['price'])
+                                            @endif
                                         </td>
                                         <td class="text-right">
                                             @currency( $stotal = $details['quantity'] * $details['price'] )

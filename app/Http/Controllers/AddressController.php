@@ -17,23 +17,7 @@ class AddressController extends Controller
 
     public function index()
     {
-        $user = Auth::user();
-
-        // dd($user->address()->toSql());
-        // dd($user);
-
-        // $addresses = Address::where('user_id', '=', $user->id)->paginate(8);
-        // dd($addresses);
-        // return view('client.accounts.addressbooks.index', compact('addresses'))
-        // ->with('i', (request()->input('page', 1) - 1) * 8);
-
-        // $address = Auth::user()->address;
-        // $address->paginate(8);
-        // return view('client.accounts.addressbooks.index', compact('address'))
-        // ->with('i', (request()->input('page', 1) - 1) * 8);
-
-
-
+        Auth::user();
         return view('client.accounts.addressbooks.index')
         ->with('i', (request()->input('page', 1) - 1) * 8);
     }

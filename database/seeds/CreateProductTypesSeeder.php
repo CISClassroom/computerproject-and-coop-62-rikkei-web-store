@@ -16,10 +16,10 @@ class CreateProductTypesSeeder extends Seeder
             [
                 'name' => 'Men shoes',
                 'name' => 'Women shoes',
-                'name' => 'All adult shoes',
+                'name' => 'All gender adult shoes',
                 'name' => 'Boy shoes',
                 'name' => 'Girl shoes',
-                'name' => 'All kid shoes',
+                'name' => 'All gender kid shoes',
             ]
         );
     }

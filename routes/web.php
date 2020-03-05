@@ -12,13 +12,26 @@ use App\Models\Product;
 Auth::routes(['verify' => true]);
 
 // store
+Route::get('/', function () {
+    $products = Product::latest()->paginate(9);
+    return view('client.home.index', compact('products'));
+});
+
 Route::get('/home', 'HomeController@index')->name('Nike Store');
+Route::resource('/shop', 'ShopController');
+Route::resource('/swiper', 'SwiperController');
 Route::post('/search', 'SearchController@index')->name('search');
 Route::get('/filter', 'SearchController@filter')->name('filter');
 Route::resource('/cart', 'CartController');
 
 // status
 Route::get('/status', 'HomeController@status')->name('status');
+
+//support
+Route::get('/support', 'SupportController@index')->name('support');
+Route::get('/support/qa', 'SupportController@qa')->name('qa');
+Route::get('/support/livechat', 'SupportController@livechat')->name('livechat');
+Route::get('/support/ticket', 'SupportController@ticket')->name('ticket');
 
 
 
@@ -42,11 +55,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/producttypes', 'ProductTypeController');
         Route::resource('/productcategories', 'ProductCategoryController');
         Route::resource('/promotions', 'PromotionController');
+        Route::resource('/mails', 'EmailController');
+        // Route::get('/send-mail', 'EmailController@sendMail')->name('send-mail');
+        // Route::get('/send-newsletter', 'EmailController@sendNewsletter')->name('send-newsletter');
         Route::resource('/users', 'UserController');
         Route::resource('/roles', 'RoleController');
 
         // status
-        Route::get('/status', 'HomeController@adminStatus')->name('status');
+        Route::get('/adminstatus', 'HomeController@adminStatus')->name('adminstatus');
     });
 });
 
@@ -57,10 +73,6 @@ Route::group(['middleware' => ['auth']], function () {
 | Client routes
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () {
-    $products = Product::latest()->paginate(9);
-    return view('client.home.index', compact('products'));
-});
 Route::prefix('/account')->group(function () {
     Route::resource('/profile', 'ProfileController')->middleware('verified');
     // Route::resource('/orderhistory', 'OrderHistoryController')->middleware('verified');
@@ -74,8 +86,6 @@ Route::prefix('/account')->group(function () {
         ->name('storeAjax');
 });
 
-Route::resource('/shop', 'ShopController');
-Route::resource('/swiper', 'SwiperController');
 
 //need to login and verified to checkout
 Route::resource('/checkout', 'CheckoutController')->middleware('verified');

@@ -198,9 +198,14 @@
                             </div>
                             <div class="row mt-5">
                                 <div class="container">
+                                    <div id="paypal-button-container"></div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="container">
                                     <a href="{{ route('payment.index') }}"
                                         class="btn btn-dark rounded-0 btn-lg btn-block text-uppercase">
-                                        {{ __('Proceed to next step') }}
+                                        {{ __('Cash on arrive') }}
                                     </a>
                                 </div>
                             </div>
@@ -219,3 +224,37 @@
         </div>
     </div>
 </div>
+<script src="https://www.paypal.com/sdk/js?client-id=ASKa6A2eNFrAZE4EDoRoeAgv2j9b_bFzpPTngbYm4MK81VhjsvB7ZMg6bSznEHbb6pbvIoF7cFcMZoem">
+</script>
+<script>
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        // This function sets up the details of the transaction, including the amount and line item details.
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: 0.01
+            //   $sumprice['sumtotal']
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+      // This function captures the funds from the transaction.
+      return actions.order.capture().then(function(details) {
+        // This function shows a transaction success message to your buyer.
+        alert('Transaction completed by ' + details.payer.name.given_name);
+      // Call your server to save the transaction
+      return fetch('/paypal-transaction-complete', {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            orderID: data.orderID
+          })
+        });
+      });
+    }
+    }).render('#paypal-button-container');
+  </script>

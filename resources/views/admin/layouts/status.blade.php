@@ -16,34 +16,32 @@
                         <div class="icon-status-success animated flipInY align-middle text-center my-3">
                         </div>
                         <div class="text-uppercase font-weight-bold text-center my-3">
-                            {{ __('Your transaction has been proceed') }}
+                            {{ __('Your operation has been completed') }}
                         </div>
-
                         <div class="form-group row d-flex justify-content-center">
                             <div class="col-12 col-lg-10 col-xl-8 my-3">
                                 <div class="container">
                                     <p class="text-center text-muted">
-                                        {{ __('You can check your order status in order history page') }}
+                                        {{ $message }}
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center mb-0">
                             <div class="col-12 col-lg-10 col-xl-8">
-                                <a type="button" href="{{ route('orderhistory.index') }}"
+                                <a type="button" href="{{ route('index') }}"
                                     class="btn btn-dark btn-block rounded-0 text-uppercase">
-                                    {{ __('order history') }}
+                                    {{ __('Dashboard') }}
                                 </a>
                                 <a type="button" href="{{ route('shop.index') }}"
                                     class="btn btn-outline-dark btn-block rounded-0 text-uppercase">
-                                    {{ __('Continue shoping') }}
+                                    {{ __('Client store') }}
                                 </a>
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center my-3">
                             <div class="col-12 col-lg-10 col-xl-8">
                                 <p class="text-center text-muted">
-                                    {{ $message }}
                                     {{-- {{ __('This page will redirect after 5 seconds...') }} --}}
                                 </p>
 
@@ -70,27 +68,26 @@
                             <div class="col-12 col-lg-10 col-xl-8 my-3">
                                 <div class="container">
                                     <p class="text-center text-muted">
-                                        {{ __('Please try again later or contact our customer support') }}
+                                        {{ $message }}
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center mb-0">
                             <div class="col-12 col-lg-10 col-xl-8">
-                                <a type="button" href="{{ route('orderhistory.index') }}"
+                                <a type="button" href="{{ route('index') }}"
                                     class="btn btn-dark btn-block rounded-0 text-uppercase">
-                                    {{ __('Customer support') }}
+                                    {{ __('Dashboard') }}
                                 </a>
                                 <a type="button" href="{{ route('shop.index') }}"
                                     class="btn btn-outline-dark btn-block rounded-0 text-uppercase">
-                                    {{ __('Continue shoping') }}
+                                    {{ __('Client store') }}
                                 </a>
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center my-3">
                             <div class="col-12 col-lg-10 col-xl-8">
                                 <p class="text-center text-muted">
-                                    {{ $message }}
                                     {{-- {{ __('This page will redirect after 5 seconds...') }} --}}
                                 </p>
 
@@ -110,27 +107,27 @@
                         <div class="icon-status-fail animated tada align-middle text-center my-3">
                         </div>
                         <div class="text-uppercase font-weight-bold text-center my-3">
-                            {{ __('Sorry! We could not preceed your transaction ') }}
+                            {{ __('Sorry! We could not preceed your operation') }}
                         </div>
 
                         <div class="form-group row d-flex justify-content-center">
                             <div class="col-12 col-lg-10 col-xl-8 my-3">
                                 <div class="container">
                                     <p class="text-center text-muted">
-                                        {{ __('Please try again later or contact our customer support') }}
+                                        {{ $message }}
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center mb-0">
                             <div class="col-12 col-lg-10 col-xl-8">
-                                <a type="button" href="{{ route('orderhistory.index') }}"
+                                <a type="button" href="{{ route('index') }}"
                                     class="btn btn-dark btn-block rounded-0 text-uppercase">
-                                    {{ __('Customer support') }}
+                                    {{ __('Dashboard') }}
                                 </a>
                                 <a type="button" href="{{ route('shop.index') }}"
                                     class="btn btn-outline-dark btn-block rounded-0 text-uppercase">
-                                    {{ __('Continue shoping') }}
+                                    {{ __('Client store') }}
                                 </a>
                             </div>
                         </div>
