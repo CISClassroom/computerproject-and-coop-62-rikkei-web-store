@@ -55,7 +55,7 @@ class SearchController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 60);
 
     }
-    public function filter(Request $request)
+    public function findProduct(Request $request)
     {
         $now = date('Y-m-d');
         $productTypesList = ProductType::get();

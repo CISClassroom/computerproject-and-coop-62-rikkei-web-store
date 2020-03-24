@@ -35,10 +35,10 @@
                                         <div class="card border-0">
                                             <div class="img-wrapper">
                                                 <img class="img-responsive" src="{{ $product->image_url }}"
-                                                    style="width: 100%; max-height: 400px; height: 400px; object-fit: cover;">
+                                                    style="width: 100%; max-height: 400px; min-height: 150px; object-fit: cover;">
                                                 <div class="img-overlay">
                                                     @if ($discountedPercent != 0)
-                                                    <p class="text-light badge badge-pill badge-danger font-weight-bold text-size-8 text-nowrap"
+                                                    <p class="text-light badge badge-pill badge-danger font-weight-bold product-discountpercent text-nowrap"
                                                         style="margin-top: 15%;">
                                                         -{{ $discountedPercent }}%
                                                     </p>

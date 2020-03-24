@@ -105,9 +105,15 @@
                                     <div class="container">
                                         <p class="text-center text-muted">
                                             {{ __('By creating an account, you agree to Nike\'s') }}
-                                            <a href="#" class="text-dark"><u>{{ __('Privacy Policy') }}</u></a>
+                                            <a href="#" class="text-dark" data-dismiss="modal" data-toggle="modal"
+                                            data-target="#policyModal">
+                                                <u>{{ __('Privacy Policy') }}</u>
+                                            </a>
                                             {{ __('and') }}
-                                            <a href="#" class="text-dark"><u>{{ __('Terms of Use.') }}</u></a>
+                                            <a href="#" class="text-dark" data-dismiss="modal" data-toggle="modal"
+                                            data-target="#termsModal">
+                                                <u>{{ __('Terms of Use.') }}</u>
+                                            </a>
                                         </p>
                                     </div>
                                 </div>

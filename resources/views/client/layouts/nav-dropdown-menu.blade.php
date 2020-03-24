@@ -1,7 +1,7 @@
 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 mx-auto">
     <li class="nav-item dropdown" style="position: initial;">
-        <a href="#" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
-            type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        <a href="{{ route('find-product','type=1') }}" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
+            type="button" role="button"
             style="height: 100%;">Men</a>
         <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink"
             style="width: 100%;">
@@ -74,8 +74,8 @@
         </div>
     </li>
     <li class="nav-item dropdown" style="position: initial;">
-        <a href="#" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
-            type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        <a href="{{ route('find-product','type=2') }}" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
+            type="button" role="button"
             style="height: 100%;">Women</a>
         <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink"
             style="width: 100%;">
@@ -151,8 +151,8 @@
         </div>
     </li>
     <li class="nav-item dropdown" style="position: initial;">
-        <a href="#" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
-            type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        <a href="{{ route('find-product','type=4') }}" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
+            type="button" role="button"
             style="height: 100%;">Kids</a>
         <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink"
             style="width: 100%;">
@@ -218,10 +218,10 @@
         </div>
     </li>
     <li class="nav-item dropdown" style="position: initial;">
-        <a href="#" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
-            type="button" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        <a href="{{ route('news.index') }}" class="btn btn-outline-dark border-0 rounded-0 my-3 text-uppercase font-weight-bold"
+            type="button" role="button"
             style="height: 100%;">News</a>
-        <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink"
+        {{-- <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink"
             style="width: 100%;">
             <div class="row">
                 <div class="col-lg-1">
@@ -292,6 +292,6 @@
                 <div class="col-lg-1">
                 </div>
             </div>
-        </div>
+        </div> --}}
     </li>
 </ul>

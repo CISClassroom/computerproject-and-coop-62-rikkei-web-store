@@ -19,9 +19,11 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('Nike Store');
 Route::resource('/shop', 'ShopController');
+Route::resource('/news', 'NewsController');
+Route::get('/find-news', 'NewsController@findNews')->name('find-news');
 Route::resource('/swiper', 'SwiperController');
 Route::post('/search', 'SearchController@index')->name('search');
-Route::get('/filter', 'SearchController@filter')->name('filter');
+Route::get('/find-product', 'SearchController@findProduct')->name('find-product');
 Route::resource('/cart', 'CartController');
 
 // status
@@ -54,6 +56,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/products', 'ProductController');
         Route::resource('/producttypes', 'ProductTypeController');
         Route::resource('/productcategories', 'ProductCategoryController');
+        Route::resource('/articles', 'ArticleController');
+        Route::resource('/articlecategories', 'ArticleCategoryController');
         Route::resource('/promotions', 'PromotionController');
         Route::resource('/mails', 'EmailController');
         // Route::get('/send-mail', 'EmailController@sendMail')->name('send-mail');

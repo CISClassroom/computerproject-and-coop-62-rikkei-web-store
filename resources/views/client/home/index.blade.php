@@ -65,7 +65,7 @@
                                 <a class="btn btn-dark rounded-pill" type="button" href="{{ route('shop.show',7) }}">
                                     Shop
                                 </a>
-                                <a class="btn btn-dark rounded-pill" type="button" href="{{ route('filter','category='.'5') }}">
+                                <a class="btn btn-dark rounded-pill" type="button" href="{{ route('find-product','category='.'5') }}">
                                     Shop Collection
                                 </a>
                             </div>
@@ -91,7 +91,7 @@
                             style="width: 100%;height: 500px;object-fit: cover;">
                         <div class="img-overlay">
                             <p></p>
-                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('filter','type='.'1') }}">Men's</a>
+                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('find-product','type='.'1') }}">Men's</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             style="width: 100%;height: 500px;object-fit: cover;">
                         <div class="img-overlay">
                             <p></p>
-                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('filter','type='.'2') }}">Women's</a>
+                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('find-product','type='.'2') }}">Women's</a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                             style="width: 100%;height: 500px;object-fit: cover;">
                         <div class="img-overlay">
                             <p></p>
-                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('filter','type='.'6') }}">Kid's</a>
+                            <a class="btn btn-light rounded-pill" type="button" href="{{ route('find-product','type='.'6') }}">Kid's</a>
                         </div>
                     </div>
                 </div>

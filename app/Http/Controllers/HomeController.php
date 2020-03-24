@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -24,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $products = Product::with('type', 'category')->latest()->paginate(9);
         if ($user->role_id == "1" || $user->role_id == "2") {
             if (!session()->has('url.intended')) {
                 session(['url.intended' => url()->previous()]);
@@ -36,10 +38,10 @@ class HomeController extends Controller
             if (!session()->has('url.intended')) {
                 session(['url.intended' => url()->previous()]);
             }
-                return view('client.home.index');
+                return view('client.home.index', compact('products'));
         }
         else {
-            return view('client.home.index');
+            return view('client.home.index', compact('products'));
         }
     }
     public function status()

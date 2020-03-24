@@ -34,22 +34,22 @@
             <th width="230px">Action</th>
         </tr>
     </thead>
-    @foreach ($productcategories as $type)
+    @foreach ($productcategories as $category)
     <tr>
         <td class="font-weight-bold">{{ ++$i }}</td>
-        <td>{{ $type->id }}</td>
-        <td>{{ $type->name }}</td>
+        <td>{{ $category->id }}</td>
+        <td>{{ $category->name }}</td>
         <td>
-            <form action="{{ route('productcategories.destroy',$type->id) }}" method="POST">
-                @can('producttype-list')
-                <a class="btn btn-info rounded-0" href="{{ route('productcategories.show',$type->id) }}">Show</a>
+            <form action="{{ route('productcategories.destroy',$category->id) }}" method="POST">
+                @can('productcategory-list')
+                <a class="btn btn-info rounded-0" href="{{ route('productcategories.show',$category->id) }}">Show</a>
                 @endcan
-                @can('producttype-edit')
-                <a class="btn btn-warning rounded-0" href="{{ route('productcategories.edit',$type->id) }}">Edit</a>
+                @can('productcategory-edit')
+                <a class="btn btn-warning rounded-0" href="{{ route('productcategories.edit',$category->id) }}">Edit</a>
                 @endcan
                 @csrf
                 @method('DELETE')
-                @can('producttype-delete')
+                @can('productcategory-delete')
                 <button type="submit" class="btn btn-danger rounded-0"
                     onclick="return confirm('Are you sure you want to delete this item? This action can not be undone.')">
                     Delete

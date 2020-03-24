@@ -1433,6 +1433,78 @@
           filter: invert(100%) !important;
 }
 
+.icon-newspaper::before {
+  background: url(/images/newspaper.svg?99cca1e3c3c681325cf2f450b3acf22b) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-newspaper::before {
+  background: url(/images/newspaper.svg?99cca1e3c3c681325cf2f450b3acf22b) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-newspaper:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.icon-newspaper-white::before {
+  background: url(/images/newspaper-white.svg?e5b4aee8e6de766fa196aa12c8d0224a) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding-right: 25px;
+  padding: inherit;
+  vertical-align: middle;
+}
+
+.icon-social-newspaper-white::before {
+  background: url(/images/newspaper-white.svg?e5b4aee8e6de766fa196aa12c8d0224a) no-repeat;
+  background-position: initial;
+  background-size: contain;
+  content: "";
+  display: inline-block;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}
+
+.icon-social-newspaper-white:hover {
+  -webkit-filter: brightness(100%) !important;
+          filter: brightness(100%) !important;
+}
+
+.icon-heart-blank:hover {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
 .icon-megaphone::before {
   background: url(/images/megaphone.svg?974544c57ce68e830a5a37f94ee31dc5) no-repeat;
   background-position: initial;
@@ -2803,39 +2875,47 @@
 }
 
 @media screen and (min-width: 769px) {
-  div.product-title {
+  .product-title {
     font-size: 16px;
   }
 
-  div.product-subtitle {
+  .product-subtitle {
     font-size: 16px;
   }
 
-  div.product-color {
+  .product-color {
     font-size: 14px;
   }
 
-  div.product-price {
+  .product-price {
     font-size: 16px;
+  }
+
+  .product-discountpercent {
+    font-size: 24px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  div.product-title {
+  .product-title {
     font-size: 14px;
   }
 
-  div.product-subtitle {
+  .product-subtitle {
     font-size: 12px;
   }
 
-  div.product-color {
+  .product-color {
     font-size: 12px;
   }
 
-  div.product-price {
+  .product-price {
     font-size: 14px;
     text-align: left !important;
+  }
+
+  .product-discountpercent {
+    font-size: 16px;
   }
 }
 

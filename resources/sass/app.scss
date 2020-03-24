@@ -109,6 +109,8 @@
 @include icon("list", "list");
 @include icon("list-white", "list-white");
 @include icon("login", "login");
+@include icon("newspaper", "newspaper");
+@include icon("newspaper-white", "newspaper-white");
 @include icon("megaphone", "megaphone");
 @include icon("megaphone-white", "megaphone-white");
 @include icon("modules", "modules");
@@ -244,7 +246,7 @@
 }
 
 @media screen and (min-width: 769px) {
-    div.product {
+    .product {
         &-title {
             font-size: 16px;
         }
@@ -260,11 +262,15 @@
         &-price {
             font-size: 16px;
         }
+
+        &-discountpercent {
+            font-size: 24px;
+        }
     }
 }
 
 @media screen and (max-width: 768px) {
-    div.product {
+    .product {
         &-title {
             font-size: 14px;
         }
@@ -280,6 +286,10 @@
         &-price {
             font-size: 14px;
             text-align: left !important;
+        }
+
+        &-discountpercent {
+            font-size: 16px;
         }
     }
 }
@@ -301,6 +311,7 @@
         &-size {
             font-size: 20px !important;
         }
+
     }
 }
 

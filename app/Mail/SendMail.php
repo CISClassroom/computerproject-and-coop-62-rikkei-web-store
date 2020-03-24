@@ -28,7 +28,7 @@ class SendMail extends Mailable
     public function build(Request $request)
     {
         $name = $request->name ?? '';
-        $message = $request->message;
+        $message = $request->detail ?? $request->message ?? '';
         $url = $request->url ?? 'http://127.0.0.1:8000/';
         $color = $request->color ?? 'primary';
         $buttonText = $request->buttonText ?? 'Click';

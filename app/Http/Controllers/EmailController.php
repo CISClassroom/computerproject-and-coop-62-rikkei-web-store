@@ -26,7 +26,7 @@ class EmailController extends Controller
     public function store(Request $request)
     {
         try {
-            $users = User::all()->where('newsletter', '=', 0); //1 = subscriber, 0 = none
+            $users = User::all()->where('newsletter', '=', 1); //1 = subscriber, 0 = none
             foreach ($users as $user) {
                 Mail::to($user->email)->send(new SendNewsletter($request));
             }
@@ -63,7 +63,7 @@ class EmailController extends Controller
     public function sendMail(Request $request)
     {
         $user = $request->user;
-        Mail::to($user)->send(new SendMail());
+        Mail::to($user)->queue(new SendMail());
     }
 
     public function sendNewsletter(Request $request)
@@ -78,9 +78,9 @@ class EmailController extends Controller
         request()->image_url->move(public_path('images/newsletter/upload'), $imageName);
         $request['image_url'] = 'images/newsletter/upload/' . $imageName;
 
-        $users = User::all()->where('newsletter', '=', 0); //1 = subscriber, 0 = none
+        $users = User::all()->where('newsletter', '=', 1); //1 = subscriber, 0 = none
         foreach ($users as $user) {
-            Mail::to($user->email)->send(new SendNewsletter($request));
+            Mail::to($user->email)->queue(new SendNewsletter($request));
         }
     }
 }

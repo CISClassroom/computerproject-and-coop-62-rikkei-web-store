@@ -129,6 +129,33 @@
         <div class="__sidebarlistMenu">
             <a href="#"
                 class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-dark text-light"
+                data-toggle="collapse" data-target="#collapse-articleManagement" aria-expanded="false"
+                aria-controls="collapse-articleManagement">
+                <div class="icon-shield-white">&emsp;Article Management</div>
+                <span class="badge badge-primary badge-pill"></span>
+            </a>
+            <ul id="collapse-articleManagement" class="list-group collapse show">
+                <li>
+                    <a href="{{ route('articles.index') }}"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-gray text-light">
+                        <div class="icon-newspaper-white pl-3">&emsp;Articles</div>
+                        <span class="badge badge-primary badge-pill"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('articlecategories.index') }}"
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-gray text-light">
+                        <div class="icon-style-white pl-3">&emsp;Category</div>
+                        <span class="badge badge-primary badge-pill"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="list-group list-group-flush">
+        <div class="__sidebarlistMenu">
+            <a href="#"
+                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center bg-dark text-light"
                 data-toggle="collapse" data-target="#collapse-usersControll" aria-expanded="false"
                 aria-controls="collapse-usersControll">
                 <div class="icon-shield-white">&emsp;Users Controll</div>
@@ -152,6 +179,7 @@
             </ul>
         </div>
     </div>
+
 
     <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Profile</a>
     <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Status</a>

@@ -12,6 +12,8 @@
     @include('auth.login-modal')
     @include('auth.register-modal')
     @include('auth.passwords.email-modal')
+    @include('client.layouts.policy-modal')
+    @include('client.layouts.terms-modal')
     {{-- @include('client.shop.carts.cart-modal') --}}
 
     @yield('content')
